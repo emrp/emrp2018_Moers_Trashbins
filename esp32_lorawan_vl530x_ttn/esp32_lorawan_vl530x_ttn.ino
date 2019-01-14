@@ -8,14 +8,14 @@
 #include <CayenneLPP.h>
 #include "Adafruit_VL53L0X.h"
 
-#define BUILTIN_LED 25
-#define L0X_SHUTDOWN 17
+#define BUILTIN_LED   25
+#define L0X_SHUTDOWN  17
+
+static int16_t Distance = 0;
 
 SSD1306    display(0x3c, 4, 15, 16); //SDA = 4, SCL = 15, RST = 16
 Adafruit_VL53L0X lox; // time-of-flight infarred sensor
 CayenneLPP lpp(51);
-
-static int16_t Distance = 0;
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
@@ -95,7 +95,6 @@ void onEvent (ev_t ev) {
     case EV_TXCOMPLETE:
       Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
       display.drawString(0, 7, "EV_TXCOMPLETE");
-      digitalWrite(BUILTIN_LED, LOW);
       if (LMIC.txrxFlags & TXRX_ACK) {
         Serial.println(F("Received ack"));
         display.drawString(0, 7, "Received ACK");
@@ -165,7 +164,6 @@ void do_send(osjob_t* j) {
     display.clear();
     display.drawString(0, 7, "PACKET QUEUED");
     display.display();
-    digitalWrite(BUILTIN_LED, HIGH);
   }
   // Next TX is scheduled after TX_COMPLETE event.
 }
@@ -173,17 +171,13 @@ void setup() {
   Serial.begin(115200);
   Serial.println("=============================================");
 
-  SPI.begin(5, 19, 27);
+  SPI.begin(5, 19, 27); // Connect to LORA module
   
-  pinMode(16,OUTPUT); // reset display
-  digitalWrite(16, LOW);
-  delay(50);
-  digitalWrite(16, HIGH);
   display.init();
-  display.setFont(ArialMT_Plain_10); 
   display.drawString(0, 1, "Hello");
   display.display();
   delay(1000);  
+  display.clear();
  
   // LMIC init
   os_init();
@@ -192,12 +186,6 @@ void setup() {
   LMIC_reset();
   // Start job (sending automatically starts OTAA too)
   do_send(&sendjob);
-  pinMode(BUILTIN_LED, OUTPUT);
-  digitalWrite(BUILTIN_LED, LOW);
-  display.init();
-  display.clear();
-  display.drawString(0, 1, "Hi");
-  display.display();
 
   digitalWrite(L0X_SHUTDOWN, LOW);
   pinMode(L0X_SHUTDOWN, OUTPUT);
@@ -205,6 +193,14 @@ void setup() {
 }
 void loop() {
   os_runloop_once();
+}
+
+void resetDisplay(void)
+{
+  pinMode(16, OUTPUT);
+  digitalWrite(16, LOW);
+  delay(50);
+  digitalWrite(16, HIGH);
 }
 
 void L0X_init(void)
