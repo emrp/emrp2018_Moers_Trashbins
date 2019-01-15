@@ -7,15 +7,19 @@
 #include "SSD1306.h" 
 #include <CayenneLPP.h>
 #include "Adafruit_VL53L0X.h"
+#include "driver/rtc_io.h"
 
-#define BUILTIN_LED 25
-#define L0X_SHUTDOWN 17
+#define uS_TO_S_FACTOR     1000000  /* Conversion factor for micro seconds to seconds */
+#define SLEEP_TIME_IN_SEC  10       /* Time ESP32 will go to sleep (in seconds) */
+#define BUILTIN_LED        25
+#define L0X_SHUTDOWN       2
+
+RTC_DATA_ATTR uint8_t BootCount = 0;
+static int16_t Distance      = 0;
 
 SSD1306    display(0x3c, 4, 15, 16); //SDA = 4, SCL = 15, RST = 16
 Adafruit_VL53L0X lox; // time-of-flight infarred sensor
 CayenneLPP lpp(51);
-
-static int16_t Distance = 0;
 
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
@@ -40,7 +44,7 @@ void os_getDevKey (u1_t* buf) {
 static osjob_t sendjob;
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations).
-const unsigned TX_INTERVAL = 10;
+const unsigned TX_INTERVAL = 20;
 // Pin mapping
 const lmic_pinmap lmic_pins = {
   .nss = 18,
@@ -95,7 +99,6 @@ void onEvent (ev_t ev) {
     case EV_TXCOMPLETE:
       Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
       display.drawString(0, 7, "EV_TXCOMPLETE");
-      digitalWrite(BUILTIN_LED, LOW);
       if (LMIC.txrxFlags & TXRX_ACK) {
         Serial.println(F("Received ack"));
         display.drawString(0, 7, "Received ACK");
@@ -112,6 +115,10 @@ void onEvent (ev_t ev) {
       }
       // Schedule next transmission
       os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
+      //digitalWrite(L0X_SHUTDOWN, LOW);
+      //rtc_gpio_hold_en(GPIO_NUM_2);
+      //gpio_hold_en(GPIO_NUM_17);
+      //esp_light_sleep_start();
       break;
     case EV_LOST_TSYNC:
       Serial.println(F("EV_LOST_TSYNC"));
@@ -142,6 +149,7 @@ void onEvent (ev_t ev) {
   }
   display.display();
 }
+
 void do_send(osjob_t* j) {
   // Check if there is not a current TX/RX job running
   if (LMIC.opmode & OP_TXRXPEND) {
@@ -165,52 +173,70 @@ void do_send(osjob_t* j) {
     display.clear();
     display.drawString(0, 7, "PACKET QUEUED");
     display.display();
-    digitalWrite(BUILTIN_LED, HIGH);
   }
   // Next TX is scheduled after TX_COMPLETE event.
 }
+
 void setup() { 
   Serial.begin(115200);
   Serial.println("=============================================");
+  
+  if (BootCount == 0)
+  {
+    Serial.println("\n\nFirst Boot\n\n");
+    SPI.begin(5, 19, 27); // Connect to LORA module
+  
+    display.init();
+    display.drawString(0, 1, "Hello");
+    display.display();
+    delay(1000);  
+    display.clear();
+  
+    // LMIC init
+    os_init();
+    
+    // Reset the MAC state. Session and pending data transfers will be discarded.
+    LMIC_reset();
+    // Start job (sending automatically starts OTAA too)
 
-  SPI.begin(5, 19, 27);
-  
-  pinMode(16,OUTPUT); // reset display
-  digitalWrite(16, LOW);
-  delay(50);
-  digitalWrite(16, HIGH);
-  display.init();
-  display.setFont(ArialMT_Plain_10); 
-  display.drawString(0, 1, "Hello");
-  display.display();
-  delay(1000);  
- 
-  // LMIC init
-  os_init();
-  
-  // Reset the MAC state. Session and pending data transfers will be discarded.
-  LMIC_reset();
-  // Start job (sending automatically starts OTAA too)
+    digitalWrite(L0X_SHUTDOWN, LOW);
+    pinMode(L0X_SHUTDOWN, OUTPUT);
+    delay(100);
+  }
+  else
+  {
+    Serial.println("...................................");
+    SPI.begin(5, 19, 27); // Connect to LORA module
+
+    display.init();
+    display.drawString(0, 1, "Hello");
+    display.display();
+    delay(1000);  
+    display.clear();
+
+    //do_send(&sendjob);
+  }
+  Serial.print("BootCount: "); Serial.println(BootCount);
+  BootCount++;
+
+  esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
   do_send(&sendjob);
-  pinMode(BUILTIN_LED, OUTPUT);
-  digitalWrite(BUILTIN_LED, LOW);
-  display.init();
-  display.clear();
-  display.drawString(0, 1, "Hi");
-  display.display();
-
-  digitalWrite(L0X_SHUTDOWN, LOW);
-  pinMode(L0X_SHUTDOWN, OUTPUT);
-  delay(100);
 }
 void loop() {
   os_runloop_once();
 }
 
+void resetDisplay(void)
+{
+  pinMode(16, OUTPUT);
+  digitalWrite(16, LOW);
+  delay(50);
+  digitalWrite(16, HIGH);
+}
+
 void L0X_init(void)
 {
   digitalWrite(L0X_SHUTDOWN, HIGH);
-  //Wire.begin(21, 22, 100000);
   delay(100);
   if (!lox.begin()) {
     Serial.println(F("Failed to boot VL53L0X"));
