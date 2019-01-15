@@ -15,7 +15,7 @@ import psycopg2
 APPEUI = "70B3D57ED00146CC"
 APPID  = "emrp2018"
 #due to security reasons i have not put the password here. you can copy paste from ttn
-PSW    = 'ttn-account-v2.1QxS-JvgRkqkBGIOvhbQDnyvBNsyCl75tanbVJARH4U'
+PSW    = '*******************************************'
 
 
 #Call back functions
@@ -100,7 +100,7 @@ def on_message(mqttc,obj,msg):
                 try:
                   # i have not used password here due to security reasons. you know what password is ;)
                    connection = psycopg2.connect(user="emrp2018",
-                                                  password="emrp2018!",
+                                                  password="****************",
                                                   host="hsrw.space",
                                                   port="5432",
                                                   database="emrp2018")
