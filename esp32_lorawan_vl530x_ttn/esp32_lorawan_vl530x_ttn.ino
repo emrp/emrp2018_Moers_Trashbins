@@ -2,9 +2,7 @@
 #include <lmic.h>
 #include <hal/hal.h>
 #include <SPI.h>
-#include <DHT.h>
-#include <DHT_U.h>
-#include "SSD1306.h" 
+#include "SSD1306.h"
 #include <CayenneLPP.h>
 #include "Adafruit_VL53L0X.h"
 #include "driver/rtc_io.h"
@@ -12,12 +10,12 @@
 #define uS_TO_S_FACTOR     1000000  /* Conversion factor for micro seconds to seconds */
 #define SLEEP_TIME_IN_SEC  10       /* Time ESP32 will go to sleep (in seconds) */
 #define BUILTIN_LED        25
-#define L0X_SHUTDOWN       2
+#define L0X_SHUTDOWN       12
 
 RTC_DATA_ATTR uint8_t BootCount = 0;
 static int16_t Distance      = 0;
 
-SSD1306    display(0x3c, 4, 15, 16); //SDA = 4, SCL = 15, RST = 16
+SSD1306    display(0x3c, 4, 15); //SDA = 4, SCL = 15, RST = 16
 Adafruit_VL53L0X lox; // time-of-flight infarred sensor
 CayenneLPP lpp(51);
 
@@ -54,6 +52,8 @@ const lmic_pinmap lmic_pins = {
 };
 
 void onEvent (ev_t ev) {
+  Serial.print(os_getTime());
+  Serial.print(": ");
   display.clear();
   switch (ev) {
     case EV_SCAN_TIMEOUT:
@@ -79,6 +79,27 @@ void onEvent (ev_t ev) {
     case EV_JOINED:
       Serial.println(F("EV_JOINED"));
       display.drawString(0, 7, "EV_JOINED    ");
+      {
+        u4_t netid = 0;
+        devaddr_t devaddr = 0;
+        u1_t nwkKey[16];
+        u1_t artKey[16];
+        LMIC_getSessionKeys(&netid, &devaddr, nwkKey, artKey);
+        Serial.print("netid: ");
+        Serial.println(netid, DEC);
+        Serial.print("devaddr: ");
+        Serial.println(devaddr, HEX);
+        Serial.print("artKey: ");
+        for (int i=0; i<sizeof(artKey); ++i) {
+          Serial.print(artKey[i], HEX);
+        }
+        Serial.println("");
+        Serial.print("nwkKey: ");
+        for (int i=0; i<sizeof(nwkKey); ++i) {
+          Serial.print(nwkKey[i], HEX);
+        }
+        Serial.println("");
+      }
       // Disable link check validation (automatically enabled
       // during join, but not supported by TTN at this time).
       LMIC_setLinkCheckMode(0);
@@ -115,9 +136,7 @@ void onEvent (ev_t ev) {
       }
       // Schedule next transmission
       os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
-      //digitalWrite(L0X_SHUTDOWN, LOW);
-      //rtc_gpio_hold_en(GPIO_NUM_2);
-      //gpio_hold_en(GPIO_NUM_17);
+      //turnOffPeripherals();
       //esp_light_sleep_start();
       break;
     case EV_LOST_TSYNC:
@@ -144,7 +163,7 @@ void onEvent (ev_t ev) {
     default:
       Serial.println(F("Unknown event"));
       //display.setCursor(0, 7);
-      //display.printf("UNKNOWN EVENT %d", ev);
+      display.printf("UNKNOWN EVENT %d", ev);
       break;
   }
   display.display();
@@ -184,8 +203,9 @@ void setup() {
   if (BootCount == 0)
   {
     Serial.println("\n\nFirst Boot\n\n");
-    SPI.begin(5, 19, 27); // Connect to LORA module
-  
+    //SPI.begin(5, 19, 27); // Connect to LORA module
+
+    resetDisplay();
     display.init();
     display.drawString(0, 1, "Hello");
     display.display();
@@ -269,4 +289,9 @@ int16_t L0X_getDistance(void)
     }
   }
   return distance;
+}
+
+void turnOffPeripherals(void)
+{
+  rtc_gpio_hold_en(GPIO_NUM_12);
 }
