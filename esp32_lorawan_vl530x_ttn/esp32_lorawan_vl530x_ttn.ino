@@ -1,8 +1,9 @@
 #include <HardwareSerial.h>
 #include <lmic.h>
 #include <hal/hal.h>
-#include <SPI.h>
-#include "SSD1306.h"
+//#include <SPI.h>
+//#include "SSD1306.h"
+#include "heltec.h"
 #include <CayenneLPP.h>
 #include "Adafruit_VL53L0X.h"
 #include "driver/rtc_io.h"
@@ -15,7 +16,9 @@
 RTC_DATA_ATTR uint8_t BootCount = 0;
 static int16_t Distance      = 0;
 
-SSD1306    display(0x3c, 4, 15); //SDA = 4, SCL = 15, RST = 16
+extern Heltec_ESP32 Heltec;
+
+//SSD1306    display(0x3c, 4, 15); //SDA = 4, SCL = 15, RST = 16
 Adafruit_VL53L0X lox; // time-of-flight infarred sensor
 CayenneLPP lpp(51);
 
@@ -54,31 +57,33 @@ const lmic_pinmap lmic_pins = {
 void onEvent (ev_t ev) {
   Serial.print(os_getTime());
   Serial.print(": ");
-  display.clear();
+  //resetDisplay();
+  //Heltec.display->init();
+  Heltec.display->clear();
   switch (ev) {
     case EV_SCAN_TIMEOUT:
       Serial.println(F("EV_SCAN_TIMEOUT"));
-      display.drawString(0, 7, "EV_SCAN_TIMEOUT");
+      Heltec.display->drawString(0, 7, "EV_SCAN_TIMEOUT");
       break;
     case EV_BEACON_FOUND:
       Serial.println(F("EV_BEACON_FOUND"));
-      display.drawString(0, 7, "EV_BEACON_FOUND");
+      Heltec.display->drawString(0, 7, "EV_BEACON_FOUND");
       break;
     case EV_BEACON_MISSED:
       Serial.println(F("EV_BEACON_MISSED"));
-      display.drawString(0, 7, "EV_BEACON_MISSED");
+      Heltec.display->drawString(0, 7, "EV_BEACON_MISSED");
       break;
     case EV_BEACON_TRACKED:
       Serial.println(F("EV_BEACON_TRACKED"));
-      display.drawString(0, 7, "EV_BEACON_TRACKED");
+      Heltec.display->drawString(0, 7, "EV_BEACON_TRACKED");
       break;
     case EV_JOINING:
       Serial.println(F("EV_JOINING"));
-      display.drawString(0, 7, "EV_JOINING   ");
+      Heltec.display->drawString(0, 7, "EV_JOINING   ");
       break;
     case EV_JOINED:
       Serial.println(F("EV_JOINED"));
-      display.drawString(0, 7, "EV_JOINED    ");
+      Heltec.display->drawString(0, 7, "EV_JOINED    ");
       {
         u4_t netid = 0;
         devaddr_t devaddr = 0;
@@ -106,33 +111,33 @@ void onEvent (ev_t ev) {
       break;
     case EV_RFU1:
       Serial.println(F("EV_RFU1"));
-      display.drawString(0, 7, "EV_RFUI");
+      Heltec.display->drawString(0, 7, "EV_RFUI");
       break;
     case EV_JOIN_FAILED:
       Serial.println(F("EV_JOIN_FAILED"));
-      display.drawString(0, 7, "EV_JOIN_FAILED");
+      Heltec.display->drawString(0, 7, "EV_JOIN_FAILED");
       break;
     case EV_REJOIN_FAILED:
       Serial.println(F("EV_REJOIN_FAILED"));
-      display.drawString(0, 7, "EV_REJOIN_FAILED");
+      Heltec.display->drawString(0, 7, "EV_REJOIN_FAILED");
       //break;
       break;
     case EV_TXCOMPLETE:
       Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
-      display.drawString(0, 7, "EV_TXCOMPLETE");
+      Heltec.display->drawString(0, 7, "EV_TXCOMPLETE");
       if (LMIC.txrxFlags & TXRX_ACK) {
         Serial.println(F("Received ack"));
-        display.drawString(0, 7, "Received ACK");
+        Heltec.display->drawString(0, 7, "Received ACK");
       }
       if (LMIC.dataLen) {
         Serial.println(F("Received "));
-        display.drawString(0, 6, "RX ");
+        Heltec.display->drawString(0, 6, "RX ");
         Serial.println(LMIC.dataLen);
-        //display.setCursor(4, 6);
-        display.printf("%i bytes", LMIC.dataLen);
+        //Heltec.display->setCursor(4, 6);
+        Heltec.display->printf("%i bytes", LMIC.dataLen);
         Serial.println(F(" bytes of payload"));
-        //display.setCursor(0, 7);
-        display.printf("RSSI %d SNR %.1d", LMIC.rssi, LMIC.snr);
+        //Heltec.display->setCursor(0, 7);
+        Heltec.display->printf("RSSI %d SNR %.1d", LMIC.rssi, LMIC.snr);
       }
       // Schedule next transmission
       os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
@@ -141,39 +146,43 @@ void onEvent (ev_t ev) {
       break;
     case EV_LOST_TSYNC:
       Serial.println(F("EV_LOST_TSYNC"));
-      display.drawString(0, 7, "EV_LOST_TSYNC");
+      Heltec.display->drawString(0, 7, "EV_LOST_TSYNC");
       break;
     case EV_RESET:
       Serial.println(F("EV_RESET"));
-      display.drawString(0, 7, "EV_RESET");
+      Heltec.display->drawString(0, 7, "EV_RESET");
       break;
     case EV_RXCOMPLETE:
       // data received in ping slot
       Serial.println(F("EV_RXCOMPLETE"));
-      display.drawString(0, 7, "EV_RXCOMPLETE");
+      Heltec.display->drawString(0, 7, "EV_RXCOMPLETE");
       break;
     case EV_LINK_DEAD:
       Serial.println(F("EV_LINK_DEAD"));
-      display.drawString(0, 7, "EV_LINK_DEAD");
+      Heltec.display->drawString(0, 7, "EV_LINK_DEAD");
       break;
     case EV_LINK_ALIVE:
       Serial.println(F("EV_LINK_ALIVE"));
-      display.drawString(0, 7, "EV_LINK_ALIVE");
+      Heltec.display->drawString(0, 7, "EV_LINK_ALIVE");
       break;
+    case EV_TXSTART:
+        Serial.println(F("EV_TXSTART"));
+        Heltec.display->drawString(0, 7, "EV_TXSTART");
+        break;    
     default:
       Serial.println(F("Unknown event"));
-      //display.setCursor(0, 7);
-      display.printf("UNKNOWN EVENT %d", ev);
+      //Heltec.display->setCursor(0, 7);
+      Heltec.display->drawString(0, 7, "UNKNOWN EVENT %d");
       break;
   }
-  display.display();
+  Heltec.display->display();
 }
 
 void do_send(osjob_t* j) {
   // Check if there is not a current TX/RX job running
   if (LMIC.opmode & OP_TXRXPEND) {
     Serial.println(F("OP_TXRXPEND, not sending"));
-    display.drawString(0, 7, "OP_TXRXPEND, not sent");
+    Heltec.display->drawString(0, 7, "OP_TXRXPEND, not sent");
   } else {     
     delay(100);
 
@@ -189,28 +198,26 @@ void do_send(osjob_t* j) {
     LMIC_setTxData2(1, lpp.getBuffer(), lpp.getSize(), 0);
     
     Serial.println(F("Packet queued"));
-    display.clear();
-    display.drawString(0, 7, "PACKET QUEUED");
-    display.display();
+    Heltec.display->clear();
+    Heltec.display->drawString(0, 7, "PACKET QUEUED");
+    Heltec.display->display();
   }
   // Next TX is scheduled after TX_COMPLETE event.
 }
 
 void setup() { 
-  Serial.begin(115200);
+  Heltec.begin(true /*DisplayEnable Enable*/, true /*LoRa Disable*/, true /*Serial Enable*/);
   Serial.println("=============================================");
   
-  if (BootCount == 0)
-  {
     Serial.println("\n\nFirst Boot\n\n");
-    //SPI.begin(5, 19, 27); // Connect to LORA module
+    SPI.begin(5, 19, 27); // Connect to LORA module
 
     resetDisplay();
-    display.init();
-    display.drawString(0, 1, "Hello");
-    display.display();
+    Heltec.display->init();
+    Heltec.display->drawString(0, 1, "Hello");
+    Heltec.display->display();
     delay(1000);  
-    display.clear();
+    Heltec.display->clear();
   
     // LMIC init
     os_init();
@@ -222,24 +229,11 @@ void setup() {
     digitalWrite(L0X_SHUTDOWN, LOW);
     pinMode(L0X_SHUTDOWN, OUTPUT);
     delay(100);
-  }
-  else
-  {
-    Serial.println("...................................");
-    SPI.begin(5, 19, 27); // Connect to LORA module
 
-    display.init();
-    display.drawString(0, 1, "Hello");
-    display.display();
-    delay(1000);  
-    display.clear();
-
-    //do_send(&sendjob);
-  }
   Serial.print("BootCount: "); Serial.println(BootCount);
   BootCount++;
 
-  esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
+  //esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
   do_send(&sendjob);
 }
 void loop() {
