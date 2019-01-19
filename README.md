@@ -15,7 +15,7 @@ Heltec support two sets of libraries to simplify the use of the integrated OLED,
 #### 2.2.1 Heltec board support package
 Download the repository [WiFi_Kit_series] (https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series) as zip and extract it to `/Documents/Arduino/hardware/heltec`
 
-Navigate to `/Documents/Arduino/hardware/heltec/esp32/tools` and double-click on get.exe and wait for the script to finish.
+Navigate to `/Documents/Arduino/hardware/heltec/esp32/tools`, double-click on `get.exe` and wait for the script to finish.
 
 Make sure the following folders are generated:
 
