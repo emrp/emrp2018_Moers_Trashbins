@@ -19,6 +19,8 @@ Navigate to `/Documents/Arduino/hardware/heltec/esp32/tools`, double-click on `g
 
 Make sure the following folders are generated:
 
+![tools folder](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/tools_folder.jpg)
+
 #### 2.2.2 Heltec extended libraries
 Download the repository [Heltec_ESP32] (https://github.com/HelTecAutomation/Heltec_ESP32) as zip and extract it to /Documents/Arduino/.
 
