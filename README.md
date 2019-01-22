@@ -40,12 +40,11 @@ Make sure the chosen board is `Wifi_LoRa_32_V2`.
 Click on \
 `File->Examples->(Example from Custom Libraries)->Heltec ESP32 Dev-Boards->OLED->SSD1306SimpleDemo`.
 
-
-Click the Upload button to upload the program to the board. Check the OLED display to see if it works.
-
-Open `Tools->Serial Monitor` to see the printed messages. Make sure the baudrate is set to `115200`
-
 ![choose_example](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/choose_example.jpg)
+
+Click the `Upload` button to upload the program to the board. Check the OLED display to see if it works.
+
+Open `Tools->Serial Monitor` to see the printed messages. Make sure the baudrate is set to `115200`. You can upload the program again or press the hardware reset button on the board to reset the program.
 
 You can also try other examples within `Heltec ESP32 Dev-Boards`.
 
