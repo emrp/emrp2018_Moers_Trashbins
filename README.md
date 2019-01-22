@@ -38,6 +38,9 @@ Make sure the chosen board is `Wifi_LoRa_32_V2`.
 Click on \
 `File->Examples->(Example from Custom Libraries)->Heltec ESP32 Dev-Boards->OLED->SSD1306SimpleDemo`.
 
-Click the Upload button to upload the program to the board.
+Click the Upload button to upload the program to the board. Check the OLED display to see if it works.\
+You can also try other examples within `Heltec ESP32 Dev-Boards`
+
+The next step is to install 
 
 
