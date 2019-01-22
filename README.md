@@ -35,12 +35,21 @@ In the pop-up window, navigate to `/Documents/Arduino/` and choose `Heltec_ESP32
 #### 2.2.3 Running an example
 Make sure the chosen board is `Wifi_LoRa_32_V2`.
 
+![choose_board](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/choos_board.jpg)
+
 Click on \
 `File->Examples->(Example from Custom Libraries)->Heltec ESP32 Dev-Boards->OLED->SSD1306SimpleDemo`.
 
-Click the Upload button to upload the program to the board. Check the OLED display to see if it works.\
-You can also try other examples within `Heltec ESP32 Dev-Boards`
 
-The next step is to install 
+Click the Upload button to upload the program to the board. Check the OLED display to see if it works.
+
+Open `Tools->Serial Monitor` to see the printed messages. Make sure the baudrate is set to `115200`
+
+![choose_example](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/choose_example.jpg)
+
+You can also try other examples within `Heltec ESP32 Dev-Boards`.
+
+The next step is to install the library for the VL53L0X time-of-flight sensor and also the LMIC library to enable LoRaWan capabilities.
+
 
 
