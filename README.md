@@ -1,3 +1,4 @@
+
 # emrp2018_Moers_Trashbins
 This tutorial shows how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 ## 1. Hardware Requirements
@@ -85,8 +86,8 @@ The wiring between the VL53L0X breakout board and the WIFI LoRa 32 (V2) Board sh
 Note that the GPIO1 and XSHUT pins should be left unconnected as they are not used within the scope of this application.
 ## 4 Setting up TTN
 ### 4.1 Setting up a new TTN Application
-Register for an account at https://www.thethingsnetwork.org/
-Login and navigate to https://console.thethingsnetwork.org/
+Register for an account at https://www.thethingsnetwork.org/ \
+Login and navigate to https://console.thethingsnetwork.org/ \
 Click on `APPLICATION` to go to the application panel.
 ![console](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_console.jpg)
 
@@ -98,3 +99,21 @@ Give the application a **_unique application ID_** and choose the proper handler
 
 The website will redirect to the application's `overview` page right after it is created.
 ![app overview](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_add_app_3.jpg)
+### 4.2 Setting the Payload Format
+Click on the `Payload Formats` tab on the upper right corner of the `Application Overview` page. 
+Choose `CayenneLPP` from the drop-down menu and click `save`.
+![payload formats](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_payload_formats.jpg)
+
+### 4.3 Registering a Device
+From the the `Application Overview` page, click on the `Devices` tab.
+Click on the `register device` button.
+![register device](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_register_devices.jpg)
+
+Give the device a *unique device name* (within the scope of the application, meaning there should be no other devices in the application with the same name).\
+On the `Device EUI` section, click the `generate` button to automatically generate a Device EUI.\
+Click the `Register` button to finish registering the device.
+![register device panel](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_register_devices_2.jpg)
+
+The website will redirect to the `Device Overview` page after registration is complete.
+![device overview](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_device_overview.jpg)
+
