@@ -1,9 +1,9 @@
 #include <lmic.h>
 #include <hal/hal.h>
-#include "heltec.h"
+#include <heltec.h>
 #include <CayenneLPP.h>
-#include "Adafruit_VL53L0X.h"
-#include "driver/rtc_io.h"
+#include <Adafruit_VL53L0X.h>
+#include <driver/rtc_io.h>
 
 #define uS_TO_S_FACTOR     1000000  /* Conversion factor for micro seconds to seconds */
 #define SLEEP_TIME_IN_SEC  10       /* Time ESP32 will go to sleep (in seconds) */
@@ -20,12 +20,12 @@ CayenneLPP lpp(51);
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3, 0x70.
-static const u1_t PROGMEM APPEUI[8] = { 0x80, 0x65, 0x01, 0xD0, 0x7E, 0xD5, 0xB3, 0x70 };
+static const u1_t PROGMEM APPEUI[8] = { 0xCC, 0x46, 0x01, 0xD0, 0x7E, 0xD5, 0xB3, 0x70 };
 void os_getArtEui (u1_t* buf) {
   memcpy_P(buf, APPEUI, 8);
 }
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = { 0x51, 0xEE, 0x51, 0x48, 0xB3, 0xC7, 0x31, 0x00 };
+static const u1_t PROGMEM DEVEUI[8] = { 0x41, 0x64, 0x0E, 0x6E, 0xC4, 0x2F, 0x61, 0x00 };
 void os_getDevEui (u1_t* buf) {
   memcpy_P(buf, DEVEUI, 8);
 }
@@ -33,7 +33,7 @@ void os_getDevEui (u1_t* buf) {
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
 // 
-static const u1_t PROGMEM APPKEY[16] = { 0x1C, 0x57, 0x57, 0xF0, 0x1E, 0x6D, 0x8C, 0xFD, 0x27, 0x17, 0xEA, 0x0B, 0x14, 0xBA, 0x16, 0x21 };
+static const u1_t PROGMEM APPKEY[16] = { 0x15, 0x29, 0x64, 0x26, 0x64, 0x82, 0x64, 0xD1, 0x1A, 0xF7, 0x82, 0xDC, 0x60, 0xB8, 0xE1, 0x36 };
 void os_getDevKey (u1_t* buf) {
   memcpy_P(buf, APPKEY, 16);
 }
@@ -201,34 +201,35 @@ void do_send(osjob_t* j) {
 }
 
 void setup() { 
-  Heltec.begin(true /*DisplayEnable Enable*/, true /*LoRa Disable*/, true /*Serial Enable*/, true, 866E6);
-  Heltec.LoRa.setSpreadingFactor(8);
-  Serial.println("=============================================");
+  if (BootCount == 0)
+  {
+    Heltec.begin(true /*DisplayEnable Enable*/, true /*LoRa Disable*/, true /*Serial Enable*/, true, 866E6);
+    Heltec.LoRa.setSpreadingFactor(8);
+    Serial.println("=============================================");
+    Serial.println("First Boot");
+    Serial.println("=============================================");
+  }  
   
-    Serial.println("\n\nFirst Boot\n\n");
-    //SPI.begin(5, 19, 27); // Connect to LORA module
-
-    //resetDisplay();
-    Heltec.display->init();
-    Heltec.display->drawString(0, 1, "Hello");
-    Heltec.display->display();
-    delay(1000);  
-    Heltec.display->clear();
-  
-    // LMIC init
-    os_init();
-    
-    // Reset the MAC state. Session and pending data transfers will be discarded.
-    LMIC_reset();
-    // Start job (sending automatically starts OTAA too)
-
-    //digitalWrite(L0X_SHUTDOWN, LOW);
-    //pinMode(L0X_SHUTDOWN, OUTPUT);
-    //delay(100);
-    LMIC_setLinkCheckMode(0);
-
   Serial.print("BootCount: "); Serial.println(BootCount);
   BootCount++;
+
+  Heltec.display->init();
+  Heltec.display->drawString(0, 1, "Hello");
+  Heltec.display->display();
+  delay(1000);  
+  Heltec.display->clear();
+  
+  // LMIC init
+  os_init();
+  
+  // Reset the MAC state. Session and pending data transfers will be discarded.
+  LMIC_reset();
+  // Start job (sending automatically starts OTAA too)
+
+  //digitalWrite(L0X_SHUTDOWN, LOW);
+  //pinMode(L0X_SHUTDOWN, OUTPUT);
+  //delay(100);
+  LMIC_setLinkCheckMode(0);
 
   //esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
   do_send(&sendjob);
@@ -266,7 +267,7 @@ int16_t L0X_getDistance(void)
     
     if (measure.RangeStatus != 4) {  // phase failures have incorrect data
       distance = measure.RangeMilliMeter / 10;
-      Serial.print("Distance (cm): "); Serial.println(measure.RangeMilliMeter / 10);
+      Serial.print("Distance (cm): "); Serial.println(distance);
     } else {
       Serial.println(" out of range ");
       distance = 0;
