@@ -52,8 +52,6 @@ const lmic_pinmap lmic_pins = {
 void onEvent (ev_t ev) {
   Serial.print(os_getTime());
   Serial.print(": ");
-  //resetDisplay();
-  //Heltec.display->init();
   Heltec.display->clear();
   switch (ev) {
     case EV_SCAN_TIMEOUT:
@@ -137,7 +135,7 @@ void onEvent (ev_t ev) {
       // Schedule next transmission
       os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
       //turnOffPeripherals();
-      //esp_light_sleep_start();
+      esp_light_sleep_start();
       break;
     case EV_LOST_TSYNC:
       Serial.println(F("EV_LOST_TSYNC"));
@@ -184,7 +182,7 @@ void do_send(osjob_t* j) {
     // Measure distance
     L0X_init();
     Distance = L0X_getDistance();
-    //L0X_deinit();
+    L0X_deinit();
 
     lpp.reset();
     lpp.addDigitalOutput(1, Distance);
@@ -226,8 +224,8 @@ void setup() {
   LMIC_reset();
   // Start job (sending automatically starts OTAA too)
 
-  //digitalWrite(L0X_SHUTDOWN, LOW);
-  //pinMode(L0X_SHUTDOWN, OUTPUT);
+  digitalWrite(L0X_SHUTDOWN, LOW);
+  pinMode(L0X_SHUTDOWN, OUTPUT);
   //delay(100);
   LMIC_setLinkCheckMode(0);
 
@@ -240,7 +238,7 @@ void loop() {
 
 void L0X_init(void)
 {
-  //digitalWrite(L0X_SHUTDOWN, HIGH);
+  digitalWrite(L0X_SHUTDOWN, HIGH);
   delay(100);
   //Wire.begin(21, 22, 100000);
   if (!lox.begin()) {
