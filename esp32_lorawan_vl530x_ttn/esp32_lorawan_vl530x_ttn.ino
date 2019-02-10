@@ -12,7 +12,6 @@
 #define CFG_eu868          1
 
 RTC_DATA_ATTR uint8_t BootCount = 0;
-static int16_t Distance      = 0;
 
 Adafruit_VL53L0X lox; // time-of-flight infarred sensor
 CayenneLPP lpp(51);
@@ -37,10 +36,14 @@ static const u1_t PROGMEM APPKEY[16] = { 0x15, 0x29, 0x64, 0x26, 0x64, 0x82, 0x6
 void os_getDevKey (u1_t* buf) {
   memcpy_P(buf, APPKEY, 16);
 }
+
 static osjob_t sendjob;
+
 // Schedule TX every this many seconds (might become longer due to duty
-// cycle limitations).
-const unsigned TX_INTERVAL = 20;
+// cycle limitations),
+// uncomment only when sleep is not used
+// const unsigned TX_INTERVAL = 20;
+
 // Pin mapping
 const lmic_pinmap lmic_pins = {
   .nss = 18,
@@ -136,8 +139,9 @@ void onEvent (ev_t ev) {
         //Heltec.display->setCursor(0, 7);
         Heltec.display->printf("RSSI %d SNR %.1d", LMIC.rssi, LMIC.snr);
       }
-      // Schedule next transmission
-      os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
+      
+      // Schedule next transmission uncomment only when sleep is not used
+      //os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
       
       // Go to sleep
       turnOffPeripherals();
@@ -188,12 +192,12 @@ void do_send(osjob_t* j) {
 
     // Measure distance
     L0X_init();
-    Distance = L0X_getDistance();
+    int16_t distance = L0X_getDistance();
     L0X_deinit();
 
     // Encode using CayenneLPP
     lpp.reset();
-    lpp.addDigitalOutput(1, Distance);
+    lpp.addDigitalOutput(1, distance);
     
     // Prepare upstream data transmission at the next possible time.
     LMIC_setTxData2(1, lpp.getBuffer(), lpp.getSize(), 0);
