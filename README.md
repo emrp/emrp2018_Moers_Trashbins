@@ -76,13 +76,13 @@ VL53L0X breakout board provides the following pinouts:
  - SCL: clock line for I2C
  - SDA: data line for I2C
  - GPIO1: Interrupt output
- - XSHUT: shutdown pin, active low. Driving this pin LOW will cause the sensor to shut down.
+ - XSHUT: shutdown pin, active low. Driving this pin LOW will put the sensor to standby mode.
  
 The wiring between the VL53L0X breakout board and the WIFI LoRa 32 (V2) Board should be as in the figure below.
 
 [PICTURE TO BE ADDED]
 
-Note that the GPIO1 and XSHUT pins should be left unconnected as they are not used within the scope of this application.
+Note that the GPIO1 pin should be left unconnected as it is not used within the scope of this application.
 ## 4 Setting up TTN
 ### 4.1 Setting up a new TTN Application
 Register for an account at https://www.thethingsnetwork.org/ \
