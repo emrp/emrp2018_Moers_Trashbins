@@ -8,7 +8,7 @@
 #define uS_TO_S_FACTOR     1000000  /* Conversion factor for micro seconds to seconds */
 #define SLEEP_TIME_IN_SEC  10       /* Time ESP32 will go to sleep (in seconds) */
 #define BUILTIN_LED        25
-#define L0X_SHUTDOWN       12
+#define L0X_SHUTDOWN       GPIO_NUM_13
 #define CFG_eu868          1
 
 RTC_DATA_ATTR uint8_t BootCount = 0;
@@ -109,6 +109,10 @@ void onEvent (ev_t ev) {
     case EV_JOIN_FAILED:
       Serial.println(F("EV_JOIN_FAILED"));
       Heltec.display->drawString(0, 7, "EV_JOIN_FAILED");
+      
+      // Go to sleep
+      turnOffPeripherals();
+      esp_deep_sleep_start();
       break;
     case EV_REJOIN_FAILED:
       Serial.println(F("EV_REJOIN_FAILED"));
@@ -134,8 +138,10 @@ void onEvent (ev_t ev) {
       }
       // Schedule next transmission
       os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
-      //turnOffPeripherals();
-      esp_light_sleep_start();
+      
+      // Go to sleep
+      turnOffPeripherals();
+      esp_deep_sleep_start();
       break;
     case EV_LOST_TSYNC:
       Serial.println(F("EV_LOST_TSYNC"));
@@ -161,6 +167,7 @@ void onEvent (ev_t ev) {
     case EV_TXSTART:
         Serial.println(F("EV_TXSTART"));
         Heltec.display->drawString(0, 7, "EV_TXSTART");
+        
         break;    
     default:
       Serial.println(F("Unknown event"));
@@ -184,6 +191,7 @@ void do_send(osjob_t* j) {
     Distance = L0X_getDistance();
     L0X_deinit();
 
+    // Encode using CayenneLPP
     lpp.reset();
     lpp.addDigitalOutput(1, Distance);
     
@@ -198,38 +206,37 @@ void do_send(osjob_t* j) {
   // Next TX is scheduled after TX_COMPLETE event.
 }
 
-void setup() { 
+void setup() {
+  Heltec.begin(true /*DisplayEnable Enable*/, true /*LoRa Enable*/, true /*Serial Enable*/, true, 866E6);
+  Heltec.LoRa.setSpreadingFactor(8);
+  
+  Serial.println("=============================================");
   if (BootCount == 0)
-  {
-    Heltec.begin(true /*DisplayEnable Enable*/, true /*LoRa Disable*/, true /*Serial Enable*/, true, 866E6);
-    Heltec.LoRa.setSpreadingFactor(8);
-    Serial.println("=============================================");
+  {    
     Serial.println("First Boot");
     Serial.println("=============================================");
   }  
+  else
+  {
+    Serial.println("Woke up");
+    Serial.println("=============================================");
+  }
   
   Serial.print("BootCount: "); Serial.println(BootCount);
   BootCount++;
-
-  Heltec.display->init();
-  Heltec.display->drawString(0, 1, "Hello");
-  Heltec.display->display();
-  delay(1000);  
-  Heltec.display->clear();
   
   // LMIC init
   os_init();
   
   // Reset the MAC state. Session and pending data transfers will be discarded.
   LMIC_reset();
-  // Start job (sending automatically starts OTAA too)
-
-  digitalWrite(L0X_SHUTDOWN, LOW);
-  pinMode(L0X_SHUTDOWN, OUTPUT);
+  
   //delay(100);
   LMIC_setLinkCheckMode(0);
 
-  //esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
+  esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
+  
+  // Start job (sending automatically starts OTAA too)
   do_send(&sendjob);
 }
 void loop() {
@@ -237,8 +244,11 @@ void loop() {
 }
 
 void L0X_init(void)
-{
+{ 
+  rtc_gpio_hold_dis(L0X_SHUTDOWN);
+  pinMode(L0X_SHUTDOWN, OUTPUT);
   digitalWrite(L0X_SHUTDOWN, HIGH);
+  
   delay(100);
   //Wire.begin(21, 22, 100000);
   if (!lox.begin()) {
@@ -264,18 +274,23 @@ int16_t L0X_getDistance(void)
     lox.rangingTest(&measure, false); // pass in 'true' to get debug data printout!
     
     if (measure.RangeStatus != 4) {  // phase failures have incorrect data
-      distance = measure.RangeMilliMeter / 10;
-      Serial.print("Distance (cm): "); Serial.println(distance);
+      distance += measure.RangeMilliMeter / 10;
+      Serial.print("Distance (cm): "); Serial.println(measure.RangeMilliMeter / 10);
     } else {
       Serial.println(" out of range ");
-      distance = 0;
+      return 0;
     }
   }
-  return distance;
+  return (distance / 5);
 }
 
 // 
 void turnOffPeripherals(void)
 {
-  rtc_gpio_hold_en(GPIO_NUM_12);
+  Serial.println("Going to sleep");
+  delay(1000);
+  Serial.end();
+  rtc_gpio_hold_en(L0X_SHUTDOWN);
+  Heltec.display->sleep();
+  LoRa.sleep();
 }
