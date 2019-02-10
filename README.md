@@ -1,3 +1,4 @@
+
 # emrp2018_Moers_Trashbins
 This tutorial shows how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 ## 1. Hardware Requirements
@@ -121,9 +122,81 @@ Note that:
  - **Device EUI**, **Application EUI** and **App Key** are essensital for the configuration within the embedded software which will be covered in [section ...]
 
 ## 5 Writing the Embedded Software
-### 5.1 Overview
+### 5.1 Overview and Prerequisites
+#### 5.1.1 Overview
 The embedded software is to be flashed into the ESP32 microcontroller on the WIFI LoRa 32 (V2) board. The operating cycle is summarized in the figure below.\
 ![operating cycle](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/operating_cycle.jpg)
 
+The following includes must be listed in the code. Note that `lmic.h` must be included before `hal/hal.h`
+````
+#include <lmic.h>
+#include <hal/hal.h>
+#include <heltec.h>
+#include <CayenneLPP.h>
+#include <Adafruit_VL53L0X.h>
+#include <driver/rtc_io.h>
+````
 
+#### 5.1.2 Device Keys
+Each registered device from the TTN application has its unique **Application UI**, **Device EUI** and **Application Key** and can be found on the each [`Device Overview`](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_device_overview.jpg) page. 
+These values have to be copied in to the following variables inside the code:
 
+ - ``static const u1_t PROGMEM APPEUI[8]``: little-endian format
+ - ``static const u1_t PROGMEM DEVEUI[8]``: little-endian format
+ - ``static const u1_t PROGMEM APPKEY[16]``: big-endian format
+
+The correct endian formats are provided by clicking on the buttons right next to each key's values on the TTN [`Device Overview`](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_device_overview.jpg) page.
+
+Note that the values of these three keys are stored in the *program memory* section of the microcontroller, which means they will not be erased when the microcontroller is reset or when the microcontroller wakes up from sleep.
+
+#### 5.1.3 Pin Configuration for LoRa Module
+The pin configuration **must be** exactly as follows for the Heltec WIFI LoRa 32 (V2) board:
+````
+const lmic_pinmap lmic_pins = {
+  .nss = 18,
+  .rxtx = LMIC_UNUSED_PIN,
+  .rst = 14,
+  .dio = {26, 33, 32},
+};
+````
+
+#### 5.2 Initialization
+The `setup()` function takes care of the initialization stage. The following components are initialized:
+
+ - Heltec board components: OLED display, LoRa module, UART Serial communication
+ - The LMIC stack
+ - RTC sleep timer (for waking up after sleep)
+
+Note that the BootCount variable is stored into the RTC memory (by declaring it with `RTC_DATA_ATTR`). This is to ensure that the value will not be reset after the microcontroller wakes up.
+
+### 5.3 Measurement
+The measurement process is performed by three functions:
+
+ - `L0X_init()`: driving the XSHUT pin HIGH to wake up the VL53L0X sensor and after that enabling the I2C communication between the sensor and the microcontroller
+ 
+ - `L0X_getDistance`: performing the measurement to measure the trash level. The ouput is the mean of 5 successive measurements. If there is an error in measurement or the measured value is out of range (which is also considered an error as the maximum height of the trashcan is within the sensor's measuring range), a value of zero will be returned.
+ 
+ - `L0X_deinit`: driving the XSHUT pin LOW to put the sensor into STANDBY mode which helps reduce power consumption.
+
+The above three functions are called within the `do_send()` function.
+
+### 5.4 Encoding and Transmission
+The encoding is done with the CayenneLPP library and is inside the `do_send()` function:
+````
+lpp.reset();
+lpp.addDigitalOutput(1, distance);
+````
+
+The maximum payload size is 51 bytes.
+The transmission of data is performed right after the encoding has been completed:
+
+`LMIC_setTxData2(1, lpp.getBuffer(), lpp.getSize(), 0);`
+
+### 5.5 Sleep
+The sleep timer (RTC) has to be enabled in the `setup()` function to wake the microcontroller up: 
+`esp_sleep_enable_timer_wakeup()`
+
+Before putting the microcontroller to sleep, all external peripherals (OLED display, LoRa module, VL53L0X) have to be also put into sleep mode. This is done via the `turnOffPeripherals()` function. 
+Note that within this function, `rtc_gpio_hold_en(L0X_SHUTDOWN)` holds the value of the XSHUT pin on the VL53L0X sensor (connected to GPIO pin 13 on the Helec board) to keep the sensor on STANDBY mode even when the microcontroller has been put to sleep. 
+
+The microcontroller is put into sleep mode by calling `esp_deep_sleep_start()`. Both `turnOffPeripherals()` and `esp_deep_sleep_start()` are called inside the `onEvent()` function. The `onEvent()` function is the event handler of the LMIC routine, which handles LoRaWan events.
