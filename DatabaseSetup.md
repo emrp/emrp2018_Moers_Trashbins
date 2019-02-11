@@ -98,10 +98,10 @@ Use the below example to construct the insert data script,
 ```SQL
 insert into public."Location" ("Latitude","Longitude","Id","Address") values (51.41055037,6.584027857,1139,'Moers');
 ```
-The scripts are generated for Bi
+The scripts are generated for each tables, Bin,Location and Device.
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NDY1ODcxNCwtNDQzMTAxMTIwLC03OT
+eyJoaXN0b3J5IjpbMjAyMTMzOTA0MiwtNDQzMTAxMTIwLC03OT
 I4ODk5NjMsLTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5
 NjYsNzE1MzAwNDgyLDU3ODU3NDY2Nl19
 -->
