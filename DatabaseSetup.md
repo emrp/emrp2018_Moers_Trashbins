@@ -82,10 +82,11 @@ alter table TABLE_NAME alter column COLUMN_NAME NEW_DATATYPE
 ```
 ## 1.3 Master Data 
 
-There are certain tables where the data needs to be inserted before the database is functional for its use
+There are certain tables where the data needs to be inserted before the database is functional for its use.
+These 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzI0NTU0NDMwLC00NDMxMDExMjAsLTc5Mj
-g4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2
-Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
+eyJoaXN0b3J5IjpbLTQ4NzcwMjUzOSwtNDQzMTAxMTIwLC03OT
+I4ODk5NjMsLTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5
+NjYsNzE1MzAwNDgyLDU3ODU3NDY2Nl19
 -->
