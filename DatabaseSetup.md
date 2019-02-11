@@ -49,7 +49,10 @@ Follow these steps to connect to PostrgesSQL server from the console.
 ### 1.2.2 Create database schema
 
 * Connect to the target database on the server.
-* Under `Schemas` ---> `Tables`, right click and choose `Create - Table` option.
+* Under `Schemas` ---> `Tables`, right click and choose `Create - Table` option:
+	![alt text][table]
+	
+[table]: /pictures/database/CreateTable.png "Create Table"
 * 
 
 ## Rename a file
@@ -179,6 +182,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNT
-MwMDQ4Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbLTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yND
+A0Mjg5NjYsNzE1MzAwNDgyLDU3ODU3NDY2Nl19
 -->
