@@ -59,12 +59,13 @@ Follow these steps to connect to PostrgesSQL server from the console.
 	![alt text][primarykey]
 	
 [primarykey]: /pictures/database/PrimaryKey.png "Primary Key"
-* Enforce foreign key constraint on any schema using the below tab option in `Create Table`.
+* Enforce foreign key constraint on any table using the below tab option in `Create Table`.
 	![alt text][foreignKey]
 	
 [foreignKey]: /pictures/database/ForeignKey.png "Foreign Key"
 
-* 
+### 1.2.3 Class Diagram
+Below diagram shows the class diagram of the solutuo 
 
 ## Rename a file
 
@@ -193,7 +194,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODg2ODE0ODY0LC02MDU3NzQ3NjcsLTQwMT
-AzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZd
-fQ==
+eyJoaXN0b3J5IjpbMTcyMjgxNTkyNiwtNjA1Nzc0NzY3LC00MD
+EwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2
+XX0=
 -->
