@@ -92,9 +92,12 @@ The reason being, the information about the locations of the bins are given to u
 
 ### 1.3.1 Insert Scripts
 
-Once, the database schema is setup, the input (.xls) file from the customer is pre-processed to adju
+Once, the database schema is setup, the input (.xls) file from the customer is `preprocessed` to adjust it according to the specifications of the database.
+
+One such example would be,
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwNjY4NzA2NzMsLTQ0MzEwMTEyMCwtNz
-kyODg5OTYzLC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4
-OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbMjk1OTc0MDEyLC00NDMxMDExMjAsLTc5Mj
+g4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2
+Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
