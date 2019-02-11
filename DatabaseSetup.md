@@ -53,7 +53,8 @@ Follow these steps to connect to PostrgesSQL server from the console.
 	![alt text][table]
 	
 [table]: /pictures/database/CreateTable.png "Create Table"
-* 
+
+* Choose the appropriate datatype for each column and assign to the
 
 ## Rename a file
 
@@ -182,6 +183,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yND
-A0Mjg5NjYsNzE1MzAwNDgyLDU3ODU3NDY2Nl19
+eyJoaXN0b3J5IjpbLTE3OTk0NjMzNzYsLTYwNTc3NDc2NywtND
+AxMDM3NzQyLC0yNDA0Mjg5NjYsNzE1MzAwNDgyLDU3ODU3NDY2
+Nl19
 -->
