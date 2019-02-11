@@ -73,10 +73,10 @@ Below diagram shows the class diagram of the solution with different tables (ent
 
 The same can be replicated using the steps described above.
 
-## 1.3 
+### 1.2.4 Al
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5MTMzNzI2NDMsLTc5Mjg4OTk2MywtNj
-A1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0
-ODIsNTc4NTc0NjY2XX0=
+eyJoaXN0b3J5IjpbMTM5NzQ3MjYwNCwtNzkyODg5OTYzLC02MD
+U3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4
+Miw1Nzg1NzQ2NjZdfQ==
 -->
