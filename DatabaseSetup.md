@@ -33,17 +33,17 @@ Follow these steps to connect to PostrgesSQL server from the console.
 * Launch **pgAdmin** console.
 * Click on `Add New Server` from the dashboard.
 	
-	![alt text][image]
+	![alt text][add]
 	
-	[image]: /pictures/database/AddNewServer.png "Add New Server"
+	[add]: /pictures/database/AddNewServer.png "Add New Server"
 * Select the `connection` tab in the Create Server window and configure it as below,
-	![alt text][image]
+	![alt text][create]
 	
-[image]: /pictures/database/CreateNewServer.png "Create New Server"
+[create]: /pictures/database/CreateServer.png "Create New Server"
 * Click `Save` and  Navigate to the “Dashboard” tab and find the state of the server in the “Server activity” section:
-	![alt text][image]
+	![alt text][server]
 	
-[image]: /pictures/database/SessionState.png "Server Activity"
+[server]: /pictures/database/SessionState.png "Server Activity"
 * check that the connection between pgAdmin 4 and the PostgreSQL database server is active.
 
 ### 1.2.2 Create database schema
@@ -179,6 +179,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NT
-c0NjY2XX0=
+eyJoaXN0b3J5IjpbLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNT
+MwMDQ4Miw1Nzg1NzQ2NjZdfQ==
 -->
