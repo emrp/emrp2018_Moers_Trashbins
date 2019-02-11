@@ -83,12 +83,14 @@ alter table TABLE_NAME alter column COLUMN_NAME NEW_DATATYPE
 ## 1.3 Master Data 
 
 There are certain tables where the data needs to be inserted before the database is functional for the use.
-These tables in the database are identified as,
+These tables in the database are chosen to be,
++ Bin
 + Location
 + Device
 
+The reason being, the information about the locations of the bins are given to us from the customer. Also, the devices registered in TTN console needs to be 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjkyNTYyODUwLC00NDMxMDExMjAsLTc5Mj
+eyJoaXN0b3J5IjpbLTM3NTk4NDY3LC00NDMxMDExMjAsLTc5Mj
 g4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2
 Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
