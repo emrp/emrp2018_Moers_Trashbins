@@ -160,7 +160,16 @@ const lmic_pinmap lmic_pins = {
 };
 ````
 
-#### 5.2 Initialization
+#### 5.1.4 Editing the LMIC config file
+[**THIS PART IS IMPORTANT AND MUST NOT BE OVERLOOKED**]
+
+The LMIC stack can only function properly when the correct LoRaWan frequency band is set. This can be configured from the header file `lmic_project_config.h` whose default location is at `Arduino\libraries\MCCI_LoRaWAN_LMIC_library\project_config`. 
+
+For this application, The frequency EU-868 is used and therefore the line `#define CFG_eu868 1` in the file `lmic_project_config.h` is un-commented. 
+
+An overview of the LoRaWan frequency plans is provided by TheThingsNetwork [here](https://www.thethingsnetwork.org/docs/lorawan/frequency-plans.html).
+
+### 5.2 Initialization
 The `setup()` function takes care of the initialization stage. The following components are initialized:
 
  - Heltec board components: OLED display, LoRa module, UART Serial communication
@@ -199,5 +208,4 @@ The sleep timer (RTC) has to be enabled in the `setup()` function to wake the mi
 Before putting the microcontroller to sleep, all external peripherals (OLED display, LoRa module, VL53L0X) have to be also put into sleep mode. This is done via the `turnOffPeripherals()` function. 
 Note that within this function, `rtc_gpio_hold_en(L0X_SHUTDOWN)` holds the value of the XSHUT pin on the VL53L0X sensor (connected to GPIO pin 13 on the Helec board) to keep the sensor on STANDBY mode even when the microcontroller has been put to sleep. 
 
-The microcontroller is put into sleep mode by calling `esp_deep_sleep_start()`. Both `turnOffPeripherals()` and `esp_deep_sleep_start()` are called inside the `onEvent()` function. The `onEvent()` function is the event handler of the LMIC routine, which handles LoRaWan events.
-
+The microcontroller is put into sleep mode by calling `esp_light_sleep_start()`. Both `turnOffPeripherals()` and `esp_light_sleep_start()` are called inside the `onEvent()` function. The `onEvent()` function is the event handler of the LMIC routine, which handles LoRaWan events.
