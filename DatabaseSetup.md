@@ -45,9 +45,6 @@ Follow these steps to connect to PostrgesSQL server from the console.
 	
 [image]: /pictures/database/SessionState.png "Server Activity"
 * check that the connection between pgAdmin 4 and the PostgreSQL database server is active.
-	![alt text][image]
-	
-[image]: /pictures/database/SessionState.png "Session State"
 
 ### 1.2.2 Create database schema
 
@@ -182,6 +179,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTA1NTE4MSw3MTUzMDA0ODIsNTc4NT
+eyJoaXN0b3J5IjpbLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NT
 c0NjY2XX0=
 -->
