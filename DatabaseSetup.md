@@ -39,7 +39,7 @@ Follow these steps to connect to PostrgesSQL server from the console.
 * Select the `connection` tab in the Create Server window and configure it as below,
 	![alt text][image]
 	
-[image]: /pictures/database/CreateNewServer.png "Create New Server"
+[image]: /pictures/database/CreateServer.png "Create New Server"
 * Click `Save` and  Navigate to the “Dashboard” tab and find the state of the server in the “Server activity” section:
 	![alt text][image]
 	
@@ -179,6 +179,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NT
-c0NjY2XX0=
+eyJoaXN0b3J5IjpbLTEzMzkyODQyMTIsLTI0MDQyODk2Niw3MT
+UzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
