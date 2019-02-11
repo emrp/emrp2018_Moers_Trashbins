@@ -80,10 +80,12 @@ If the column datatype needs to be changed at a later stage, use the below **Dat
 ```SQL
 alter table TABLE_NAME alter column COLUMN_NAME NEW_DATATYPE
 ```
-##
+## 1.3 Master Data 
+
+Master data for the database to function 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTU2MzA1NDEwOCwtNzkyODg5OTYzLC02MD
+eyJoaXN0b3J5IjpbLTQ0MzEwMTEyMCwtNzkyODg5OTYzLC02MD
 U3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4
 Miw1Nzg1NzQ2NjZdfQ==
 -->
