@@ -78,10 +78,12 @@ The same can be replicated using the steps described above.
 If the column datatype needs to be changed at a later stage, use the below **Data Definition Language(DDL)**:
 
 ```SQL
-alter table TABLE_NAME alter column COLUMN_NAME NEW_DAT
+alter table TABLE_NAME alter column COLUMN_NAME NEW_DATATYPE
+```
+##
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA4MzQwNTQ4MSwtNzkyODg5OTYzLC02MD
+eyJoaXN0b3J5IjpbLTU2MzA1NDEwOCwtNzkyODg5OTYzLC02MD
 U3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4
 Miw1Nzg1NzQ2NjZdfQ==
 -->
