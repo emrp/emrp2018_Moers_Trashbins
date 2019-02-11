@@ -54,7 +54,8 @@ Follow these steps to connect to PostrgesSQL server from the console.
 	
 [table]: /pictures/database/CreateTable.png "Create Table"
 
-* Choose the appropriate datatype for each column from the dropdown and assign it.
+* Choose the appropriate datatype for each column from the dropdown and assign accordingly
+* Enforce foreign key constraint on any schema using the below tab option in `Create Table`.
 * 
 
 ## Rename a file
@@ -184,7 +185,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTAxNjkwMDc5LC02MDU3NzQ3NjcsLTQwMT
+eyJoaXN0b3J5IjpbMzc3MTQxNDI4LC02MDU3NzQ3NjcsLTQwMT
 AzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZd
 fQ==
 -->
