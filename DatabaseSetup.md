@@ -88,9 +88,13 @@ These tables in the database are chosen to be,
 + Location
 + Device
 
-The reason being, the information about the locations of the bins are given to us from the customer. Also, the devices registered in TTN console needs to be 
+The reason being, the information about the locations of the bins are given to us from the customer. Also, the devices registered in TTN console needs to be registered in the database as well.
+
+### 1.3.1 Insert Scripts
+
+Once, the database schema is setup, the input (.xls) file from the customer is pre-processed to adju
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTM3NTk4NDY3LC00NDMxMDExMjAsLTc5Mj
-g4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2
-Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
+eyJoaXN0b3J5IjpbLTEwNjY4NzA2NzMsLTQ0MzEwMTEyMCwtNz
+kyODg5OTYzLC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4
+OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZdfQ==
 -->
