@@ -43,7 +43,7 @@ Follow these steps to connect to PostrgesSQL server from the console.
 * Click `Save` and  Navigate to the “Dashboard” tab and find the state of the server in the “Server activity” section:
 	![alt text][image]
 	
-[image]: /pictures/database/CreateNewServer.png "Create New Server"
+[image]: /pictures/database/SessionState.png "Server Activity"
 * check that the connection between pgAdmin 4 and the PostgreSQL database server is active.
 	![alt text][image]
 	
@@ -182,5 +182,6 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzE1MzAwNDgyLDU3ODU3NDY2Nl19
+eyJoaXN0b3J5IjpbLTE2MTA1NTE4MSw3MTUzMDA0ODIsNTc4NT
+c0NjY2XX0=
 -->
