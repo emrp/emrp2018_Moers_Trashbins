@@ -56,11 +56,13 @@ Follow these steps to connect to PostrgesSQL server from the console.
 
 * Choose the appropriate datatype for each column from the dropdown and assign accordingly
 * Choose a column for `primary key` which is unique.
-* 
-* Enforce foreign key constraint on any schema using the below tab option in `Create Table`.
-	![alt text][foreign key]
+	![alt text][primarykey]
 	
-[table]: /pictures/database/ForeignKey.png "Foreign Key"
+[primarykey]: /pictures/database/PrimaryKey.png "Primary Key"
+* Enforce foreign key constraint on any schema using the below tab option in `Create Table`.
+	![alt text][foreignKey]
+	
+[foreignKey]: /pictures/database/ForeignKey.png "Foreign Key"
 
 * 
 
@@ -191,7 +193,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwOTM2ODYxNiwtNjA1Nzc0NzY3LC00MD
-EwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2
-XX0=
+eyJoaXN0b3J5IjpbODg2ODE0ODY0LC02MDU3NzQ3NjcsLTQwMT
+AzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZd
+fQ==
 -->
