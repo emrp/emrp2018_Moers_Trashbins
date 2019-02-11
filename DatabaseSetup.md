@@ -82,10 +82,10 @@ alter table TABLE_NAME alter column COLUMN_NAME NEW_DATATYPE
 ```
 ## 1.3 Master Data 
 
-Master data for the database to function 
+There are certain 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTQ0MzEwMTEyMCwtNzkyODg5OTYzLC02MD
-U3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4
-Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbLTE3NzMwMjIwMTYsLTQ0MzEwMTEyMCwtNz
+kyODg5OTYzLC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4
+OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZdfQ==
 -->
