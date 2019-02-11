@@ -65,8 +65,11 @@ Follow these steps to connect to PostrgesSQL server from the console.
 [foreignKey]: /pictures/database/ForeignKey.png "Foreign Key"
 
 ### 1.2.3 Class Diagram
-Below diagram shows the class diagram of the solutuo 
+Below diagram shows the class diagram of the solution with different tables (entities) and their columns (attributes).
 
+![alt text][classDiagram]
+	
+[classDiagram]: /pictures/database/ClassDiagram.png "Class diagram"
 ## Rename a file
 
 You can rename the current file by clicking the file name in the navigation bar or by clicking the **Rename** button in the file explorer.
@@ -194,7 +197,7 @@ B --> D{Rhombus}
 C --> D
 ```
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTcyMjgxNTkyNiwtNjA1Nzc0NzY3LC00MD
-EwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2
-XX0=
+eyJoaXN0b3J5IjpbLTE5Nzk5MjE0NTcsLTYwNTc3NDc2NywtND
+AxMDM3NzQyLC0yNDA0Mjg5NjYsNzE1MzAwNDgyLDU3ODU3NDY2
+Nl19
 -->
