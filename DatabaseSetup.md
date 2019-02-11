@@ -100,8 +100,11 @@ insert into public."Location" ("Latitude","Longitude","Id","Address") values (51
 ```
 The scripts are generated for each tables, Bin,Location and Device.
 
+## 1.4 Primary key generation
+
+The below functio
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjAyMTMzOTA0MiwtNDQzMTAxMTIwLC03OT
+eyJoaXN0b3J5IjpbMTM5NzI2MTY2MCwtNDQzMTAxMTIwLC03OT
 I4ODk5NjMsLTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5
 NjYsNzE1MzAwNDgyLDU3ODU3NDY2Nl19
 -->
