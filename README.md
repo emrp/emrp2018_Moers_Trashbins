@@ -1,4 +1,5 @@
 
+
 # emrp2018_Moers_Trashbins
 This tutorial shows how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 ## 1. Hardware Requirements
@@ -20,7 +21,7 @@ Navigate to `/Documents/Arduino/hardware/heltec/esp32/tools`, double-click on `g
 
 Make sure the following folders are generated:
 
-![tools folder](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/tools_folder.jpg)
+![tools folder](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/tools_folder.jpg)
 
 #### 2.2.2 Heltec Extended Libraries
 Download the repository [Heltec_ESP32](https://github.com/HelTecAutomation/Heltec_ESP32) as zip and extract it to /Documents/Arduino/.
@@ -36,12 +37,12 @@ In the pop-up window, navigate to `/Documents/Arduino/` and choose `Heltec_ESP32
 #### 2.2.3 Running an OLED Example
 Make sure the chosen board is `Wifi_LoRa_32_V2`.
 
-![choose_board](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/choos_board.jpg)
+![choose_board](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/choose_board.jpg)
 
 Click on \
 `File->Examples->(Example from Custom Libraries)->Heltec ESP32 Dev-Boards->OLED->SSD1306SimpleDemo`.
 
-![choose_example](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/choose_example.jpg)
+![choose_example](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/choose_example.jpg)
 
 Click the `Upload` button to upload the program to the board. Check the OLED display to see if it works.
 
@@ -53,19 +54,19 @@ The next step is to install the library for the VL53L0X time-of-flight sensor an
 #### 2.2.4 Installing the VL53L0X Adafruit Library
 Click on `Tools -> Manage Libraries...` and search for `VL53L0X`. Choose and install the `Adafruit_VL53L0X` library by Adafruit.
 
-![VL53L0X_Adafruit](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/VL53L0X_Adafruit.jpg)
+![VL53L0X_Adafruit](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/VL53L0X_Adafruit.jpg)
 #### 2.2.5 Installing the LMIC Library
 Click on `Tools -> Manage Libraries...` and search for `LMIC`. Choose and install the `MCCI LoRaWAN LMIC` library by IBM, Mathis Koojiman, Terry Moore, ChaeHee Won, Frank Rose.
 
-![LMIC library](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/LMIC_LoRaWan.jpg)
+![LMIC library](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/LMIC_LoRaWan.jpg)
 #### 2.2.5 Installing the CayeneLPP Library
 The CayenneLPP library is needed for the encoding and decoding of data to be handled by The Things Network. The API reference can be viewed [here](https://www.thethingsnetwork.org/docs/devices/arduino/api/cayennelpp.html).
 Click on `Tools -> Manage Libraries...` and search for `CayenneLPP`. Choose and install the `CayeneLPP` library by Electronic Cats.
-![CayenneLPP](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/CayenneLPP.jpg)
+![CayenneLPP](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/CayenneLPP.jpg)
 ## 3. Hardware Connections
 ### 3.1 WIFI LoRa 32 (V2) Board Pinouts
 The originial pinout diagram provided by Heltec can be obtained [here](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/PinoutDiagram/WIFI_LoRa_32_V2.pdf).
-![Board pinouts](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/WIFI_LoRA_32_V2_Pinouts.jpg)The pins used by the OLED module are fixed and are taken care of by the Heltec library.\
+![Board pinouts](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/WIFI_LoRA_32_V2_Pinouts.jpg)The pins used by the OLED module are fixed and are taken care of by the Heltec library.\
 The pins used by the LoRa module are fixed and must be explicitly defined in the code to properly interface with the LMIC library [see section...].\
 
 ### 3.2 VL53L0X Connections
@@ -89,33 +90,33 @@ Note that the GPIO1 pin should be left unconnected as it is not used within the 
 Register for an account at https://www.thethingsnetwork.org/ \
 Login and navigate to https://console.thethingsnetwork.org/ \
 Click on `APPLICATION` to go to the application panel.
-![console](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_console.jpg)
+![console](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_console.jpg)
 
 Click on the `add application` button to add a new application. 
-![add application](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_add_app.jpg)
+![add application](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_add_app.jpg)
 
 Give the application a **_unique application ID_** and choose the proper handler with respect to the region where the application is to be deployed.
-![application id](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_add_app_2.jpg)
+![application id](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_add_app_2.jpg)
 
 The website will redirect to the application's `overview` page right after it is created.
-![app overview](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_add_app_3.jpg)
+![app overview](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_add_app_3.jpg)
 ### 4.2 Setting the Payload Format
 Click on the `Payload Formats` tab on the upper right corner of the `Application Overview` page. 
 Choose `CayenneLPP` from the drop-down menu and click `save`.
-![payload formats](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_payload_formats.jpg)
+![payload formats](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_payload_formats.jpg)
 
 ### 4.3 Registering a Device
 From the the `Application Overview` page, click on the `Devices` tab.
 Click on the `register device` button.
-![register device](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_register_devices.jpg)
+![register device](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_register_devices.jpg)
 
 Give the device a *unique device name* (within the scope of the application, meaning there should be no other devices in the application with the same name).\
 On the `Device EUI` section, click the `generate` button to automatically generate a Device EUI.\
 Click the `Register` button to finish registering the device.
-![register device panel](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_register_devices_2.jpg)
+![register device panel](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_register_devices_2.jpg)
 
 The website will redirect to the `Device Overview` page after registration is complete.
-![device overview](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_device_overview.jpg)
+![device overview](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_device_overview.jpg)
 Note that:
 
  - The **Activation Method** must be `OTAA` (changable in the `Settings` tab).
@@ -125,7 +126,7 @@ Note that:
 ### 5.1 Overview and Prerequisites
 #### 5.1.1 Overview
 The embedded software is to be flashed into the ESP32 microcontroller on the WIFI LoRa 32 (V2) board. The operating cycle is summarized in the figure below.\
-![operating cycle](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/operating_cycle.jpg)
+![operating cycle](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/operating_cycle.jpg)
 
 The following includes must be listed in the code. Note that `lmic.h` must be included before `hal/hal.h`
 ````
@@ -138,14 +139,14 @@ The following includes must be listed in the code. Note that `lmic.h` must be in
 ````
 
 #### 5.1.2 Device Keys
-Each registered device from the TTN application has its unique **Application UI**, **Device EUI** and **Application Key** and can be found on the each [`Device Overview`](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_device_overview.jpg) page. 
+Each registered device from the TTN application has its unique **Application UI**, **Device EUI** and **Application Key** and can be found on the each [`Device Overview`](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_device_overview.jpg) page. 
 These values have to be copied in to the following variables inside the code:
 
  - ``static const u1_t PROGMEM APPEUI[8]``: little-endian format
  - ``static const u1_t PROGMEM DEVEUI[8]``: little-endian format
  - ``static const u1_t PROGMEM APPKEY[16]``: big-endian format
 
-The correct endian formats are provided by clicking on the buttons right next to each key's values on the TTN [`Device Overview`](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/instruction/ttn_device_overview.jpg) page.
+The correct endian formats are provided by clicking on the buttons right next to each key's values on the TTN [`Device Overview`](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_device_overview.jpg) page.
 
 Note that the values of these three keys are stored in the *program memory* section of the microcontroller, which means they will not be erased when the microcontroller is reset or when the microcontroller wakes up from sleep.
 
