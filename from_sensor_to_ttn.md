@@ -11,6 +11,8 @@ Download and install the Arduino IDE from: https://www.arduino.cc/en/main/softwa
 Heltec support two sets of libraries to simplify the use of the integrated OLED, LoRa and other modules of the WIFI LoRa 32 (V2) board.
 
 #### 2.2.1 Heltec Board Support Package
+[Note: this section is adapted from Heltec's instructions which can be accessed [here](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/InstallGuide/windows.md)]
+
 Download the repository [WiFi_Kit_series](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series) as zip and extract it to `/Documents/Arduino/hardware/heltec`. Create the folders manually if they have not been created.
 
 Navigate to `/Documents/Arduino/hardware/heltec/esp32/tools`, double-click on `get.exe` and wait for the script to finish.
