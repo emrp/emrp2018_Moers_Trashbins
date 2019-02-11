@@ -1,4 +1,3 @@
-
 ## 1. Hardware Requirements
 The following pieces of hardware are required for this tutorial:
 - VL53L0X break-out board. Different boards by different suppliers may vary in appearance but the pinouts are generally the same. A popular VL53L0X break-out board is from Adafruit: https://www.adafruit.com/product/3317
@@ -62,14 +61,15 @@ Click on `Tools -> Manage Libraries...` and search for `CayenneLPP`. Choose and 
 ![CayenneLPP](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/CayenneLPP.jpg)
 ## 3. Hardware Connections
 ### 3.1 WIFI LoRa 32 (V2) Board Pinouts
-The originial pinout diagram provided by Heltec can be obtained [here](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/PinoutDiagram/WIFI_LoRa_32_V2.pdf).
+The originial pinout diagram provided by Heltec can be accessed [here](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/PinoutDiagram/WIFI_LoRa_32_V2.pdf). Below is a snapshot of the diagram.
 ![Board pinouts](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/WIFI_LoRA_32_V2_Pinouts.jpg)The pins used by the OLED module are fixed and are taken care of by the Heltec library.\
 The pins used by the LoRa module are fixed and must be explicitly defined in the code to properly interface with the LMIC library [see section...].\
 
 ### 3.2 VL53L0X Connections
 The VL53L0X sensor uses I2C to communicates with the microcontroller, this case being the ESP32 microcontroller on the Heltec LoRa Board. The I2C bus consists of two lines: SCL for clock and SDA for data. More information on the working mechanism of the I2C bus can be found [here](https://robot-electronics.co.uk/i2c-tutorial).
-VL53L0X breakout board provides the following pinouts:
- 
+
+The VL53L0X breakout board provides the following pinouts:
+
  -  VDD: positive supply voltage, to be connected to a power supply (2.6V to 3.5V)
  - GND: ground
  - SCL: clock line for I2C
@@ -77,9 +77,9 @@ VL53L0X breakout board provides the following pinouts:
  - GPIO1: Interrupt output
  - XSHUT: shutdown pin, active low. Driving this pin LOW will put the sensor to standby mode.
  
-The wiring between the VL53L0X breakout board and the WIFI LoRa 32 (V2) Board should be as in the figure below.
+The wiring between the VL53L0X breakout board and the WIFI LoRa 32 (V2) board should be as in the figure below.
 
-[PICTURE TO BE ADDED]
+<img src="https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/vl530x_esp32_wiring.jpg" height=70% width=70%>
 
 Note that the GPIO1 pin should be left unconnected as it is not used within the scope of this application.
 ## 4 Setting up TTN
