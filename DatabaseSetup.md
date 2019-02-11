@@ -94,10 +94,14 @@ The reason being, the information about the locations of the bins are given to u
 
 Once, the database schema is setup, the input (.xls) file from the customer is `preprocessed` to adjust it according to the specifications of the database.
 
-One such example would be,
+Use the below example to construct the insert data script,
+```SQL
+insert into public."Location" ("Latitude","Longitude","Id","Address") values (51.41055037,6.584027857,1139,'Moers');
+```
+The scripts are generated for Bi
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjk1OTc0MDEyLC00NDMxMDExMjAsLTc5Mj
-g4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2
-Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
+eyJoaXN0b3J5IjpbLTE4NDY1ODcxNCwtNDQzMTAxMTIwLC03OT
+I4ODk5NjMsLTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5
+NjYsNzE1MzAwNDgyLDU3ODU3NDY2Nl19
 -->
