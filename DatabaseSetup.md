@@ -77,10 +77,11 @@ The same can be replicated using the steps described above.
 
 If the column datatype needs to be changed at a later stage, use the below **Data Definition Language(DDL)**:
 
-
+```SQL
+alter table TABLE_NAME alter column COLUMN_NAME NEW_DAT
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzc2MDM1NjAzLC03OTI4ODk5NjMsLTYwNT
-c3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5NjYsNzE1MzAwNDgy
-LDU3ODU3NDY2Nl19
+eyJoaXN0b3J5IjpbMTA4MzQwNTQ4MSwtNzkyODg5OTYzLC02MD
+U3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4
+Miw1Nzg1NzQ2NjZdfQ==
 -->
