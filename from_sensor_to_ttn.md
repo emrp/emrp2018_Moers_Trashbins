@@ -172,9 +172,9 @@ An overview of the LoRaWan frequency plans is provided by TheThingsNetwork [here
 ### 5.2 Initialization
 The `setup()` function takes care of the initialization stage. The following components are initialized:
 
- - Heltec board components: OLED display, LoRa module, UART Serial communication
- - The LMIC stack
- - RTC sleep timer (for waking up after sleep)
+ - Heltec board components: OLED display, LoRa module, UART Serial communication. This is done by calling `Heltec.begin()`. Note that the frequency band is set to `866E6`.
+ - The LMIC stack. This is done by calling `os_init()`.
+ - RTC sleep timer (for waking up after sleep). This is done by calling `esp_sleep_enable_timer_wakeup()`
 
 Note that the BootCount variable is stored into the RTC memory (by declaring it with `RTC_DATA_ATTR`). This is to ensure that the value will not be reset after the microcontroller wakes up.
 
@@ -209,3 +209,23 @@ Before putting the microcontroller to sleep, all external peripherals (OLED disp
 Note that within this function, `rtc_gpio_hold_en(L0X_SHUTDOWN)` holds the value of the XSHUT pin on the VL53L0X sensor (connected to GPIO pin 13 on the Helec board) to keep the sensor on STANDBY mode even when the microcontroller has been put to sleep. 
 
 The microcontroller is put into sleep mode by calling `esp_light_sleep_start()`. Both `turnOffPeripherals()` and `esp_light_sleep_start()` are called inside the `onEvent()` function. The `onEvent()` function is the event handler of the LMIC routine, which handles LoRaWan events.
+
+## 6. Running the Embedded Software
+### 6.1 Prerequisites
+Before flashing the code into the microcontroller, make sure that:
+
+- the wiring between the Vl53L0X sensor and the Heltec board are correct.
+ - the LoRaWan frequency is correctly set in the `lmic_project_config.h` file. This must also match the frequency value passed into the function `Heltec.begin()`
+ - APPEUI, DEVEUI and APPKEY are set properly according to their endianness.
+ - The chosen board from the Arduino IDE's `Tools->Board:` is `WIFI_LoRa_32_V2`
+
+### 6.2 Flashing the Code
+
+ - Connect the Heltec board to a USB port. 
+ - Upload the code using the   *upload* button of the Arduino IDE and wait until the uploading is finished. 
+ - Observe the OLED display and the Serial Monitor.
+
+### 6.3 Viewing data from the TTN console
+Data is sent from the sensor node to the TTN gateway and subsequently forwarded to the TTN cloud service. Data from every sensor node can be viewed on the `Application Overview` page by clicking on the `Data` tab:
+![View Data](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_view_data.jpg)
+
