@@ -59,7 +59,7 @@ Follow these steps to connect to PostrgesSQL server from the console.
 	![alt text][primarykey]
 	
 [primarykey]: /pictures/database/PrimaryKey.png "Primary Key"
-* Enforce foreign key constraint on any table using the below tab option in `Create Table`.
+* Enforce `foreign key` constraint on any table using the below tab option in `Create Table`.
 	![alt text][foreignKey]
 	
 [foreignKey]: /pictures/database/ForeignKey.png "Foreign Key"
@@ -73,9 +73,10 @@ Below diagram shows the class diagram of the solution with different tables (ent
 
 The same can be replicated using the steps described above.
 
+## 1.3 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5Mjg4OTk2MywtNjA1Nzc0NzY3LC00MD
-EwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2
-XX0=
+eyJoaXN0b3J5IjpbLTE5MTMzNzI2NDMsLTc5Mjg4OTk2MywtNj
+A1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0
+ODIsNTc4NTc0NjY2XX0=
 -->
