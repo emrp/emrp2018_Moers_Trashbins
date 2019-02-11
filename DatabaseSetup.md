@@ -20,3 +20,6 @@ The above diagram shows the main entities of the database namely,
 As it can be seen in the figure, there can be **n** bins at any location. Therefore, the relation between location and bin is **one-to-many**. Similarly, each bin holds a unique embedded device and therefore the relationship between them is **one-to-one**.
 
 All the readings from the sensor is stored in **SensorData** entity.
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNTc4NTc0NjY2XX0=
+-->
