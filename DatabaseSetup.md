@@ -73,10 +73,14 @@ Below diagram shows the class diagram of the solution with different tables (ent
 
 The same can be replicated using the steps described above.
 
-### 1.2.4 Al
+### 1.2.4 Alter column datatype
+
+If the column datatype needs to be changed at a later stage, use the below **Data Definition Language(DDL)**:
+
+
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM5NzQ3MjYwNCwtNzkyODg5OTYzLC02MD
-U3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNTMwMDQ4
-Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbMzc2MDM1NjAzLC03OTI4ODk5NjMsLTYwNT
+c3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5NjYsNzE1MzAwNDgy
+LDU3ODU3NDY2Nl19
 -->
