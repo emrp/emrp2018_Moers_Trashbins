@@ -5,13 +5,14 @@
 #include <Adafruit_VL53L0X.h>
 #include <driver/rtc_io.h>
 
-#define uS_TO_S_FACTOR    1000000  /* Conversion factor for micro seconds to seconds */
-#define SLEEP_TIME_IN_SEC 20       /* Time ESP32 will go to sleep (in seconds) */
+#define uS_TO_S_FACTOR    1000000  // Conversion factor for micro seconds to seconds
+#define SLEEP_TIME_IN_SEC 60       // Time ESP32 will go to sleep (in seconds)
 #define BUILTIN_LED       25
 #define L0X_SHUTDOWN      GPIO_NUM_13
-#define TX_INTERVAL       60
+#define TX_INTERVAL       1 // might become longer due to duty cycle limitations
 
 RTC_DATA_ATTR uint8_t BootCount = 0;
+static bool SleepIsEnabled = false;
 
 Adafruit_VL53L0X lox; // time-of-flight infarred sensor
 CayenneLPP lpp(51);
@@ -42,7 +43,6 @@ static osjob_t sendjob;
 // Schedule TX every this many seconds (might become longer due to duty
 // cycle limitations),
 // uncomment only when sleep is not used
-// const unsigned TX_INTERVAL = 20;
 
 // Pin mapping
 const lmic_pinmap lmic_pins = {
@@ -115,7 +115,7 @@ void onEvent (ev_t ev) {
       
       // Go to sleep
       turnOffPeripherals();
-      esp_deep_sleep_start();
+      esp_deep_sleep_start(); // equals to a reboot
       break;
     case EV_REJOIN_FAILED:
       Serial.println(F("EV_REJOIN_FAILED"));
@@ -133,10 +133,8 @@ void onEvent (ev_t ev) {
         Serial.println(F("Received "));
         Heltec.display->drawString(0, 6, "RX ");
         Serial.println(LMIC.dataLen);
-        //Heltec.display->setCursor(4, 6);
         Heltec.display->printf("%i bytes", LMIC.dataLen);
         Serial.println(F(" bytes of payload"));
-        //Heltec.display->setCursor(0, 7);
         Heltec.display->printf("RSSI %d SNR %.1d", LMIC.rssi, LMIC.snr);
       }
       
@@ -144,8 +142,8 @@ void onEvent (ev_t ev) {
       os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
       
       // Go to sleep
-      turnOffPeripherals();
-      esp_light_sleep_start();
+      goToSleep();
+
       break;
     case EV_LOST_TSYNC:
       Serial.println(F("EV_LOST_TSYNC"));
@@ -237,13 +235,20 @@ void setup() {
   
   //delay(100);
   LMIC_setLinkCheckMode(0);
-
-  esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
-  
+ 
   // Start job (sending automatically starts OTAA too)
   do_send(&sendjob);
 }
+
 void loop() {
+  if (!SleepIsEnabled) // Enable peripherals again (after each sleep)
+  {
+    Heltec.begin(true /*DisplayEnable Enable*/, true /*LoRa Enable*/, true /*Serial Enable*/, true, 866E6);
+    Serial.println("Enabling sleep inside loop");
+    Heltec.LoRa.setSpreadingFactor(8);
+    
+    SleepIsEnabled = true;
+  }
   os_runloop_once();
 }
 
@@ -292,9 +297,23 @@ int16_t L0X_getDistance(void)
 void turnOffPeripherals(void)
 {
   Serial.println("Going to sleep");
-  delay(1000);
+  delay(100);
   Serial.end();
   rtc_gpio_hold_en(L0X_SHUTDOWN);
   Heltec.display->sleep();
   LoRa.sleep();
+}
+
+void goToSleep(void)
+{
+  SleepIsEnabled = true;
+  // Sleep all peripherals and enable RTC timer
+  turnOffPeripherals();
+  esp_sleep_enable_timer_wakeup(SLEEP_TIME_IN_SEC * uS_TO_S_FACTOR);
+  esp_light_sleep_start();
+  
+  // After timer runs out
+  //Serial.begin(115200);           // uncomment this for debugging
+  //Serial.println("after sleep");  // uncomment this for debugging
+  SleepIsEnabled = false;  
 }
