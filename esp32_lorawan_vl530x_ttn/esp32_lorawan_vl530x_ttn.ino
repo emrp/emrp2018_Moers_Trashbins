@@ -5,11 +5,11 @@
 #include <Adafruit_VL53L0X.h>
 #include <driver/rtc_io.h>
 
-#define uS_TO_S_FACTOR     1000000  /* Conversion factor for micro seconds to seconds */
-#define SLEEP_TIME_IN_SEC  10       /* Time ESP32 will go to sleep (in seconds) */
-#define BUILTIN_LED        25
-#define L0X_SHUTDOWN       GPIO_NUM_13
-#define CFG_eu868          1
+#define uS_TO_S_FACTOR    1000000  /* Conversion factor for micro seconds to seconds */
+#define SLEEP_TIME_IN_SEC 20       /* Time ESP32 will go to sleep (in seconds) */
+#define BUILTIN_LED       25
+#define L0X_SHUTDOWN      GPIO_NUM_13
+#define TX_INTERVAL       60
 
 RTC_DATA_ATTR uint8_t BootCount = 0;
 
@@ -24,7 +24,7 @@ void os_getArtEui (u1_t* buf) {
   memcpy_P(buf, APPEUI, 8);
 }
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = { 0x41, 0x64, 0x0E, 0x6E, 0xC4, 0x2F, 0x61, 0x00 };
+static const u1_t PROGMEM DEVEUI[8] = { 0x87, 0xDC, 0x3F, 0xF5, 0xD4, 0xEF, 0x8B, 0x00 };
 void os_getDevEui (u1_t* buf) {
   memcpy_P(buf, DEVEUI, 8);
 }
@@ -32,7 +32,7 @@ void os_getDevEui (u1_t* buf) {
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
 // 
-static const u1_t PROGMEM APPKEY[16] = { 0x15, 0x29, 0x64, 0x26, 0x64, 0x82, 0x64, 0xD1, 0x1A, 0xF7, 0x82, 0xDC, 0x60, 0xB8, 0xE1, 0x36 };
+static const u1_t PROGMEM APPKEY[16] = { 0x17, 0xBE, 0x1E, 0x87, 0xAC, 0xEB, 0x30, 0x3B, 0x95, 0x29, 0x6A, 0xA6, 0x76, 0x62, 0x8A, 0x1B };
 void os_getDevKey (u1_t* buf) {
   memcpy_P(buf, APPKEY, 16);
 }
@@ -140,12 +140,12 @@ void onEvent (ev_t ev) {
         Heltec.display->printf("RSSI %d SNR %.1d", LMIC.rssi, LMIC.snr);
       }
       
-      // Schedule next transmission uncomment only when sleep is not used
-      //os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
+      //Schedule next transmission, comment this out only when DEEP sleep is used
+      os_setTimedCallback(&sendjob, os_getTime() + sec2osticks(TX_INTERVAL), do_send);
       
       // Go to sleep
       turnOffPeripherals();
-      esp_deep_sleep_start();
+      esp_light_sleep_start();
       break;
     case EV_LOST_TSYNC:
       Serial.println(F("EV_LOST_TSYNC"));
@@ -175,7 +175,6 @@ void onEvent (ev_t ev) {
         break;    
     default:
       Serial.println(F("Unknown event"));
-      //Heltec.display->setCursor(0, 7);
       Heltec.display->drawString(0, 7, "UNKNOWN EVENT %d");
       break;
   }
@@ -192,7 +191,8 @@ void do_send(osjob_t* j) {
 
     // Measure distance
     L0X_init();
-    int16_t distance = L0X_getDistance();
+    int16_t distance = 0;
+    distance = L0X_getDistance();
     L0X_deinit();
 
     // Encode using CayenneLPP
@@ -271,7 +271,7 @@ int16_t L0X_getDistance(void)
 {
   VL53L0X_RangingMeasurementData_t measure;
   int16_t distance = 0;
-  for (int i = 0; i < 10; i++)
+  for (int i = 0; i < 5; i++)
   {
     delay(100);
     Serial.print("Reading a measurement... ");
