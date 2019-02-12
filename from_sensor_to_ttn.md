@@ -32,6 +32,8 @@
   * [6.3 Viewing data from the TTN console](#63-viewing-data-from-the-ttn-console)
   * [6.4 Notes](#64-notes)
 
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ## 1 Hardware Requirements
 The following pieces of hardware are required for this tutorial:
 - VL53L0X break-out board. Different boards by different suppliers may vary in appearance but the pinouts are generally the same. A popular VL53L0X break-out board is from Adafruit: https://www.adafruit.com/product/3317
@@ -99,7 +101,7 @@ Click on `Tools -> Manage Libraries...` and search for `CayenneLPP`. Choose and 
 ### 3.1 WIFI LoRa 32 (V2) Board Pinouts
 The originial pinout diagram provided by Heltec can be accessed [here](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/PinoutDiagram/WIFI_LoRa_32_V2.pdf). Below is a snapshot of the diagram.
 ![Board pinouts](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/WIFI_LoRA_32_V2_Pinouts.jpg)The pins used by the OLED module are fixed and are taken care of by the Heltec library.\
-The pins used by the LoRa module are fixed and must be explicitly defined in the code to properly interface with the LMIC library [see section...].\
+The pins used by the LoRa module are fixed and must be explicitly defined in the code to properly interface with the LMIC library (see [section 5.1.1](#511-overview)).
 
 ### 3.2 VL53L0X Connections
 The VL53L0X sensor uses I2C to communicates with the microcontroller, this case being the ESP32 microcontroller on the Heltec LoRa Board. The I2C bus consists of two lines: SCL for clock and SDA for data. More information on the working mechanism of the I2C bus can be found [here](https://robot-electronics.co.uk/i2c-tutorial).
@@ -153,7 +155,7 @@ The website will redirect to the `Device Overview` page after registration is co
 Note that:
 
  - The **Activation Method** must be `OTAA` (changable in the `Settings` tab).
- - **Device EUI**, **Application EUI** and **App Key** are essensital for the configuration within the embedded software which will be covered in [section ...]
+ - **Device EUI**, **Application EUI** and **App Key** are essensital for the configuration within the embedded software which will be covered in [section 5.1.2](#512-device-keys)
 
 ## 5 Writing the Embedded Software
 ### 5.1 Overview and Prerequisites
