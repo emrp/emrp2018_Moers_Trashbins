@@ -1,9 +1,43 @@
-## 1. Hardware Requirements
+#### Table of Contents
+- [1 Hardware Requirements](#1-hardware-requirements)
+- [2 Software installation](#2-software-installation)
+  * [2.1 Arduino IDE](#21-arduino-ide)
+  * [2.2 Libraries](#22-libraries)
+    + [2.2.1 Heltec Board Support Package](#221-heltec-board-support-package)
+    + [2.2.2 Heltec Extended Libraries](#222-heltec-extended-libraries)
+    + [2.2.3 Running an OLED Example](#223-running-an-oled-example)
+    + [2.2.4 Installing the VL53L0X Adafruit Library](#224-installing-the-vl53l0x-adafruit-library)
+    + [2.2.5 Installing the LMIC Library](#225-installing-the-lmic-library)
+    + [2.2.5 Installing the CayeneLPP Library](#225-installing-the-cayenelpp-library)
+- [3 Hardware Connections](#3-hardware-connections)
+  * [3.1 WIFI LoRa 32 (V2) Board Pinouts](#31-wifi-lora-32--v2--board-pinouts)
+  * [3.2 VL53L0X Connections](#32-vl53l0x-connections)
+- [4 Setting up TTN](#4-setting-up-ttn)
+  * [4.1 Setting up a new TTN Application](#41-setting-up-a-new-ttn-application)
+  * [4.2 Setting the Payload Format](#42-setting-the-payload-format)
+  * [4.3 Registering a Device](#43-registering-a-device)
+- [5 Writing the Embedded Software](#5-writing-the-embedded-software)
+  * [5.1 Overview and Prerequisites](#51-overview-and-prerequisites)
+    + [5.1.1 Overview](#511-overview)
+    + [5.1.2 Device Keys](#512-device-keys)
+    + [5.1.3 Pin Configuration for LoRa Module](#513-pin-configuration-for-lora-module)
+    + [5.1.4 Editing the LMIC config file](#514-editing-the-lmic-config-file)
+  * [5.2 Initialization](#52-initialization)
+  * [5.3 Measurement](#53-measurement)
+  * [5.4 Encoding and Transmission](#54-encoding-and-transmission)
+  * [5.5 Sleep](#55-sleep)
+- [6 Running the Embedded Software](#6-running-the-embedded-software)
+  * [6.1 Prerequisites](#61-prerequisites)
+  * [6.2 Flashing the Code](#62-flashing-the-code)
+  * [6.3 Viewing data from the TTN console](#63-viewing-data-from-the-ttn-console)
+  * [6.4 Notes](#64-notes)
+
+## 1 Hardware Requirements
 The following pieces of hardware are required for this tutorial:
 - VL53L0X break-out board. Different boards by different suppliers may vary in appearance but the pinouts are generally the same. A popular VL53L0X break-out board is from Adafruit: https://www.adafruit.com/product/3317
 - WIFI LoRa 32 (V2) board with antenna. This board includes an ESP32 microcontroller, an SX125x LoRa module. For more information: http://www.heltec.cn/project/wifi-lora-32/?lang=en
 
-## 2. Software installation
+## 2 Software installation
 ### 2.1 Arduino IDE
 Download and install the Arduino IDE from: https://www.arduino.cc/en/main/software
 
@@ -61,7 +95,7 @@ Click on `Tools -> Manage Libraries...` and search for `LMIC`. Choose and instal
 The CayenneLPP library is needed for the encoding and decoding of data to be handled by The Things Network. The API reference can be viewed [here](https://www.thethingsnetwork.org/docs/devices/arduino/api/cayennelpp.html).
 Click on `Tools -> Manage Libraries...` and search for `CayenneLPP`. Choose and install the `CayeneLPP` library by Electronic Cats.
 ![CayenneLPP](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/CayenneLPP.jpg)
-## 3. Hardware Connections
+## 3 Hardware Connections
 ### 3.1 WIFI LoRa 32 (V2) Board Pinouts
 The originial pinout diagram provided by Heltec can be accessed [here](https://github.com/Heltec-Aaron-Lee/WiFi_Kit_series/blob/master/PinoutDiagram/WIFI_LoRa_32_V2.pdf). Below is a snapshot of the diagram.
 ![Board pinouts](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/WIFI_LoRA_32_V2_Pinouts.jpg)The pins used by the OLED module are fixed and are taken care of by the Heltec library.\
@@ -210,7 +244,7 @@ Note that within this function, `rtc_gpio_hold_en(L0X_SHUTDOWN)` holds the value
 
 The microcontroller is put into sleep mode by calling `esp_light_sleep_start()`. Both `turnOffPeripherals()` and `esp_light_sleep_start()` are called inside the `onEvent()` function. The `onEvent()` function is the event handler of the LMIC routine, which handles LoRaWan events.
 
-## 6. Running the Embedded Software
+## 6 Running the Embedded Software
 ### 6.1 Prerequisites
 Before flashing the code into the microcontroller, make sure that:
 
@@ -232,4 +266,3 @@ Data is sent from the sensor node to the TTN gateway and subsequently forwarded 
 
  - As discussed on TheThingsNetwork forum [here](https://www.thethingsnetwork.org/forum/t/modified-lmic-sleep-and-other-parameter/17027/4), the LMIC stack is not interrupt driven AND the ESP32 microcontroller does not actually wake up from sleep after `esp_deep_sleep_start()` is used, but rather reboots iself. This results in the sensor node's re-activating via OTAA whenever the microcontroller wakes up (reboots) and the whole LMIC stack being reset. Therefore, for this application, only `esp_light_sleep_start()` is used.
  - According to the [specification](https://lora-alliance.org/sites/default/files/2018-05/2015_-_lorawan_specification_1r0_611_1.pdf#page=34) by LoRa Alliance and the discussion [here](https://www.thethingsnetwork.org/forum/t/limitations-data-rate-packet-size-30-seconds-uplink-and-10-messages-downlink-per-day-fair-access-policy/1300), it is not allowed to transmit data too frequently, otherwise the end node will be blocked by TTN to prevent a potential attack. A possible workaround is to [reset the frame counter](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/reset_frame_counter.jpg) from the `Device Overview` page and/or [disable the frame counter checks](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/disable_frame_counter.jpg) from the `Device Settings` page.
-
