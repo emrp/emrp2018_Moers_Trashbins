@@ -59,7 +59,7 @@ Follow these steps to connect to PostrgesSQL server from the console.
 	![alt text][primarykey]
 	
 [primarykey]: /pictures/database/PrimaryKey.png "Primary Key"
-* Enforce foreign key constraint on any table using the below tab option in `Create Table`.
+* Enforce `foreign key` constraint on any table using the below tab option in `Create Table`.
 	![alt text][foreignKey]
 	
 [foreignKey]: /pictures/database/ForeignKey.png "Foreign Key"
@@ -73,9 +73,41 @@ Below diagram shows the class diagram of the solution with different tables (ent
 
 The same can be replicated using the steps described above.
 
+### 1.2.4 Alter column datatype
+
+If the column datatype needs to be changed at a later stage, use the below **Data Definition Language(DDL)**:
+
+```SQL
+alter table TABLE_NAME alter column COLUMN_NAME NEW_DATATYPE
+```
+## 1.3 Master Data 
+
+There are certain tables where the data needs to be inserted before the database is functional for the use.
+These tables in the database are chosen to be,
++ Bin
++ Location
++ Device
+
+The reason being, the information about the locations of the bins are given to us from the customer. Also, the devices registered in TTN console needs to be registered in the database as well.
+
+### 1.3.1 Insert Scripts
+
+Once, the database schema is setup, the input (.xls) file from the customer is `preprocessed` to adjust it according to the specifications of the database.
+
+Use the below example to construct the insert data script,
+```SQL
+insert into public."Location" ("Latitude","Longitude","Id","Address") values (51.41055037,6.584027857,1139,'Moers');
+```
+The scripts are generated for each tables, Bin,Location and Device.
+
+## 1.4 Primary key generation
+
+The `Id` column of each table is usually marked as the `primary key`. To randomly generate the unique ID for each table, below sequence is used:
+
+```SQL
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc5Mjg4OTk2MywtNjA1Nzc0NzY3LC00MD
-EwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2
-XX0=
+eyJoaXN0b3J5IjpbODk0NzEzNjkzLC00NDMxMDExMjAsLTc5Mj
+g4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2
+Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
