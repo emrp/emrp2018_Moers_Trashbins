@@ -1,6 +1,6 @@
 #### Table of Contents
 - [1 Hardware Requirements](#1-hardware-requirements)
-- [2 Software installation](#2-software-installation)
+- [2 Software Installation](#2-software-installation)
   * [2.1 Arduino IDE](#21-arduino-ide)
   * [2.2 Libraries](#22-libraries)
     + [2.2.1 Heltec Board Support Package](#221-heltec-board-support-package)
@@ -32,12 +32,14 @@
   * [6.3 Viewing data from the TTN console](#63-viewing-data-from-the-ttn-console)
   * [6.4 Notes](#64-notes)
 
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 ## 1 Hardware Requirements
 The following pieces of hardware are required for this tutorial:
 - VL53L0X break-out board. Different boards by different suppliers may vary in appearance but the pinouts are generally the same. A popular VL53L0X break-out board is from Adafruit: https://www.adafruit.com/product/3317
 - WIFI LoRa 32 (V2) board with antenna. This board includes an ESP32 microcontroller, an SX125x LoRa module. For more information: http://www.heltec.cn/project/wifi-lora-32/?lang=en
 
-## 2 Software installation
+## 2 Software Installation
 ### 2.1 Arduino IDE
 Download and install the Arduino IDE from: https://www.arduino.cc/en/main/software
 
@@ -122,7 +124,7 @@ Note that the GPIO1 pin should be left unconnected as it is not used within the 
 ### 4.1 Setting up a new TTN Application
 Register for an account at https://www.thethingsnetwork.org/ \
 Login and navigate to https://console.thethingsnetwork.org/ \
-Click on `APPLICATION` to go to the application panel.
+Click on `APPLICATIONS` to go to the application panel.
 ![console](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/ttn_console.jpg)
 
 Click on the `add application` button to add a new application. 
