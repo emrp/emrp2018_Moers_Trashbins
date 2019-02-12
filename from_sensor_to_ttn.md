@@ -32,8 +32,6 @@
   * [6.3 Viewing data from the TTN console](#63-viewing-data-from-the-ttn-console)
   * [6.4 Notes](#64-notes)
 
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-
 ## 1 Hardware Requirements
 The following pieces of hardware are required for this tutorial:
 - VL53L0X break-out board. Different boards by different suppliers may vary in appearance but the pinouts are generally the same. A popular VL53L0X break-out board is from Adafruit: https://www.adafruit.com/product/3317
