@@ -4,5 +4,3 @@ On this project, our main concern is the proper collection of the waste with les
 
 With the integration with [ ENNI ](https://www.enni.de/)  who takes responsibility for the waste management of the Moers city. For the concern on a collection of waste around 11000 waste bins are situated through the Moers city. And there is a lot of effort and time consuming to collect the waste.
 
-
-[GitHub Pages](https://pages.github.com/)
