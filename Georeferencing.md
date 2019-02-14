@@ -4,7 +4,7 @@ Georeferencing is the process of transforming coordinate reference system(CRS) o
 
 **How to do georeferencing?**
 Raster image to be georeferenced: -
-https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_node_ttn/Map_Moers.png
+![image caption](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_node_ttn/Map_Moers.png)
 
 
 **GDAL Plugin installation or activation: -**
