@@ -7,4 +7,6 @@ With the integration with [ ENNI ](https://www.enni.de/)  who takes responsibili
 
 
 **Problem Statement**
+
+
 Quite difficult to identify the waste bins are full or not. All the waste bin is not possible to full at the same time and there is the possibility of a single waste bin is full in a wide area where multiple waste bins are located. Along with that some area waste bin full in a shorter period of time while some area waste bin full in a longer period of time. So that requires more time and effort for the waste collector to empty the waste bin.
