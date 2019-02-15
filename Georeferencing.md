@@ -6,8 +6,7 @@ We need to find out bin location as pointed in the map provided to us. We need t
 
 **How to do georeferencing?** \
 Raster image to be georeferenced: -
-
-![Georeferencing image](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_node_ttn/Map_Moers.png)
+![basemap launch](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_node_ttn/Map_Moers.png)
 
 **Start Georeferencing: -**
 
@@ -27,16 +26,16 @@ Raster image to be georeferenced: -
 	 - Base map looks like as follow
 	![basemap launch](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/basemap.png)
 
-4. From *Raster* menu click *Georeferencer*, georeferencer window will opens
+ 4. From *Raster* menu click *Georeferencer*, georeferencer window will opens
 ![Georeferencing window](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/georeferencing%20window.png)
 	- Above shown is the georeferencing window
 	- Upper part is Image window
 	- Lower part is for Ground Control points(GCP) table
 
-5. Load Raster image, clicking on *Open Raster* under *File*
-6. Analysing both datasets for finding the precise location like corner of buildings or street intersection, locate the potential GCPs
+ 5. Load Raster image, clicking on *Open Raster* under *File*
+ 6. Analysing both datasets for finding the precise location like corner of buildings or street intersection, locate the potential GCPs
 	- From Image window of georeferencing window and QGIS base map
-7. Zoom in to the specific area for GCP point in order to have precise value
+ 7. Zoom in to the specific area for GCP point in order to have precise value
 	- Entering ground control points
 		- Using the *add point tool*, enter first GCP into the georeferencer image window 
 		- On the click on georeferencer image window, *Enter map coordinates window* will popups with the destination coordinates fields i.e X/East and Y/North boxes
@@ -50,9 +49,9 @@ Raster image to be georeferenced: -
 		- Repeat steps 2-6 for other GCP points, here 10 GCP points are taken
 ![10 gcp point](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/10%20sample%20gcp%20points.png)
 		- Once the points are entered you can save GCP points as a text file of .points extension so that it can be reused, by clicking *Save GCP Points As*
-8. Final Transformation to form Georeferenced image
+ 8. Final Transformation to form Georeferenced image
 		Before starting transformation steps, let's be clear about Transformation type, Resampling method fields, and other output settings.
-     - Transformation type
+     - Transformation type: - \
      There are seven choices for transformation type which determines how the ground control points are used to transform the image from source to destination coordinate space. Each type has different results as explained below
 	     - Linear: - 
 		   Algorithm that creates a world file for the raster without actually transforming the raster. It can be used on images that are already in a projected coordinate reference system without having world file. Minimum two GCPs are required for the transformation.
@@ -65,7 +64,7 @@ Raster image to be georeferenced: -
 	   - Projective: -
 	   This algorithm is useful for oblique images and some scanned maps. Better for Georeferencin satellite images such as Landsat and DigitalGlobe.
 	   
-	  - Resampling method: -
+	  - Resampling method: - \
 	  This setting is to determine how the pixel value will be calculated in the output raster. There are five different choices for resampling methods as follow
 		  - Nearest neighbour: -
 		Value of an output pixel is determined by the nearest cell in the input. This is fastest, suitable for categorical or integer data and will not change pixel value during transformation. Blocky output will be produced for continuous data.
@@ -89,10 +88,10 @@ Raster image to be georeferenced: -
 		- Residual [pixels] column in the GCP table will be populated, once the transformation setting values have been set which contains root mean square error(RMSE) for each GCP. This RMSE metric indicates the quality of transformation which depends on the transformation type chosen
 		![Complete GCP table](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/after%20transformation.png)
 		- By the general rule of thumb, RMSE should not be larger than half of the pixel size of raster in the map unit
-		
 
 
-**Shapefile creation: -**
+
+**Shapefile creation: -** \
 After the transformation, we have georeferenced image. We will determine location of all the points in this image/map and store as a shapefile.
 
  1. Opening the georeferenced image from layer>add raster layer or WMS layer 
@@ -101,7 +100,7 @@ After the transformation, we have georeferenced image. We will determine locatio
  4. Shapefile will be added in the layer window 
 ![Shapefile creation](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/shapefile%20creation.png)
  5. To add or edit feature, click on *Toggle Editing* button or simple right click on the shape file and you can find *Toggle Editing*
- 6. Locate the points and capture it as a point and save shapefile
+ 6. locate the points and capture it as a point
 	 - Click on the capture point button
 	 - Find the dots in the image and click on that to add point on that location
 	 - Feature attribute window will open then give the unique name to each point
@@ -112,12 +111,12 @@ After the transformation, we have georeferenced image. We will determine locatio
 	 ![features](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/feature.png)
 	 - Right clicking on the shape file and  click *open the attribute table*, you can view and edit the information connected to the features
 	 - Save the current open layers and features by clicking *Save Project* button
+	 
+	
+	
+
+ 
 		
-
-
-   
-
-
 
 
    
