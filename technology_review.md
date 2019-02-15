@@ -55,14 +55,14 @@ measures either the time difference or phase shift in between to determine the d
 
 The VL53L0X Time-of-Flight sensor is used in this application. This sensor utilizes a Vertical Cavity Surface-Emitting Laser (VCSEL) for emitting signals. Compared to ToF sensors that use ultrasonic waves to emit signals, VCSEL-based ToF sensors have a smaller maximum range of measurement. VCSEL-based ToF sensors, however, hold many advantages over ultrasonic ToF sensors:
 
-Smaller footprint
-
-More stable (with respect to laser wavelength)
-
-Higher resolution
-
-More accurate thanks to the more focused emitting laser pulses
+ - Smaller footprint
+   
+ - More stable (with respect to laser wavelength)
+   
+ - Higher resolution
+   
+ - More accurate thanks to the more focused emitting laser pulses
 
 The height of the trash bins in Moers is less than 1 meter which is well within the measurement range of VCSEL-based ToF sensors, particularly in this case the VL53L0X.
 
-For a more detailed explanation of ToF sensors, refer to this document by John Kvam from STMicroelectronics.
+For a more detailed explanation of ToF sensors, refer to [this document](https://www.st.com/content/dam/technology-tour-2017/session-1_track-4_time-of-flight-technology.pdf) by *John Kvam* from STMicroelectronics.
