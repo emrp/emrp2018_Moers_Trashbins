@@ -92,6 +92,34 @@ https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_nod
 		
 
 
+**Shapefile creation: -**
+After the transformation, we have georeferenced image. We will determine location of all the points in this image/map and store as a shapefile.
+
+ 1. Opening the georeferenced image from layer>add raster layer or WMS layer 
+ 2. Click on *layer>create layer>New shapefile layer* to create a new empty layer for vector features
+ 3. Give the required file name and select the CRS if different than default CRS is required
+ 4. Shapefile will be added in the layer window 
+![Shapefile creation](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/shapefile%20creation.png)
+ 5. To add or edit feature, click on *Toggle Editing* button or simple right click on the shape file and you can find *Toggle Editing*
+ 6. Locate the points and capture it as a point and save shapefile
+	 - Click on the capture point button
+	 - Find the dots in the image and click on that to add point on that location
+	 - Feature attribute window will open then give the unique name to each point
+	 - Repeat this procedure for all other points
+	 - Once all points are selected click on *Toggle Editing* button to *Save* the *vector point layer*
+	 ![Making point](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/making%20point.png)
+	 - Incase if you want to change the position of point, *Vertex Tool* can be used to reposition the point
+	 ![features](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/georeferencing%20photo/feature.png)
+	 - Right clicking on the shape file and  click *open the attribute table*, you can view and edit the information connected to the features
+	 - Save the current open layers and features by clicking *Save Project* button
+		
+
+
+   
+
+
+
+
    
 
 
