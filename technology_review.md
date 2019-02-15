@@ -49,8 +49,8 @@ LoRaWan the datalink layer (colored with blue in the figure below) associated wi
 
 A ToF sensor is a sensor that:
 
-emits a signal (from a light source) to the object  
-receives the reflected signal (e.g. with a photodiode), then  
+- Emits a signal (from a light source) to the object  
+- Receives the reflected signal (e.g. with a photodiode), then  
 measures either the time difference or phase shift in between to determine the distance between the sensor itself and the object.
 
 The VL53L0X Time-of-Flight sensor is used in this application. This sensor utilizes a Vertical Cavity Surface-Emitting Laser (VCSEL) for emitting signals. Compared to ToF sensors that use ultrasonic waves to emit signals, VCSEL-based ToF sensors have a smaller maximum range of measurement. VCSEL-based ToF sensors, however, hold many advantages over ultrasonic ToF sensors:
