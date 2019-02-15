@@ -15,10 +15,10 @@ https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_nod
 
  1. Launch QGIS Desktop\
 		 - GDAL Plugin installation or activation\
-			 - Navigate to plugins in QGIS\
-			 - Manage and install plugins….\
-			 - Click on the installed tab\
-			 - Find the Georeferencer GDAL and check the box\
+			 * Navigate to plugins in QGIS\
+			 * Manage and install plugins….\
+			 * Click on the installed tab\
+			 * Find the Georeferencer GDAL and check the box\
 
 
 
