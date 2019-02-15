@@ -250,13 +250,15 @@ The microcontroller is put into sleep mode by calling `esp_light_sleep_start()`.
 ### 6.1 Prerequisites
 Before flashing the code into the microcontroller, make sure that:
 
-- the wiring between the Vl53L0X sensor and the Heltec board are correct.
- - the LoRaWan frequency is correctly set in the `lmic_project_config.h` file. This must also match the frequency value passed into the function `Heltec.begin()`
+- The wiring between the Vl53L0X sensor and the Heltec board are correct.
+- All necessary libraries have been installed.
+ - The LoRaWan frequency is correctly set in the `lmic_project_config.h` file. This must also match the frequency value passed into the function `Heltec.begin()`
  - APPEUI, DEVEUI and APPKEY are set properly according to their endianness.
  - The chosen board from the Arduino IDE's `Tools->Board:` is `WIFI_LoRa_32_V2`
 
 ### 6.2 Flashing the Code
 
+ - Download the code [here](https://github.com/emrp/emrp2018_Moers_Trashbins/tree/master/esp32_lorawan_vl530x_ttn).
  - Connect the Heltec board to a USB port. 
  - Upload the code using the   *upload* button of the Arduino IDE and wait until the uploading is finished. 
  - Observe the OLED display and the Serial Monitor.
