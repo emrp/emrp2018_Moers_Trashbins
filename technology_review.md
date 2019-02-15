@@ -39,7 +39,7 @@ Two typical types of LoRa hardware are:
 
 #### 3 LoRaWan
 
-LoRaWan the datalink layer associated with LoRa. The specification for LoRaWan is open-source and is maintained by the LoRa Alliance. LoRaWan helps determine the nodes lifetimes, network capacity, quality of service, security, and applications served by the network. [from *[A technical overview of LoRa® and LoRaWAN](https://lora-alliance.org/sites/default/files/2018-04/what-is-lorawan.pdf)* by the LoRa Alliance].
+LoRaWan the datalink layer (colored with blue in the figure below) associated with LoRa. The specification for LoRaWan is open-source and is maintained by the LoRa Alliance. LoRaWan helps determine the nodes lifetimes, network capacity, quality of service, security, and applications served by the network. [from *[A technical overview of LoRa® and LoRaWAN](https://lora-alliance.org/sites/default/files/2018-04/what-is-lorawan.pdf)* by the LoRa Alliance].
 
 | ![LoRaWan layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/lora_lora_wan_layers.jpg) |
 |:--:|
