@@ -1,3 +1,4 @@
+
 **Geoserver**
 
 Geoserver, open source software server written in Java which allows us to edit, process and share geospatial data. It is designed for interoperability and publishes data from any major spatial data source using open standards. It is an Open Geospatial Consortium(OGC) compliant implimentation of a various open standard such as Web Feature Service(WFS), Web Map Service(WMS), and Web Coverage Service(WCS).
@@ -33,16 +34,17 @@ In this project, we are using this Geoserver to visualize the bins that are loca
 		-  Launch *GeoServer* 
 		- For starting server, 
 		  - Click on *Server ->Start*
-		 - In a web browser, navigate to *http://Localhost:8080/geoserver*
-		 - Provide the following credential for default configuration
+		- In a web browser, navigate to *http://Localhost:8080/geoserver* 
+		- Provide the following credential for default configuration
 			 - *Admin as username*
 			 - *Password: geoserver*
 ![Loginpage of GeoServer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/geoserver%20login%20page.png)
-          - After login, *Administrative functions* is accessible as shown below
+         - After login, *Administrative functions* is accessible as shown below
 ![AdministrativeFuntion](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/geoserver%20after%20lonin.png)
-           - For the seperate work around, create a  new Workspace
+          - For the seperate work around, create a  new Workspace
 			 - Navigate *Data on right panel* and click on *Workspace*![Workspace panel](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/workspace.png)
 			 - And then click on a *Add new workspace* 
 			 - Provide Name as an identifier for a any project![New Workspace Outline](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/new%20workspace.png)
 				 +  "*Where Name Not more than 10 characters and exclude blank space with that, and -   Namespace Uniform Resource Identifier(URI) can usually be any URI that is not necessary to resolve to an actual valid web address so we can give any URI that associate our project*"
 			 - Click on *submit*, and then new workspace will be added in the list of Workspace
+	 - 
