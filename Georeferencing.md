@@ -13,12 +13,22 @@ https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_nod
 
 **Start Georeferencing: -**
 
- 1. Launch QGIS Desktop\
-		 - GDAL Plugin installation or activation\
-			 * Navigate to plugins in QGIS\
-			 * Manage and install plugins….\
-			 * Click on the installed tab\
-			 * Find the Georeferencer GDAL and check the box\
+ 1. Launch *QGIS Desktop*
+ 2. GDAL Plugin installation or activation
+         - Navigate to *plugins* in QGIS
+         - *Manage and install plugins….*
+         - Click on the *installed* tab
+         - Find the *Georeferencer GDAL* and check the box
+ 3. Using OpenStreetMap as a base map for Ground Control Point(GCP)
+	 - It is not necessary to use an openstreetmap as a base map. Maps like bing, google maps can be used
+	 - To use this web based map services, open layer plugin need to be installed
+	 - Same as other plugins, go to *plugins* menu and *manage and install plugins…*
+	 - Search open layer plugin and *install*
+	 - It could be possible that it may not be there, it is because this plugin is an experimental plugin
+	 - In that case enable “show also experimental plugin” from the *settings* tab
+
+
+   
 
 
 
