@@ -4,9 +4,9 @@
 
 LPWAN (Low Power Wide Area Network) is a type of wireless technology designed for transmission of small data packages over long distances. LPWAN is well-suited for IoT applications that prioritize low power consumption and wide geographic coverage over data rate, package size and real-time strictness. The figure below demonstrates LPWAN’s range and data rate characteristics compared to other wireless technologies.
 
-|![LWPAN range](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/lpwan_range.jpg|
+|![LWPAN range](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/lpwan_range.jpg)|
 |:--:| 
-| *Image from a [paper](https://www.sciencedirect.com/science/article/pii/S2405959517302953)* |by Kais Mekkia et al. 
+| *Image from a [paper](https://www.sciencedirect.com/science/article/pii/S2405959517302953)* by Kais Mekkia et al.|
 
 LPWAN is categorized in two different types:
 
@@ -41,7 +41,8 @@ Two typical types of LoRa hardware are:
 
 LoRaWan the datalink layer associated with LoRa. The specification for LoRaWan is open-source and is maintained by the LoRa Alliance. LoRaWan helps determine the nodes lifetimes, network capacity, quality of service, security, and applications served by the network. [from *[A technical overview of LoRa® and LoRaWAN](https://lora-alliance.org/sites/default/files/2018-04/what-is-lorawan.pdf)* by the LoRa Alliance].
 
-|[LoRaWan layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/lora_lora_wan_layers.jpg)|
+| ![LoRaWan layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/sensor_node_ttn/lora_lora_wan_layers.jpg) |
+|:--:|
 |*Image by the LoRa Alliace. [[Source]](https://lora-alliance.org/sites/default/files/2018-04/what-is-lorawan.pdf)*|
 
 #### 4 Time-of-Flight (ToF) Sensors
