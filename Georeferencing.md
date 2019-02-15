@@ -7,7 +7,7 @@ We need to find out bin location as pointed in the map provided to us. We need t
 **How to do georeferencing?** \
 Raster image to be georeferenced: -
 
-https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_node_ttn/Map_Moers.png
+![Georeferencing image](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/sensor_node_ttn/Map_Moers.png)
 
 **Start Georeferencing: -**
 
