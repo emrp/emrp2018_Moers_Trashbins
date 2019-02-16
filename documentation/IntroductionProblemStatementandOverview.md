@@ -38,7 +38,7 @@ Initiation of the project with a selection of the appropriate sensor. Among the 
 
 ![alt text][logo]
 
-[logo]: /pictures/introduction/system_overview.png "Overview"
+[logo]: /pictures/introduction/system_overview.jpg "Overview"
   
   
 
