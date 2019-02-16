@@ -6,18 +6,18 @@ In this project, we are using this Geoserver to visualize the bins that are loca
 
  1. Adding *Geospatial data* in the *PostgreSQL database* using *QGIS*
       - Establishment of connection, *QGIS* with *PostgreSQL*
-        - Launch *QGIS*
-        - Add the *shapefile* in *QGIS* that needs to be stored in *PostgreSQL*
-          - Layer->Add layer->Add raster layer
-        - Add PostGIS layer
-          - Layer->Add layer->Add PostgreSQL layers![Data Source Manager](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/Screen%20Shot%202019-02-12%20at%208.39.28%20PM.png)
-         - *Data Source Manager* | *PostgreSQL* window will open,  add connection to the *PostgreSQL*
+        	- Launch *QGIS*
+         	- Add the *shapefile* in *QGIS* that needs to be stored in *PostgreSQL*
+          		- Layer->Add layer->Add raster layer
+         	- Add PostGIS layer
+         	 	- Layer->Add layer->Add PostgreSQL layers![Data Source Manager](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/Screen%20Shot%202019-02-12%20at%208.39.28%20PM.png)
+       - *Data Source Manager* | *PostgreSQL* window will open,  add connection to the *PostgreSQL*
 	         - Click on *New* then that will prompt *create a New PostgreSQL Connection window*  
 	         - And then provide connection information like *Name, Host, Port, Database and SSL mode*![Create a New PostgreSQL Connection](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/Screen%20Shot%202019-02-12%20at%208.43.40%20PM.png)
 	         - Enter the credential of *PostgreSQL* database![Enter Credential](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/Screen%20Shot%202019-02-12%20at%208.44.03%20PM.png)
 	         - After that *Connection Successful* message will popup
 	        
-          - Transfering data from *QGIS* to *PostgresSQL*
+        - Transfering data from *QGIS* to *PostgresSQL*
             - Open *DB Manager* in *QGIS*
               - Locate *Database->DB Manager*
             - On the right panel, locate *PostgreSQL* and expand it 
