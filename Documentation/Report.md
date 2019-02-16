@@ -284,6 +284,10 @@ except (Exception, psycopg2.Error) as error :
 
   
     6. Result and Discussion
+<img src = "/Images/command.png">
+    Fig : Result in Terminal to ensure the connection to TTN and  show which tables are affected 
+    
+     
 <img src = "/Images/sensordata.png">
            
                 Fig : Result after feeding data to database using the given code(psycopg2)
