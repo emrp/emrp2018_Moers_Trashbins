@@ -19,7 +19,7 @@ Using distance matrix to find minimum distance and shortest path algorithm to fi
 
 
 ![Image description](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/ashikul/Screenshot%20(15).png)
-Fig. minimum distance from a coordinate point to other points
+            Figure 1: minimum distance from a coordinate point to other points
 
 ![Image description](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/ashikul/Screenshot%20(17).png)
-Fig. finding shortest path and time using shortest path algorithm
+            Figure 2: finding shortest path and time using shortest path algorithm
