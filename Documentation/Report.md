@@ -2,7 +2,9 @@
 
 This report is one of the parts of the complete project named as “Moers Trash Bins Using LoRaWAN”. Each student working on this project has their own share of contribution so as mine. In simple terms I was assigned to extract data from thethingsnetwork.org platform (The Things Network is web platform enabling low power Devices to use long range Gateways to connect to an open-source, decentralized Network to exchange data with Applications.) to our local computer and then feed to our database which is a postgres database. The data in thethingsnetwork.org is being sent from our sensors(eg.Distance measuring sensor). Being from software background I was lacking the idea about integrating software and hardwares so our professor Becker gave us the idea of using a very useful messaging protocol called  MQTT for the data extraction. Similarly, I came up with an idea to use psycopg2 for feeding data to our database. The remaining part of this report is all about MQTT and how I was able to implement it.  All the codes are written in python programming language and due to which we were able to use libraries for like mqtt and psycopg2.
 
-![Images](simple flow of work.pgng)
+![Simple Flow of Work](Images/simple flow of work.png)
+Format: ![Alt Text](url)
+
 Fig : Simple flow of work with mqtt and psycopg2 highlighted
 1.1 What is MQTT?
 MQTT (Message Queuing Telemetry Transport) is a publish/subscribe messaging protocol designed keeping in mind the purpose of  small devices. Publish/Subscribe systems work like a message bus. We send a message to a topic, and any software with a subscription for that topic gets a copy of our message. As a sender, we never really know who is listening; you just provide our information to a set of topics and listen for any other topics we might care about. It's like walking into a party and listening for interesting conversations to join (Dague, 2018).
