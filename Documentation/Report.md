@@ -314,7 +314,7 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
 <img src = "/Images/sensordata.png">
            
                 Fig : Result after feeding data to database using the given code(psycopg2)
-This image shows the last result after feeding data successfully into postgres database table. Every table is populated according to the need of the column taking in mind the constratints and datatype
+This image shows the last result after feeding data successfully into postgres database table. Every table is populated according to the need of the column by taking care of all the constratints and datatype
 
 
 
