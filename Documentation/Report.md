@@ -85,8 +85,8 @@ than is needed, or desirable, for constrained devices with limited computational
 - HTTP does not require any libraries by itself, but additional libraries of parsers for JSON or XML are required if using SOAP- or RESTful-style web services.
 
  Data distribution
-– MQTT includes a built-in distribution mechanism, supporting the 1 to 0, 1 to 1, and 1 to many distribution models.
-– HTTP is point-to-point and has no built-in distribution feature. Developers must create their own distribution mechanism or adapt common techniques, such as long-polling.
+- MQTT includes a built-in distribution mechanism, supporting the 1 to 0, 1 to 1, and 1 to many distribution models.
+- HTTP is point-to-point and has no built-in distribution feature. Developers must create their own distribution mechanism or adapt common techniques, such as long-polling.
 
 
 
