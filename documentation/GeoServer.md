@@ -92,7 +92,7 @@ http://localhost:8080/geoserver
 
 It is the default installation of the server. It will direct you to a default geoserver page. When the web application starts, there will be a display page which looks like this: 
 
-<img src = "/Images/GeoServerImages/Geoserver_welcome.png">
+<img src = "/Images/GeoServerImages/Geoserver_localhost.png">
 
 1. For the LOGGING IN.  Default administration credentiaons are:
 
@@ -104,18 +104,18 @@ Note : There can be changed in the security departmnet which can be found in htt
 2. After giving the username and password there will be another webpage. There will be list of options in the left side. 
 
 
-<img src = "/Images/GeoServerImages/Geoserver_welcomeafterlogin..png">
+<img src = "/Images/GeoServerImages/Geoserver_welcomeafterlogin.png">
 
 
 3. Layer Preview : There is option called layer preview in the left side of the interface. Layer Preview gives the option to view the output of the published layers. There will be the list of the default layers in the Layer Preview option.
 
 
-
+<img src = "/Images/GeoServerImages/Geoserver_layerslist.pg">
 
 As you can from the figure above there are Title named “World Rectangle”, “Manhattan (NY) Roads”, “North America Sample Imagery” and others. If I click on the OpenLayers option which is in the Common Formats column. It will open a layer on the another tab quickly showing the layer it contains. For example, If I click on the North America Sample Imagery then it will show the map like this: 
 
 
-<img src = "/Images/GeoServerImages/Geoserver_layers_image.png">
+<img src = "/Images/GeoServerImages/Layers_image.png">
 
 
 
@@ -136,7 +136,7 @@ Basic overview of the previos work:
 - After adding the csv file we need to convert it into the shape file for that we have to install the plugin call “Point Sampling Tool” (which may not be in the QGIS plugin sections so we have to download it seperately. This plugin can be found here: https://plugins.qgis.org/plugins/pointsamplingtool/ . After that in Manage and Install plugins sections in the Plugin option. We can install zip file directly from our coumputer. 
 
 Here you can see the option Install from ZIP. Click that and upload the zip file we have just downloaded and tick mark that plugin. 
-<img src = "/Images/GeoServerImages/Geoserver_QGIS_Plugins.png">
+<img src = "/Images/GeoServerImages/QGIS_Plugins.png">
 
 
 - Using that plugin we can convert our csv file into the shape file. As a result we have got the shape file. This shape file we will use in the geoserver. This shape file contains the longitude and the latitude of the dustbins in the city moers.
