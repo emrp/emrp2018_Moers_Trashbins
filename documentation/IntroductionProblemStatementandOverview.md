@@ -1,4 +1,4 @@
-****Introduction****
+****1. Introduction****
 
 Waste is one of the burden issues throughout the world which consequently impacts the environment and to some extent also poses an adverse effect on human health. Waste management is a challenging task to carry out which consists of collection, transport, treatment, and proper disposal and these tasks are followed one after the other in a structural manner for the proper waste management.
 
@@ -12,7 +12,7 @@ With the integration with [ ENNI ](https://www.enni.de/), who takes responsibili
 
   
   
-****Problem Statement****
+****1.1 Problem Statement****
 
   
 
@@ -22,7 +22,7 @@ On regarding of collection of waste, quite difficult to identify the waste bins 
   
   
 
-****Overview****
+****1.2 Overview****
 
   
 
