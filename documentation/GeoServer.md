@@ -262,7 +262,7 @@ Our shape file has been created, edited and ready to be view. We have just loade
 - Another tab will open which will show all the longitude and latitude values. There are zoom in and zoom out options in order to look more closely. The figure is displayed below. We have just selected the shape file and made changes in the geoserver.
 
 
-<img src = "/Images/GeoServerImages/sapefile_image.png">
+<img src = "/Images/GeoServerImages/shapefile_image.png">
 
  
 ADDING A WEB MAP SERVINCE (WMS)
@@ -285,7 +285,7 @@ For creating a new layer we can use wms. Steps for adding layers are:
 
 Note: You can even find this link here: https://www.mundialis.de/en/ows-mundialis/
 
-<img src = "/Images/GeoServerImages/mudialis.png">
+<img src = "/Images/GeoServerImages/mundialis.png">
 
 Once we have added the layer the job here now is to merge the two parts. The shape file and the wms layer inorder to give us the results what are are looking for. 
 
