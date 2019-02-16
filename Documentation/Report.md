@@ -150,6 +150,7 @@ Here the additional parameter "–m" is followed by the message we want to publi
     
 The code written for this project is simple yet powerful enough to grab the topic message and manipulate them and finally insert into our postgres database.
 4.1 mqtt paho
+```python
 
     #importing library paho.mqtt.client
     import paho.mqtt.client as mqtt
@@ -157,11 +158,15 @@ The code written for this project is simple yet powerful enough to grab the topi
     #creating object of mqtt client
     mqttc= mqtt.Client()
 
+```
 - Assign event callbacks
+```python
 
         mqttc.on_connect=on_connect
         mqttc.on_message=on_message
-        
+
+```
+
 Callbacks are functions that are called in response to an event.The events and callbacks for the Paho MQTT client are as follows:
 
 - Event Connection acknowledged Triggers the on_connect callback
@@ -172,15 +177,17 @@ Callbacks are functions that are called in response to an event.The events and c
 - Event Message Received Triggers the on_message callback
 - Event Log information available Triggers the on_log callback
 
+```python
+
         #these values can be obtained after adding devices to an application in TTN console section of thethingsnetwork.org
         APPEUI = "70B3D57ED00146CC"
         APPID  = "emrp2018"
         #due to security reasons i have not put the password here. you can copy paste from ttn
         PSW    = 'ttn-account********************************************'
 
+```
 
-
-
+```
         # listen to server in a loop
         run = True
         while run:
@@ -194,13 +201,16 @@ Callbacks are functions that are called in response to an event.The events and c
             print("Connected with result code:"+str(rc)) 
             # subscribe for all devices of user
             mqttc.subscribe('+/devices/+/up')
+```
 
 Output:
 
     Connected with result code:0
 
 This means the connection is established to the server. Similarly 2 means unauthorized access.  
-   ``` 
+
+```python
+
     #callback function
     # when the message arrives
     def on_message(mqttc,obj,msg):
@@ -214,6 +224,7 @@ This means the connection is established to the server. Similarly 2 means unauth
             #Extraction of all these values from the original message as they all are dictionary data type
             payload_raw = (x["payload_raw"])   
             port_number = (x["port"])
+
 ```
 
 The simple output of the message from thethingsnetwork which is stored in variable ‘x’ will be:
@@ -221,7 +232,9 @@ The simple output of the message from thethingsnetwork which is stored in variab
     {'app_id': 'emrp2018', 'metadata': {'modulation': 'LORA', 'frequency': 868.5, 'coding_rate': '4/5', 'airtime': 56576000, 'data_rate': 'SF7BW125', 'time': '2019-02-13T00:10:01.743984477Z', 'gateways': [{'latitude': 51.500282, 'channel': 2, 'rf_chain': 1, 'gtw_id': 'eui-b827ebfffe21faed', 'timestamp': 3155085291, 'longitude': 6.5457115, 'rssi': -112, 'snr': 3.5, 'time': '2019-02-13T00:10:01.721735Z', 'location_source': 'registry'}]}, 'payload_raw': 'AWcA+gFoeA==', 'port': 1, 'counter': 491, 'payload_fields': {'temperature_1': 25, 'relative_humidity_1': 60}, 'hardware_serial': '00726FD9E8775924', 'dev_id': 'emrp2018dev004'}.
 
 Here , the main data which we measured is in payload_filed : 'payload_fields': {'temperature_1': 25, 'relative_humidity_1': 60},
-                        
+
+```python
+
         #this payload_fileds contain the main data which we are measuring . For example distance, temperature
         payload_fields = x["payload_fields"]
         
@@ -243,11 +256,13 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
      except Exception as e:
           print(e)
 
-
+```
    
 
 4.2 psycopg2
-            
+ 
+ ```python
+
     #this is the code to establish connection with our database and insert our data .
             try:
               # i have not used password here due to security reasons. you know what password is ;)
@@ -284,18 +299,20 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
                     print("PostgreSQL connection is closed")
 
 
-
+```
   
-    6. Result and Discussion
+    6. Result Images
     
 <img src = "/Images/command.png">
-    Fig : Result in Terminal to ensure the connection to TTN and  show which tables are affected 
-    
+
+                Fig : Result in Terminal to ensure the connection to TTN and  show which tables are affected 
+  
+  Just to insure that the tables are populated and which table is populated , our the python code is designed with this feature. In case of any error/exceptions it will give an error message so it is easier for us to track the error.
      
 <img src = "/Images/sensordata.png">
            
                 Fig : Result after feeding data to database using the given code(psycopg2)
-
+This image shows the last result after feeding data successfully into postgres database table.
 
 
 
