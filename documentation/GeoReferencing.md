@@ -1,4 +1,4 @@
-What is Georeferencing in QGIS ? 
+### What is Georeferencing in QGIS ? 
 
 
 Georeferencing is process of providing real world coordinates and values to each and every pixel in raster data. Georeferencing is mainly used in collecting the longitude and latitude coordinates of the raster data. We have to give the fixed location and by the help of  georeferencing we can get the fixed latitude and longitude value of the desired location. It is mainly used in field map survery where we need GPS value of certain location. While doing georeferencing a special care should be taken while selecting points in the map so that we can achieve high accuracy in georeferencing and produce a high accurate map with accurate coordinates. 
@@ -11,7 +11,7 @@ Overview of the project:: In this project we are doing the georeferencing in cer
 
 We will use the map of moers for this project. This map has been provided to us by Moers city center department’s people. 
 
-Steps for georeferencing
+### Steps for georeferencing
 
 1. First thing first for using the georeferencing we need to install the “Georeferencer GDAL” plugin. This is a core plugin, which is already installed in your QGIS you just need to enable this plugin in order to use it. To enable this plugin go to Plugins>Manage and Install plugins. You will see the list of the plugins in ALL section then search for georeferencer GDAL plugin. Tick mark that plugin and this will enable the plugin.
 
