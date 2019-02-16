@@ -7,6 +7,7 @@ This report is one of the parts of the complete project named as “Moers Trash 
                      Fig : Simple flow of work with mqtt and psycopg2 highlighted
 
 1.1 What is MQTT?
+
 MQTT (Message Queuing Telemetry Transport) is a publish/subscribe messaging protocol designed keeping in mind the purpose of  small devices. Publish/Subscribe systems work like a message bus. We send a message to a topic, and any software with a subscription for that topic gets a copy of our message. As a sender, we never really know who is listening; you just provide our information to a set of topics and listen for any other topics we might care about. It's like walking into a party and listening for interesting conversations to join (Dague, 2018).
 “MQTT stands for MQ Telemetry Transport. It is a publish/subscribe, extremely simple and lightweight messaging protocol, designed for constrained devices and low-bandwidth, high-latency or unreliable networks. The design principles are to minimize network bandwidth and device resource requirements whilst also attempting to ensure reliability and some degree of assurance of delivery. These principles also turn out to make the protocol ideal of the emerging “machine-to-machine” (M2M) or “Internet of Things” world of connected devices, and for mobile applications where bandwidth and battery power are at a premium” (Mqtt.org).
 There are several implementations of MQTT. Some of them are Mosquitto, mqtt paho,JoramMQ. For this project , paho MQTT is been used but i have describe Mosquitto implementation as well. 
@@ -43,77 +44,65 @@ According to Lampkin et al., 2012, MQTT is design includes the following underly
 - Agnostic regarding data types: The protocol does not require that the content of messages be in any particular format.
 
 
-
-
 2.1 MQTT vs HTTP
-According to Lampkin et al., 2012, although comparison is often made between MQTT and other common protocols, the most useful comparison is with HTTP, for the following reasons:
- - HTTP is the most widely used and available protocol. Almost all computing devices with a
-TCP/IP stack have it. In addition, because HTTP and MQTT are both based on TCP/IP,
-developers need to choose between them.
- - The HTTP protocol uses a request/response model, which is currently the most common
-message exchange protocol. MQTT uses a publish/subscribe pattern. Developers need to
-understand the relative advantages of each type of model
 
-Here is a fuller explanation of the critical differences between the MQTT and HTTP protocols
-for devices:
- Design orientation
-– MQTT is data-centric. It transfers data content as byte array. It does not care about
-content.
-– HTTP is document-centric. It supports the MIME standard to define content type, but
-constrained devices usually do not need this advanced feature.
+According to Lampkin et al., 2012, although comparison is often made between MQTT and other common protocols, the most useful comparison is with HTTP, for the following reasons:
+
+ - HTTP is the most widely used and available protocol. Almost all computing devices with a TCP/IP stack have it. In addition, because HTTP and MQTT are both based on TCP/IP, developers need to choose between them.
+ 
+ - The HTTP protocol uses a request/response model, which is currently the most common message exchange protocol. MQTT uses a publish/subscribe pattern. Developers need to understand the relative advantages of each type of model
+
+Here is a fuller explanation of the critical differences between the MQTT and HTTP protocols for devices:
+  Design orientation
+– MQTT is data-centric. It transfers data content as byte array. It does not care about content.
+
+– HTTP is document-centric. It supports the MIME standard to define content type, but constrained devices usually do not need this advanced feature.
+
  Messaging pattern
-– MQTT uses a publish/subscribe messaging pattern that has loose coupling. Clients do
-not need to be aware of the existence of other devices. They just need to care about
-the content to be delivered or received.
-– HTTP uses a request/response messaging model. It is a basic and powerful
-messaging exchange pattern, but the client needs to know the address of all devices to
-which it connects.
+– MQTT uses a publish/subscribe messaging pattern that has loose coupling. Clients do not need to be aware of the existence of other devices. They just need to care about the content to be delivered or received.
+
+– HTTP uses a request/response messaging model. It is a basic and powerful messaging exchange pattern, but the client needs to know the address of all devices to which it connects.
+
  Complexity of protocol
-– The MQTT specification is short. It has few message types and only the CONNECT,
-PUBLISH, SUBSCRIBE, UNSUBSCRIBE, and DISCONNECT types are important for
-developers.
-– HTTP is a more complex protocol, with a specification that is more than 160 pages
-long. It uses many return codes and methods (such as POST, PUT, GET, DELETE,
-HEAD, TRACE, CONNECT, and so on). It works well for hypermedia information
-systems, but constrained devices typically do not need all of its features.
+– The MQTT specification is short. It has few message types and only the CONNECT, PUBLISH, SUBSCRIBE, UNSUBSCRIBE, and DISCONNECT types are important for developers.
+
+– HTTP is a more complex protocol, with a specification that is more than 160 pages long. It uses many return codes and methods (such as POST, PUT, GET, DELETE,HEAD, TRACE, CONNECT, and so on). It works well for hypermedia information systems, but constrained devices typically do not need all of its features.
+
  Message size
-– MQTT is designed specifically for constrained devices. It includes only the features that
-are necessary to support them. The message header in MQTT is short, and the
-smallest packet size for a message is 2 bytes.
-– HTTP uses a text format, not a binary format, which allows for lengthy headers and
-messages. The text format is readable by humans, which makes the HTTP protocol
-easy to troubleshoot and has contributed to its popularity. However, this format is more
-than is needed, or desirable, for constrained devices with limited computational
-resources in low-bandwidth network environments.
+– MQTT is designed specifically for constrained devices. It includes only the features that are necessary to support them. The message header in MQTT is short, and the smallest packet size for a message is 2 bytes.
+
+– HTTP uses a text format, not a binary format, which allows for lengthy headers and messages. The text format is readable by humans, which makes the HTTP protocol easy to troubleshoot and has contributed to its popularity. However, this format is more
+than is needed, or desirable, for constrained devices with limited computational resources in low-bandwidth network environments.
+ 
  Quality of Service levels
-– MQTT supports three QoS levels in message publication. Developers do not have to
-implement additional, complex features to ensure message delivery.
-– HTTP has no retry ability or QoS features. If developers need guaranteed message
-delivery, they have to implement it themselves.
+– MQTT supports three QoS levels in message publication. Developers do not have to implement additional, complex features to ensure message delivery.
+
+– HTTP has no retry ability or QoS features. If developers need guaranteed message delivery, they have to implement it themselves.
+
  Extra libraries
-– MQTT works well on devices with limited memory due, in part, to its small library
-requirement, only about 30 KB for the C client and 100 KB for the Java client.
-– HTTP does not require any libraries by itself, but additional libraries of parsers for
-JSON or XML are required if using SOAP- or RESTful-style web services.
+– MQTT works well on devices with limited memory due, in part, to its small library requirement, only about 30 KB for the C client and 100 KB for the Java client and similar to that for python.
+– HTTP does not require any libraries by itself, but additional libraries of parsers for JSON or XML are required if using SOAP- or RESTful-style web services.
+
  Data distribution
-– MQTT includes a built-in distribution mechanism, supporting the 1 to 0, 1 to 1, and 1 to
-many distribution models.
-– HTTP is point-to-point and has no built-in distribution feature. Developers must create
-their own distribution mechanism or adapt common techniques, such as long-polling or
-Comet.
+– MQTT includes a built-in distribution mechanism, supporting the 1 to 0, 1 to 1, and 1 to many distribution models.
+– HTTP is point-to-point and has no built-in distribution feature. Developers must create their own distribution mechanism or adapt common techniques, such as long-polling.
 
 
 
 
     3. MQTT paho  and psycopg2 Implementation
 The backend code is written in python(version 3.x) so it was easier to implement mqtt paho and psycopg2 library in python. All these codes are implemented in Linux OS . But mqtt paho and psycopg2 works well with other OS too. 
+
 3.1 Install mqtt paho and psycopg2
 The latest stable version of paho-mqtt is available in the Python Package Index (PyPi) and can be installed using:
+
 sudo pip install paho-mqtt
+
 For more information : https://www.eclipse.org/paho/clients/python/docs/
 Make sure you have pip install. For more information on that please follow the link : https://www.makeuseof.com/tag/install-pip-for-python/
 
 The latest version of psycopg2 can be installed using:
+
 sudo pip install psycopg2
 
 For more information : http://initd.org/psycopg/docs/install.html
@@ -121,10 +110,13 @@ For more information : http://initd.org/psycopg/docs/install.html
 Note : Depending upon the version of python and pip installed, you might need to replace pip with pip3 in case of error or no installation.
 
 3.2 Understanding mqtt with Mosquitto
+
 Mosquitto is a small, no-cost, open source implementation of an MQTT broker that supports the MQTT  protocol. Mosquitto replicates the functionality of Really Small Message Broker.
 
 Install the latest Mosquitto Broker available in Linux Terminal using :
+
  sudo apt-get install mosquitto
+ 
 The Mosquitto service will start after installation.
 
 Then Install MQTT clients using :
@@ -141,8 +133,7 @@ To Subscribe to topic "test" we need to enter the following code in one of the t
 
 mosquitto_sub -t "test"
 
-Mosquito_sub is a subscribe client . Here we are specifying "-t" followed by a topic name.
-To Publish a message to topic "test" enter the following code in another terminal:
+Mosquito_sub is a subscribe client . Here we are specifying "-t" followed by a topic name. To Publish a message to topic "test" enter the following code in another terminal:
 
 mosquitto_pub -m "message from mosquitto_pub client" -t "test"
 
@@ -154,6 +145,7 @@ Here the additional parameter "–m" is followed by the message we want to publi
 
    
     4. Understanding mqtt paho and psycopg2 code
+    
 The code written for this project is simple yet powerful enough to grab the topic message and manipulate them and finally insert into our postgres database.
 4.1 mqtt paho
 
@@ -163,7 +155,8 @@ import paho.mqtt.client as mqtt
 #creating object of mqtt client
 mqttc= mqtt.Client()
 
-# Assign event callbacks
+- Assign event callbacks
+
 mqttc.on_connect=on_connect
 mqttc.on_message=on_message
 Callbacks are functions that are called in response to an event.
@@ -176,7 +169,7 @@ Event Publish acknowledged Triggers the on_publish callback
 Event Message Received Triggers the on_message callback
 Event Log information available Triggers the on_log callback
 
-# these values can be obtained after adding devices to an application in TTN console section of thethingsnetwork.org
+- these values can be obtained after adding devices to an application in TTN console section of thethingsnetwork.org
 APPEUI = "70B3D57ED00146CC"
 APPID  = "emrp2018"
 #due to security reasons i have not put the password here. you can copy paste from ttn
@@ -238,7 +231,7 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
             timestamp = gw['timestamp']
             channel = gw['channel']
 
-# Exception if any error occurs during the process
+- Exception if any error occurs during the process
  except Exception as e:
       print(e)
 
@@ -303,9 +296,10 @@ except (Exception, psycopg2.Error) as error :
 
 
 
-Reference
+# References
 
 
 Dague, S. (2018). Using MQTT to send and receive data for your next project. [online] Opensource.com. Available at: https://opensource.com/article/18/6/mqtt?fbclid=IwAR3CiznOiazYjaqzygYU5_U2aFdglxP54g0zV9nlq16YA19K6Ed9EGGeXcs [Accessed 11 Feb. 2019].
+
 Mqtt.org. FAQ - Frequently Asked Questions | MQTT. [online] Available at: http://mqtt.org/faq [Accessed 11 Feb. 2019].
 Lampkin, V., Leong, W., Olivera, L., Rawat, S., Subrahmanyam, N. and 7Xiang, R. (2012). Building Smarter Planet solutions with MQTT and IBM WebSphere MQ Telemetry. 1st ed. [S.l.]: IBM, pp.7-8.
