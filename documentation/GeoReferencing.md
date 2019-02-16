@@ -93,7 +93,7 @@ After that you can match the image file we have with the map of moers in the QGI
 
 
 
-<img src = "/Images/GeoReferencingImages/ 	Georeferencer_coordinates.png">
+<img src = "/Images/GeoReferencingImages/Georeferencer_coordinates.png">
 
 
 12.  You can find that GCP table now will have a row with details about location.
