@@ -116,8 +116,10 @@ The `Id` column of each table is usually marked as the `primary key`. To randoml
 
 ```SQL
 
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE2MDQzNzY3NCw4OTQ3MTM2OTMsLTQ0Mz
-EwMTEyMCwtNzkyODg5OTYzLC02MDU3NzQ3NjcsLTQwMTAzNzc0
-MiwtMjQwNDI4OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbNTIyNjkzNDY0LDExNjA0Mzc2NzQsODk0Nz
+EzNjkzLC00NDMxMDExMjAsLTc5Mjg4OTk2MywtNjA1Nzc0NzY3
+LC00MDEwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NT
+c0NjY2XX0=
 -->
