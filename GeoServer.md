@@ -87,7 +87,7 @@ In order to have the shapefile above the base map and to see the location of bin
 		  - Save the *layer*, *New layer group* will be listed in the list of layer groups
 		  - Click on *layer preview* and select the *layer* just create which looks like this![layer combine map](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/layer%20combine%20map.png)
  7. Styling
-Data is visualized in geoserver. Now to  play with the style for the appearance of geospatial data. There are different formats for styling
+Data is visualized in Geoserver. Now to  play with the style for the appearance of geospatial data. There are different formats for styling
 	 - *Styled Layer Descriptor(SLD)*: *Default styling* for geospatial styling and *OGC standard*
 	 - *Cascading Style Sheet(CSS): CSS- syntax*
 	 - *YSLD*: *SLD-equivalent based on YAML* for improved authority
