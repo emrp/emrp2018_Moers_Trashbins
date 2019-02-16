@@ -1,4 +1,4 @@
-    ## 1. Introduction
+   ## 1. Introduction
 
 This report is one of the parts of the complete project named as “Moers Trash Bins Using LoRaWAN”. Each student working on this project has their own share of contribution so as mine. In simple terms I was assigned to extract data from thethingsnetwork.org platform (The Things Network is web platform enabling low power Devices to use long range Gateways to connect to an open-source, decentralized Network to exchange data with Applications.) to our local computer and then feed to our database which is a postgres database. The data in thethingsnetwork.org is being sent from our sensors(eg.Distance measuring sensor). Being from software background I was lacking the idea about integrating software and hardwares so our professor Becker gave us the idea of using a very useful messaging protocol called  MQTT for the data extraction. Similarly, I came up with an idea to use psycopg2 for feeding data to our database. The remaining part of this report is all about MQTT and how I was able to implement it.  All the codes are written in python programming language and due to which we were able to use libraries for like mqtt and psycopg2.
 
@@ -6,7 +6,7 @@ This report is one of the parts of the complete project named as “Moers Trash 
 
                      Fig : Simple flow of work with mqtt and psycopg2 highlighted
 
-1.1 What is MQTT?
+#### 1.1 What is MQTT?
 
 MQTT (Message Queuing Telemetry Transport) is a publish/subscribe messaging protocol designed keeping in mind the purpose of  small devices. Publish/Subscribe systems work like a message bus. We send a message to a topic, and any software with a subscription for that topic gets a copy of our message. As a sender, we never really know who is listening; you just provide our information to a set of topics and listen for any other topics we might care about. It's like walking into a party and listening for interesting conversations to join (Dague, 2018).
 
@@ -15,15 +15,15 @@ There are several implementations of MQTT. Some of them are Mosquitto, mqtt paho
 <img src = "/Images/mqtt.png">
 
                      Fig: Basic Flow of MQTT function
-1.1.1 What is MQTT paho ?
+##### 1.1.1 What is MQTT paho ?
 
 Paho is a MQTT implementation which is available for different programming languages including python. The backend of this project is based on python so the paho mqtt library for python is used. An MQTT client (also called a client application) collects information from a telemetry device,connects to a messaging server, and uses a topic string to publish the information in a way that allows other clients or applications to retrieve it. An MQTT client also can subscribe to topics, receive publications associated with those topics, and issue commands to control the telemetry device. It is available for different programming languages like C, C#, Java, Python, JavaScript.
 
-1.2  What is psycopg2 ?
+#### 1.2  What is psycopg2 ?
 
 Psycopg is the most popular PostgreSQL database adapter for the Python programming language. psycopg2 is basically a library which can be used in python code to communicate with postgres database. In this project, psycopg2 plays an important role of feeding all the data from thethingsnetwork.org to our postgres database.
 
-    2. Why we needed MQTT ?
+   ## 2. Why we needed MQTT ?
 
 Our project required a protocol which can be used to extract data from platforms like thethingsnetwork.org where we are sending our sensor data directly from the sensors. MQTT enables us to extract data from thethingsnetwork conveniently and efficiently.
 According to Lampkin et al., 2012, MQTT is design includes the following underlying principles:
@@ -45,7 +45,7 @@ According to Lampkin et al., 2012, MQTT is design includes the following underly
 - Agnostic regarding data types: The protocol does not require that the content of messages be in any particular format.
 
 
-2.1 MQTT vs HTTP
+#### 2.1 MQTT vs HTTP
 
 According to Lampkin et al., 2012, although comparison is often made between MQTT and other common protocols, the most useful comparison is with HTTP, for the following reasons:
 
@@ -91,11 +91,11 @@ than is needed, or desirable, for constrained devices with limited computational
 
 
 
-    3. MQTT paho  and psycopg2 Implementation
+   ## 3. MQTT paho  and psycopg2 Implementation
     
 The backend code is written in python(version 3.x) so it was easier to implement mqtt paho and psycopg2 library in python. All these codes are implemented in Linux OS . But mqtt paho and psycopg2 works well with other OS too. 
 
-3.1 Install mqtt paho and psycopg2
+#### 3.1 Install mqtt paho and psycopg2
 
 The latest stable version of paho-mqtt is available in the Python Package Index (PyPi) and can be installed using:
 
@@ -112,7 +112,7 @@ For more information : http://initd.org/psycopg/docs/install.html
 
 Note : Depending upon the version of python and pip installed, you might need to replace pip with pip3 in case of error or no installation.
 
-3.2 Understanding mqtt with Mosquitto
+#### 3.2 Understanding mqtt with Mosquitto
 
 Mosquitto is a small, no-cost, open source implementation of an MQTT broker that supports the MQTT  protocol. Mosquitto replicates the functionality of Really Small Message Broker.
 
@@ -147,10 +147,11 @@ Here the additional parameter "–m" is followed by the message we want to publi
    <br>
 
    
-    4. Understanding mqtt paho and psycopg2 code
+   ## 4. Understanding mqtt paho and psycopg2 code
     
 The code written for this project is simple yet powerful enough to grab the topic message and manipulate them and finally insert into our postgres database.
-4.1 mqtt paho
+
+#### 4.1 mqtt paho
 ```python
 
     #importing library paho.mqtt.client
@@ -260,7 +261,7 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
 ```
    
 
-4.2 psycopg2
+#### 4.2 psycopg2
  
  ```python
 
@@ -302,7 +303,7 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
 
 ```
   
-    6. Result Images
+   ## 5. Result Images
     
 <img src = "/Images/command.png">
 
@@ -313,11 +314,11 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
 <img src = "/Images/sensordata.png">
            
                 Fig : Result after feeding data to database using the given code(psycopg2)
-This image shows the last result after feeding data successfully into postgres database table.
+This image shows the last result after feeding data successfully into postgres database table. Every table is populated according to the need of the column taking in mind the constratints and datatype
 
 
 
-# References
+## References
 
 
 Dague, S. (2018). Using MQTT to send and receive data for your next project. [online] Opensource.com. Available at: https://opensource.com/article/18/6/mqtt?fbclid=IwAR3CiznOiazYjaqzygYU5_U2aFdglxP54g0zV9nlq16YA19K6Ed9EGGeXcs [Accessed 11 Feb. 2019].
