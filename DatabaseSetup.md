@@ -1,3 +1,13 @@
+- [1. Database Model](#1-database-model)
+  * [1.1  Conceptual Model](#11--conceptual-model)
+  * [1.2 Setting up the database environment](#12-setting-up-the-database-environment)
+    + [1.2.1 Connect to the server](#121-connect-to-the-server)
+    + [1.2.2 Create database schema](#122-create-database-schema)
+    + [1.2.3 Class Diagram](#123-class-diagram)
+    + [1.2.4 Alter column datatype](#124-alter-column-datatype)
+  * [1.3 Master Data](#13-master-data)
+    + [1.3.1 Insert Scripts](#131-insert-scripts)
+  * [1.4 Primary key generation](#14-primary-key-generation)
 
 # 1. Database Model
 
@@ -107,7 +117,7 @@ The `Id` column of each table is usually marked as the `primary key`. To randoml
 ```SQL
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbODk0NzEzNjkzLC00NDMxMDExMjAsLTc5Mj
-g4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2
-Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
+eyJoaXN0b3J5IjpbMTE2MDQzNzY3NCw4OTQ3MTM2OTMsLTQ0Mz
+EwMTEyMCwtNzkyODg5OTYzLC02MDU3NzQ3NjcsLTQwMTAzNzc0
+MiwtMjQwNDI4OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZdfQ==
 -->
