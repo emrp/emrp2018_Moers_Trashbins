@@ -77,7 +77,7 @@ In this project, we are using this Geoserver to visualize the bins that are loca
 	 - New Layer addition tab will open and Select *TOPO-OSM-WMS* and click *publish*
 	 - This layer will be added in the *layer list* and  preview to see how it looks![Layer list for newly added layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/layer%20list.png)
 
-	**Combining two layers, *shape file layer* and *WMS* layer**
+	**Combining two layers, *shape file layer* and *WMS* layer** \
 	In order to have the shapefile above the base map and to see the location of bins in the map we need to combine the layers
 	1. Navigate  *Data>Layer Groups*
 	2. Click on *Add new layer group*
@@ -90,7 +90,7 @@ In this project, we are using this Geoserver to visualize the bins that are loca
 		  - Save the *layer*, *New layer group* will be listed in the list of layer groups
 		  - Click on *layer preview* and select the *layer* just create which looks like this![layer combine map](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/layer%20combine%20map.png)
 
-	**Styling**
+	**Styling** \
 	Data is visualized in Geoserver. Now to  play with the style for the appearance of geospatial data. There are different formats for styling
 	1. *Styled Layer Descriptor(SLD)*: *Default styling* for geospatial styling and *OGC standard*
 	2. *Cascading Style Sheet(CSS): CSS- syntax*
