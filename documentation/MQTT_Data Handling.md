@@ -2,7 +2,7 @@
 
 This report is one of the parts of the complete project named as “Moers Trash Bins Using LoRaWAN”. Each student working on this project has their own share of contribution so as mine. In simple terms I was assigned to extract data from thethingsnetwork.org platform (The Things Network is web platform enabling low power Devices to use long range Gateways to connect to an open-source, decentralized Network to exchange data with Applications.) to our local computer and then feed to our database which is a postgres database. The data in thethingsnetwork.org is being sent from our sensors(eg.Distance measuring sensor). Being from software background I was lacking the idea about integrating software and hardwares so our professor Becker gave us the idea of using a very useful messaging protocol called  MQTT for the data extraction. Similarly, I came up with an idea to use psycopg2 for feeding data to our database. The remaining part of this report is all about MQTT and how I was able to implement it.  All the codes are written in python programming language and due to which we were able to use libraries for like mqtt and psycopg2.
 
-<img src = "/Images/simple flow of work.png">
+<img src = "/pictures/ttn_mqtt_database/simple flow of work.png">
 
                      Fig : Simple flow of work with mqtt and psycopg2 highlighted
 
@@ -12,7 +12,7 @@ MQTT (Message Queuing Telemetry Transport) is a publish/subscribe messaging prot
 
 “MQTT stands for MQ Telemetry Transport. It is a publish/subscribe, extremely simple and lightweight messaging protocol, designed for constrained devices and low-bandwidth, high-latency or unreliable networks. The design principles are to minimize network bandwidth and device resource requirements whilst also attempting to ensure reliability and some degree of assurance of delivery. These principles also turn out to make the protocol ideal of the emerging “machine-to-machine” (M2M) or “Internet of Things” world of connected devices, and for mobile applications where bandwidth and battery power are at a premium” (Mqtt.org).
 There are several implementations of MQTT. Some of them are Mosquitto, mqtt paho,JoramMQ. For this project , paho MQTT is been used but i have describe Mosquitto implementation as well. 
-<img src = "/Images/mqtt.png">
+<img src = "/pictures/ttn_mqtt_database/mqtt.png">
 
                      Fig: Basic Flow of MQTT function
 ##### 1.1.1 What is MQTT paho ?
@@ -140,7 +140,7 @@ Mosquito_sub is a subscribe client . Here we are specifying "-t" followed by a t
 
 Here the additional parameter "–m" is followed by the message we want to publish. Hit "Enter" and we should see a message from mosquitto_pub client displayed in other terminal where mosquito_sub client is running.
 
-<img src = "/Images/mosquitto.png">
+<img src = "/pictures/ttn_mqtt_database/mosquitto.png">
 
                Fig: Mosquitto Implementation using two terminals 
                
@@ -305,13 +305,13 @@ Here , the main data which we measured is in payload_filed : 'payload_fields': {
   
    ## 5. Result Images
     
-<img src = "/Images/command.png">
+<img src = "/pictures/ttn_mqtt_database/command.png">
 
                 Fig : Result in Terminal to ensure the connection to TTN and  show which tables are affected 
   
   Just to insure that the tables are populated and which table is populated , our the python code is designed with this feature. In case of any error/exceptions it will give an error message so it is easier for us to track the error.
      
-<img src = "/Images/sensordata.png">
+<img src = "/pictures/ttn_mqtt_database/sensordata.png">
            
                 Fig : Result after feeding data to database using the given code(psycopg2)
 This image shows the last result after feeding data successfully into postgres database table. Every table is populated according to the need of the column by taking care of all the constratints and datatype
