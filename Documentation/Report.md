@@ -25,21 +25,22 @@ Psycopg is the most popular PostgreSQL database adapter for the Python programmi
 
 Our project required a protocol which can be used to extract data from platforms like thethingsnetwork.org where we are sending our sensor data directly from the sensors. MQTT enables us to extract data from thethingsnetwork conveniently and efficiently.
 According to Lampkin et al., 2012, MQTT is design includes the following underlying principles:
-Simplicity: The protocol was made open so that it can be integrated easily into other solutions.
 
-Use of a publish/subscribe model: The sender and the receiver are decoupled. Thus, publishers do not need to know who or what is subscribing to messages and vice versa.
+-Simplicity: The protocol was made open so that it can be integrated easily into other solutions.
 
-Minimal maintenance: Features, such as automated message storage and retransmission, minimize the need for on-the-fly administration.
+-Use of a publish/subscribe model: The sender and the receiver are decoupled. Thus, publishers do not need to know who or what is subscribing to messages and vice versa.
 
-Limited on-the-wire footprint: The protocol keeps data overhead to a minimum on every message.
+-Minimal maintenance: Features, such as automated message storage and retransmission, minimize the need for on-the-fly administration.
 
-Continuous session awareness: By being aware of when sessions have terminated, the protocol can take action accordingly, thanks in part to a will feature.
+-Limited on-the-wire footprint: The protocol keeps data overhead to a minimum on every message.
 
-Local message processing: The protocol assumes that remote devices have limited processing capabilities.
+-Continuous session awareness: By being aware of when sessions have terminated, the protocol can take action accordingly, thanks in part to a will feature.
 
-Message persistence: Through the designation of specific QoS, the publisher can ensure delivery of the most important messages(Higher QoS levels ensure more reliable message delivery but might consume more network bandwidth or subject the message to delays due to issues such as latency.).
+-Local message processing: The protocol assumes that remote devices have limited processing capabilities.
 
-Agnostic regarding data types: The protocol does not require that the content of messages be in any particular format.
+-Message persistence: Through the designation of specific QoS, the publisher can ensure delivery of the most important messages(Higher QoS levels ensure more reliable message delivery but might consume more network bandwidth or subject the message to delays due to issues such as latency.).
+
+-Agnostic regarding data types: The protocol does not require that the content of messages be in any particular format.
 
 
 
@@ -151,6 +152,7 @@ Here the additional parameter "–m" is followed by the message we want to publi
 
                Fig: Mosquitto Implementation using two terminals 
 
+   
     4. Understanding mqtt paho and psycopg2 code
 The code written for this project is simple yet powerful enough to grab the topic message and manipulate them and finally insert into our postgres database.
 4.1 mqtt paho
