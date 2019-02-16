@@ -110,7 +110,7 @@ Note : There can be changed in the security departmnet which can be found in htt
 3. Layer Preview : There is option called layer preview in the left side of the interface. Layer Preview gives the option to view the output of the published layers. There will be the list of the default layers in the Layer Preview option.
 
 
-<img src = "/Images/GeoServerImages/Geoserver_layerslist.pg">
+<img src = "/Images/GeoServerImages/layerslist.pg">
 
 As you can from the figure above there are Title named “World Rectangle”, “Manhattan (NY) Roads”, “North America Sample Imagery” and others. If I click on the OpenLayers option which is in the Common Formats column. It will open a layer on the another tab quickly showing the layer it contains. For example, If I click on the North America Sample Imagery then it will show the map like this: 
 
