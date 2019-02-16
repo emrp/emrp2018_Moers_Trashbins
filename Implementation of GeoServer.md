@@ -3,8 +3,9 @@
 **Geoserver**
 
 Geoserver, open source software server written in Java which allows us to edit, process and share geospatial data. It is designed for interoperability and publishes data from any major spatial data source using open standards. It is an Open Geospatial Consortium(OGC) compliant implimentation of a various open standard such as Web Feature Service(WFS), Web Map Service(WMS), and Web Coverage Service(WCS).
-In this project, we are using this Geoserver to visualize the bins that are located in different places and also indicate the status of bin. For performing visualization, we need to have spatial data in the database. For the spatial data, QGIS will be need for the extracting shape file and store that data in the PostgreSQL Database and  then proceed with Geoserver installed in our processor.
-** Adding *Geospatial data* in the *PostgreSQL database* using *QGIS* **
+In this project, we are using this Geoserver to visualize the bins that are located in different places and also indicate the status of bin. For performing visualization, we need to have spatial data in the database. For the spatial data, QGIS will be need for the extracting shape file and store that data in the PostgreSQL Database and  then proceed with Geoserver installed in our processor. 
+
+**Adding *Geospatial data* in the *PostgreSQL database* using *QGIS*** 
    1.  Establishment of connection, *QGIS* with *PostgreSQL*
         - Launch *QGIS*
          - Add the *shapefile* in *QGIS* that needs to be stored in *PostgreSQL*
@@ -28,9 +29,10 @@ In this project, we are using this Geoserver to visualize the bins that are loca
             - Now the shape locate in *PostgreSQL* and  previews as below![Shape file import in PostgreSQL](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/shapefile%20imported%20in%20postGIS.png)
             
         
- **Geoserver Installation** 
+ **Geoserver Installation**
 		- Follows the link for the [Installation of GeoServer](https://docs.geoserver.org/stable/en/user/installation/index.html#installation)
-**Start Visualization using GeoServer** 
+
+**Start Visualization using GeoServer**
 1. Launch *GeoServer* 
 2. For starting server, 
 		 - Click on *Server ->Start*
@@ -47,7 +49,8 @@ In this project, we are using this Geoserver to visualize the bins that are loca
 		 - Provide Name as an identifier for a any project![New Workspace Outline](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/new%20workspace.png)
 			 +  "*Where Name Not more than 10 characters and exclude blank space with that, and -   Namespace Uniform Resource Identifier(URI) can usually be any URI that is not necessary to resolve to an actual valid web address so we can give any URI that associate our project*"
 	 - Click on *submit*, and then new workspace will be added in the list of Workspace	 
-**Creating Store for the integration of data**
+
+	**Creating Store for the integration of data**
 	1. Navigate to *Data->Stores*
 	2. Click on *add new store*
 	3. In the Vector Data Source, there will be  *PostgreSQL – PostgreSQL Database*, click on it![Vector Data Source](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/New%20store.png)
@@ -65,7 +68,7 @@ In this project, we are using this Geoserver to visualize the bins that are loca
 		- Click on the newly created layer, in this case Location_shapefile, it looks like this![Layer of shape file](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/layer%20of%20shapefile.png)
 
 **Adding *web maping service (WMS)* as base map to see the above shape field location in map**
-5. Navigate *Data->Stores->Add New Store*
+1. Navigate *Data->Stores->Add New Store*
 6. From *Other Data Sources* select *WMS – Cascade a remote web map service*
 	- There are many web map servers, here we use web map service from Mundialis, because it is free and based on open access data also comply web map service specification of OGC
 	- Copy the service URL provided  -   [https://www.mundialis.de/en/ows-mundialis/](https://www.mundialis.de/en/ows-mundialis/)
@@ -74,34 +77,34 @@ In this project, we are using this Geoserver to visualize the bins that are loca
 	 - New Layer addition tab will open and Select *TOPO-OSM-WMS* and click *publish*
  3. This layer will be added in the *layer list* and  preview to see how it looks![Layer list for newly added layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/layer%20list.png)
 
-** Combining two layers, *shape file layer* and *WMS* layer** 
+	**Combining two layers, *shape file layer* and *WMS* layer**
 In order to have the shapefile above the base map and to see the location of bins in the map we need to combine the layers
-7. Navigate  *Data>Layer Groups*
-8. Click on *Add new layer group*
-9. Provide *Name*, *Title* and *Workspace* in the layer group as belows![Layer group](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/add%20layer%20group%20field.png)
-10. In  the *layer section*, click on *Add Layer*
-	 - Select base map, as *TOPO-OSM_WMS_emrp_project*, *It should be selected first* 
+	1. Navigate  *Data>Layer Groups*
+	2. Click on *Add new layer group*
+	3. Provide *Name*, *Title* and *Workspace* in the layer group as belows![Layer group](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/add%20layer%20group%20field.png)
+	4. In  the *layer section*, click on *Add Layer*
+		 - Select base map, as *TOPO-OSM_WMS_emrp_project*, *It should be selected first* 
 		 - Select Location *shapefile*![Layer group ](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/adding%20layer.png)
-		 - *Base map to select first because shapefile should be above the base map layer else shape points will be hidden by the base map*
+			 - *Base map to select first because shapefile should be above the base map layer else shape points will be hidden by the base map*
 		  - Click on *Generate Bounds* to generate coordinate in the Bounds box![Boudaries for two layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/added%20layer%20bound%20value.png)
-	  - Save the *layer*, *New layer group* will be listed in the list of layer groups
-	  - Click on *layer preview* and select the *layer* just create which looks like this![layer combine map](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/layer%20combine%20map.png)
+		  - Save the *layer*, *New layer group* will be listed in the list of layer groups
+		  - Click on *layer preview* and select the *layer* just create which looks like this![layer combine map](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/layer%20combine%20map.png)
 
-**Styling**
+	**Styling**
 Data is visualized in Geoserver. Now to  play with the style for the appearance of geospatial data. There are different formats for styling
-11. *Styled Layer Descriptor(SLD)*: *Default styling* for geospatial styling and *OGC standard*
-12. *Cascading Style Sheet(CSS): CSS- syntax*
-13. *YSLD*: *SLD-equivalent based on YAML* for improved authority
-14.  *MBStyle*: A syntax based on *JSON* for improved interoperability
+	1. *Styled Layer Descriptor(SLD)*: *Default styling* for geospatial styling and *OGC standard*
+	2. *Cascading Style Sheet(CSS): CSS- syntax*
+	3. *YSLD*: *SLD-equivalent based on YAML* for improved authority
+	4.  *MBStyle*: A syntax based on *JSON* for improved interoperability
 Now to show the unique ID of the BIN and its location styling been used.
-15. Click on *Data->styles*
-16. Click on *Add new style* for creating our own style
-17. Provide the *Name* and *Workspace*![Style page](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/style%20page.png)
+	9. Click on *Data->styles*
+	10. Click on *Add new style* for creating our own style
+	11. Provide the *Name* and *Workspace*![Style page](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/style%20page.png)
 		- *SLD* format is used for this project and selected *default style* and start editing those in our own way for simplicity
-18. Selected the  *point* and click on *generate*
-19. Then *XML code* will appear in the *Style Editor*![Style editor](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/style%20editor.png)
+	12. Selected the  *point* and click on *generate*
+	13. Then *XML code* will appear in the *Style Editor*![Style editor](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/style%20editor.png)
 		- We are trying to show the attribute like *Bin_ID* so we need to add our own rule to display the attribute value that we have from the *PostgreSQL database*
-20. Adding rule for display of *Bin_ID*![Style ID](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/style%20for%20id.png)
+	14. Adding rule for display of *Bin_ID*![Style ID](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/style%20for%20id.png)
 		- Created own rule where *Text Symbolizer* for Displaying text i.e. ID of Bin
 		- Label for displaying as a label for each point
 			- Label contains
@@ -113,12 +116,12 @@ Now to show the unique ID of the BIN and its location styling been used.
 		- Vendor Option function defines that label overlaps or no
 			- Positive value blocks overlapping
 			- Negative value shows all the labels even they overlap
-	- Also, able to  play with *point symbolizer* changing its shape and color also can use image if required
-	- *Validate* needed before saving
-	- click on *submit* for completion
+	11. Also, able to  play with *point symbolizer* changing its shape and color also can use image if required
+	12. *Validate* needed before saving
+	13. click on *submit* for completion
 
 
-** Applying User define style in the Visualization**
+ **Applying User define style in the Visualization**
 1. Click on *Data->Layer*
 2. Select the Layer that been created  the shapefile, here *Location_shapefile*
 3. Click on *Publishing* and select  style that been created previously![Point style](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/sty;e%20selection.png)
@@ -127,5 +130,5 @@ Now to show the unique ID of the BIN and its location styling been used.
 6. Click on Open layer of visualization_bin ![Labelling](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/labeling.png)
 
 **Visualization with label status could look like**![Labelling](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/status.png)
-	 - Blue shows not need to serviced
-	 - Red shows bin are full need to serviced 
+ - Blue shows not need to serviced
+ - Red shows bin are full need to serviced 
