@@ -1,10 +1,10 @@
 ****Introduction****
 
-Waste is one of the burden issues throughout the world and which consequently impact in the environment and to some extent that poses a adverse effect on human health. The management of waste is a challenging task to carry out which consists of collection, transport, treatment, and proper disposal and these task followed one after other on the structural manner for the proper waste management.
+Waste is one of the burden issues throughout the world which consequently impacts the environment and to some extent also poses an adverse effect on human health. Waste management is a challenging task to carry out which consists of collection, transport, treatment, and proper disposal and these tasks are followed one after the other in a structural manner for the proper waste management.
 
   
 
-In the near future, concept of the smart cities will intregrate with technology, that will have connectivity and communication to transmit data. Consequently which helps in the process of waste management such as optimising the routes that waste collector vehicles follow for waste collection and removal, together with automating operations with sensors on waste bins signalling that collection is needed when the bins are full. The data from the sensor can transmit information in real-time to a control information system which facilite with Internet of things. Then that redirect route for the collection to the driver and bins to empty. And along with traffic situations and estimated time for collection. After the bins are collected, then information of the waste types can be analysed to determine for the identification of the waste, for example, which bins need to redirect to recycling centres or to disposal centres. So, that will automate the overall process of waste management[1].
+In the near future, concept of the smart cities will integrate with technology, that will have connectivity and communication to transmit data. Consequently which helps in the process of waste management such as optimising the routes that waste collector vehicles follow for waste collection and removal, together with automating operations with sensors on waste bins signalling that collection is needed when the bins are full. The data from the sensor can transmit information in real-time to a control information system which facilite with Internet of things. Then that redirect route for the collection to the driver and bins to empty. And along with traffic situations and estimated time for collection. After the bins are collected, then information of the waste types can be analysed to determine for the identification of the waste, for example, which bins need to redirect to recycling centres or to disposal centres. So, that will automate the overall process of waste management[1].
 
   
 
@@ -12,9 +12,6 @@ With the integration with [ ENNI ](https://www.enni.de/), who takes responsibili
 
   
   
-  
-  
-
 ****Problem Statement****
 
   
@@ -25,7 +22,7 @@ On regarding of collection of waste, quite difficult to identify the waste bins 
   
   
 
-****Overviews****
+****Overview****
 
   
 
