@@ -113,7 +113,16 @@ The height of the trash bins in Moers is less than 1 meter which is well within 
 
 For a more detailed explanation of ToF sensors, refer to [this document](https://www.st.com/content/dam/technology-tour-2017/session-1_track-4_time-of-flight-technology.pdf) by *John Kvam* from STMicroelectronics.
 
+###3. Requirements Gathering
 
+###4. Methodology
+
+[4.1 Technology Overview](/documentation/technology_overview)
+[4.1 Sensor Node](/documentation/from_sensor_to_ttn)
+[4.2 MQTT](/documentation/MQTT_Data Handling)
+[4.3 Database](/documentation/DatabaseSetup)
+[4.5 Georeferencing](/documentation/Georeferencing)
+[4.6 Geoserver](/documentation/Geoserver)
 
 
 
