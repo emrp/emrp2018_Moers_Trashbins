@@ -4,7 +4,7 @@ This report is one of the parts of the complete project named as “Moers Trash 
 
 <img src = "/Images/simple flow of work.png">
 
-Fig : Simple flow of work with mqtt and psycopg2 highlighted
+                     Fig : Simple flow of work with mqtt and psycopg2 highlighted
 
 1.1 What is MQTT?
 MQTT (Message Queuing Telemetry Transport) is a publish/subscribe messaging protocol designed keeping in mind the purpose of  small devices. Publish/Subscribe systems work like a message bus. We send a message to a topic, and any software with a subscription for that topic gets a copy of our message. As a sender, we never really know who is listening; you just provide our information to a set of topics and listen for any other topics we might care about. It's like walking into a party and listening for interesting conversations to join (Dague, 2018).
@@ -12,7 +12,7 @@ MQTT (Message Queuing Telemetry Transport) is a publish/subscribe messaging prot
 There are several implementations of MQTT. Some of them are Mosquitto, mqtt paho,JoramMQ. For this project , paho MQTT is been used but i have describe Mosquitto implementation as well. 
 <img src = "/Images/mqtt.png">
 
-Fig: xyz
+                     Fig: Basic Flow of MQTT function
 1.1.1 What is MQTT paho ?
 
 Paho is a MQTT implementation which is available for different programming languages including python. The backend of this project is based on python so the paho mqtt library for python is used. An MQTT client (also called a client application) collects information from a telemetry device,connects to a messaging server, and uses a topic string to publish the information in a way that allows other clients or applications to retrieve it. An MQTT client also can subscribe to topics, receive publications associated with those topics, and issue commands to control the telemetry device. It is available for different programming languages like C, C#, Java, Python, JavaScript.
@@ -21,7 +21,7 @@ Paho is a MQTT implementation which is available for different programming langu
 
 Psycopg is the most popular PostgreSQL database adapter for the Python programming language. psycopg2 is basically a library which can be used in python code to communicate with postgres database. In this project, psycopg2 plays an important role of feeding all the data from thethingsnetwork.org to our postgres database.
 
-2. Why we needed MQTT ?
+    2. Why we needed MQTT ?
 
 Our project required a protocol which can be used to extract data from platforms like thethingsnetwork.org where we are sending our sensor data directly from the sensors. MQTT enables us to extract data from thethingsnetwork conveniently and efficiently.
 According to Lampkin et al., 2012, MQTT is design includes the following underlying principles:
@@ -104,7 +104,7 @@ Comet.
 
 
 
-3. MQTT paho  and psycopg2 Implementation
+    3. MQTT paho  and psycopg2 Implementation
 The backend code is written in python(version 3.x) so it was easier to implement mqtt paho and psycopg2 library in python. All these codes are implemented in Linux OS . But mqtt paho and psycopg2 works well with other OS too. 
 3.1 Install mqtt paho and psycopg2
 The latest stable version of paho-mqtt is available in the Python Package Index (PyPi) and can be installed using:
@@ -149,9 +149,9 @@ Here the additional parameter "–m" is followed by the message we want to publi
 
 <img src = "/Images/mosquitto.png">
 
-Fig: Mosquitto Implementation uisng two terminals 
+               Fig: Mosquitto Implementation using two terminals 
 
-4. Understanding mqtt paho and psycopg2 code
+    4. Understanding mqtt paho and psycopg2 code
 The code written for this project is simple yet powerful enough to grab the topic message and manipulate them and finally insert into our postgres database.
 4.1 mqtt paho
 
@@ -282,13 +282,13 @@ except (Exception, psycopg2.Error) as error :
 
 
 
-5. Making code better
-Github link : https://github.com/emrp/emrp2018_Moers_Trashbins/tree/dikshant
-6. Result and Discussion
+  
+    6. Result and Discussion
 <img src = "/Images/sensordata.png">
-Fig : Result after feeding data to datbase using the given code(psycopg2)
-7. Conclusion
-References
+           
+                Fig : Result after feeding data to database using the given code(psycopg2)
+
+##References
 
 
 
