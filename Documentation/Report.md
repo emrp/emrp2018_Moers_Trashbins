@@ -26,31 +26,31 @@ Psycopg is the most popular PostgreSQL database adapter for the Python programmi
 Our project required a protocol which can be used to extract data from platforms like thethingsnetwork.org where we are sending our sensor data directly from the sensors. MQTT enables us to extract data from thethingsnetwork conveniently and efficiently.
 According to Lampkin et al., 2012, MQTT is design includes the following underlying principles:
 
--Simplicity: The protocol was made open so that it can be integrated easily into other solutions.
+- Simplicity: The protocol was made open so that it can be integrated easily into other solutions.
 
--Use of a publish/subscribe model: The sender and the receiver are decoupled. Thus, publishers do not need to know who or what is subscribing to messages and vice versa.
+- Use of a publish/subscribe model: The sender and the receiver are decoupled. Thus, publishers do not need to know who or what is subscribing to messages and vice versa.
 
--Minimal maintenance: Features, such as automated message storage and retransmission, minimize the need for on-the-fly administration.
+- Minimal maintenance: Features, such as automated message storage and retransmission, minimize the need for on-the-fly administration.
 
--Limited on-the-wire footprint: The protocol keeps data overhead to a minimum on every message.
+- Limited on-the-wire footprint: The protocol keeps data overhead to a minimum on every message.
 
--Continuous session awareness: By being aware of when sessions have terminated, the protocol can take action accordingly, thanks in part to a will feature.
+- Continuous session awareness: By being aware of when sessions have terminated, the protocol can take action accordingly, thanks in part to a will feature.
 
--Local message processing: The protocol assumes that remote devices have limited processing capabilities.
+- Local message processing: The protocol assumes that remote devices have limited processing capabilities.
 
--Message persistence: Through the designation of specific QoS, the publisher can ensure delivery of the most important messages(Higher QoS levels ensure more reliable message delivery but might consume more network bandwidth or subject the message to delays due to issues such as latency.).
+- Message persistence: Through the designation of specific QoS, the publisher can ensure delivery of the most important messages(Higher QoS levels ensure more reliable message delivery but might consume more network bandwidth or subject the message to delays due to issues such as latency.).
 
--Agnostic regarding data types: The protocol does not require that the content of messages be in any particular format.
+- Agnostic regarding data types: The protocol does not require that the content of messages be in any particular format.
 
 
 
 
 2.1 MQTT vs HTTP
 According to Lampkin et al., 2012, although comparison is often made between MQTT and other common protocols, the most useful comparison is with HTTP, for the following reasons:
- HTTP is the most widely used and available protocol. Almost all computing devices with a
+ - HTTP is the most widely used and available protocol. Almost all computing devices with a
 TCP/IP stack have it. In addition, because HTTP and MQTT are both based on TCP/IP,
 developers need to choose between them.
- The HTTP protocol uses a request/response model, which is currently the most common
+ - The HTTP protocol uses a request/response model, which is currently the most common
 message exchange protocol. MQTT uses a publish/subscribe pattern. Developers need to
 understand the relative advantages of each type of model
 
