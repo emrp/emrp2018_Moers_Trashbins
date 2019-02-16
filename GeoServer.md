@@ -24,7 +24,7 @@ In this project, we are using this Geoserver to visualize the bins that are loca
             - Then there will be availbility of database that connected previously![PostgresSQL database availibility](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/Screen%20Shot%202019-02-12%20at%208.52.32%20PM.png)
             - After that need to provide *credential*  to access the database and connected database display as belows![Database connection](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/Screen%20Shot%202019-02-12%20at%208.58.28%20PM.png)
             - Click on *Import layer/File*
-            - *Import vector layer* window will open, and  select the *shapefile* that n eed import in *PostgreSQL* along with that in the input section provide the table name and click on ok.![Import Vector layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/import%20vector%20layer.png)
+            - *Import vector layer* window will open, and  select the *shapefile* that need import in *PostgreSQL* along with that in the input section provide the table name and click on ok.![Import Vector layer](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/import%20vector%20layer.png)
             - Now the shape locate in *PostgreSQL* and  previews as below![Shape file import in PostgreSQL](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/bhuwan/pictures/geoserver%20photo/shapefile%20imported%20in%20postGIS.png)
             
         
