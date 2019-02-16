@@ -17,4 +17,5 @@ Another feature which was done in this task was finding the shortest path using 
 ## Results:
 Using distance matrix to find minimum distance and shortest path algorithm to find shortest path and time were done successfully. With the help of distance matrix, it is easy to find the nearest point to a coordinate. With the help of distance matrix, it was able to find the minimum distance from a specific bin to other bins and which bin is the closest bin in terms of distance. But measuring the shortest distance should not be primary criteria while it can be possible that there is traffic signal or much time to reach the bin which has the minimum distance from a bin. For this complexity, a solution was to find the shortest path and time to reach a bin using shortest path algorithm. 
 
-![My image](username.github.com/repository/img/image.jpg)
+<img src 
+![Image description](Screenshot (15).png)
