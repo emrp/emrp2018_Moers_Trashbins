@@ -132,9 +132,10 @@ The data transferred to the database from the sensor node via MQTT is in seriali
 	"digital_out_1":0
 }"
 ```
-The above information needs to be deserialised and updated in the 
+The above information needs to be deserialised and updated in the `TransmissionTable` . To acheive this, a trigger is written in Postgres SQL which is executed on `INSERT` of any rowdata in the table `SensorData`.
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwMjY1NDY5OSw1MjI2OTM0NjQsMTE2MD
+eyJoaXN0b3J5IjpbLTk4NTkwNDYzMiw1MjI2OTM0NjQsMTE2MD
 QzNzY3NCw4OTQ3MTM2OTMsLTQ0MzEwMTEyMCwtNzkyODg5OTYz
 LC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNT
 MwMDQ4Miw1Nzg1NzQ2NjZdfQ==
