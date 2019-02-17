@@ -129,6 +129,7 @@ Below are few requirements collected during this phase,
 The following picture describes the width, height and specifications of the bin.
 
 ![alt text][bin_image]
+
 [bin_image]: /pictures/requirements/Bin.png "Bin_Description"
 
 - Map of Moers city
@@ -136,6 +137,7 @@ The following picture describes the width, height and specifications of the bin.
 The map of Moers city were provided to identify the locations of the bin and georeference it in QGIS.
 
 ![alt text][map]
+
 [map]: /pictures/requirements/moers_map.png "Map of the city"
 
 - Bin Locations
