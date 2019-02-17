@@ -132,7 +132,7 @@ For a more detailed explanation of ToF sensors, refer to [this document](https:/
 - [4.2 MQTT](/documentation/MQTT_Data_Handling.md)
 - [4.3 Database](/documentation/DatabaseSetup.md)
 -  4.4 Georeferencing
-    - [4.4.1 Installation](/documentation/Georeferencing_installation.md)
+    - [4.4.1 Installation](/documentation/GeoReferencing_installation.md)
     - [4.4.2 Implementation](/documentation/Georeferencing.md)
 - 4.5 Geoserver
     - [4.5.1 Installation](/documentation/GeoServer_installation.md)
