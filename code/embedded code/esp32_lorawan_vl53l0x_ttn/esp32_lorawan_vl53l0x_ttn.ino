@@ -20,12 +20,12 @@ CayenneLPP lpp(51);
 // This EUI must be in little-endian format, so least-significant-byte
 // first. When copying an EUI from ttnctl output, this means to reverse
 // the bytes. For TTN issued EUIs the last bytes should be 0xD5, 0xB3, 0x70.
-static const u1_t PROGMEM APPEUI[8] = { 0xCC, 0x46, 0x01, 0xD0, 0x7E, 0xD5, 0xB3, 0x70 };
+static const u1_t PROGMEM APPEUI[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 void os_getArtEui (u1_t* buf) {
   memcpy_P(buf, APPEUI, 8);
 }
 // This should also be in little endian format, see above.
-static const u1_t PROGMEM DEVEUI[8] = { 0x87, 0xDC, 0x3F, 0xF5, 0xD4, 0xEF, 0x8B, 0x00 };
+static const u1_t PROGMEM DEVEUI[8] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 void os_getDevEui (u1_t* buf) {
   memcpy_P(buf, DEVEUI, 8);
 }
@@ -33,7 +33,7 @@ void os_getDevEui (u1_t* buf) {
 // number but a block of memory, endianness does not really apply). In
 // practice, a key taken from ttnctl can be copied as-is.
 // 
-static const u1_t PROGMEM APPKEY[16] = { 0x17, 0xBE, 0x1E, 0x87, 0xAC, 0xEB, 0x30, 0x3B, 0x95, 0x29, 0x6A, 0xA6, 0x76, 0x62, 0x8A, 0x1B };
+static const u1_t PROGMEM APPKEY[16] = { 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00 };
 void os_getDevKey (u1_t* buf) {
   memcpy_P(buf, APPKEY, 16);
 }
