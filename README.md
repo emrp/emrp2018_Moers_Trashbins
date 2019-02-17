@@ -17,7 +17,7 @@
 
     First, import needed package, connect to the database, excute cursor to fetch the data by the SQL rule. Then take out of the data from the Dataframe, plot the line graph. After the time lapses， the plot will renew every 2 hours
    
-##  HTML, js, Google map api analysis
+##  HTML, JS, Google map api, Geoserver, Openstreet analysis
 
     There are a few attempted solution. 
     1. HTML+JS+local moers' picture
