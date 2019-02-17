@@ -4,7 +4,9 @@
 
 This tutorial explains how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 
-- [emrp2018_Moers_Trashbins](#emrp2018-moers-trashbins)
+ + [1. Introduction](#1-introduction)
+      - [1.1 Problem Statement](#11-problem-statement)
+      - [1.2 Overview](#12-overview)
     + [2. Technology Review](#2-technology-review)
       - [2.1 LPWAN](#21-lpwan)
       - [2.2 LoRa](#22-lora)
@@ -16,8 +18,7 @@ This tutorial explains how to measure the trash level of trashbins using the VL5
     + [6. Conclusion](#6-conclusion)
 
 
-
-****1. Introduction****
+### 1. Introduction
 
 Waste is one of the burden issues throughout the world which consequently impacts the environment and to some extent also poses an adverse effect on human health. Waste management is a challenging task to carry out which consists of collection, transport, treatment, and proper disposal and these tasks are followed one after the other in a structural manner for the proper waste management.
 
@@ -31,7 +32,7 @@ With the integration with [ ENNI ](https://www.enni.de/), who takes responsibili
 
   
   
-****1.1 Problem Statement****
+#### 1.1 Problem Statement
 
   
 
@@ -41,7 +42,7 @@ On regarding of collection of waste, quite difficult to identify the waste bins 
   
   
 
-****1.2 Overview****
+#### 1.2 Overview
 
   
 
