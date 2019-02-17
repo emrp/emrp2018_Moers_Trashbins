@@ -117,11 +117,11 @@ For a more detailed explanation of ToF sensors, refer to [this document](https:/
 
 ####4. Methodology
 
-[4.1 Sensor Node](documentation/from_sensor_to_ttn)
-[4.2 MQTT](/documentation/MQTT_Data Handling)
-[4.3 Database](/documentation/DatabaseSetup)
-[4.5 Georeferencing](/documentation/Georeferencing)
-[4.6 Geoserver](/documentation/Geoserver)
+[4.1 Sensor Node](/documentation/from_sensor_to_ttn.md)
+[4.2 MQTT](/documentation/MQTT_Data Handling.md)
+[4.3 Database](/documentation/DatabaseSetup.md)
+[4.5 Georeferencing](/documentation/Georeferencing.md)
+[4.6 Geoserver](/documentation/Geoserver.md)
 
 
 
