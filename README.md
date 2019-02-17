@@ -137,6 +137,7 @@ For a more detailed explanation of ToF sensors, refer to [this document](https:/
 - 4.5 Geoserver
     - [4.5.1 Installation](/documentation/GeoServer_installation.md)
     - [4.5.2 Implementation](/documentation/GeoServer.md)
+    - [4.5.3 Shortest Distance](/documentation/ShortestPathDistance.md)
 - [4.6 Visualisation]()
 
 ### 5. Test data creation 
