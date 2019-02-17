@@ -125,14 +125,15 @@ For a more detailed explanation of ToF sensors, refer to [this document](https:/
 
 The initial phase of the project began with gathering the **requirements** from the project stakeholders. This included the **specifications** of the bin and the **locations** at which the bin is placed. 
 Below are few requirements collected during this phase,
-- Bin shape and size
+- **Bin shape and size**
+
 The following picture describes the width, height and specifications of the bin.
 
-![alt text][bin_image]
+![alt text][binImage]
 
-[bin_image]: /pictures/requirements/Bin.png "Bin_Description"
+[binImage]: /pictures/requirements/Bin_Image.png "Bin_Description"
 
-- Map of Moers city
+- **Map of Moers city**
 
 The map of Moers city were provided to identify the locations of the bin and georeference it in QGIS.
 
@@ -140,7 +141,7 @@ The map of Moers city were provided to identify the locations of the bin and geo
 
 [map]: /pictures/requirements/moers_map.png "Map of the city"
 
-- Bin Locations
+- **Bin Locations**
 
 Later, an excel file with information pertaining to the address of each bin with location co-ordinates were provided. This helped in geo-referencing the bins using location coordinates. The `.xls` file was imported in database using scripts and later converted into shapefiles for geoserver.
 
