@@ -4,6 +4,19 @@
 
 This tutorial explains how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 
+- [emrp2018_Moers_Trashbins](#emrp2018-moers-trashbins)
+    + [2. Technology Review](#2-technology-review)
+      - [2.1 LPWAN](#21-lpwan)
+      - [2.2 LoRa](#22-lora)
+      - [2.3 LoRaWan](#23-lorawan)
+      - [2.4 Time-of-Flight (ToF) Sensors](#24-time-of-flight--tof--sensors)
+    + [3. Requirements Gathering](#3-requirements-gathering)
+    + [4. Methodology](#4-methodology)
+    + [5. Test data creation](#5-test-data-creation)
+    + [6. Conclusion](#6-conclusion)
+
+
+
 ****1. Introduction****
 
 Waste is one of the burden issues throughout the world which consequently impacts the environment and to some extent also poses an adverse effect on human health. Waste management is a challenging task to carry out which consists of collection, transport, treatment, and proper disposal and these tasks are followed one after the other in a structural manner for the proper waste management.
