@@ -28,7 +28,7 @@ In order to check wether the Java has been installed in your computer of nott. O
 java -version 
 
 It will give results like: 
-<img src = "/Images/GeoServerImages/Java version.png">
+<img src = "/pictures/GeoServerImages/Java version.png">
 
 
 
@@ -36,12 +36,12 @@ It will give results like:
 
 Go to the http://geoserver.org/release/stable/ . It will open the download page of the geoserver. Click on the Platform Independent Binary and zip file will be automatically downloaded. 
 
-<img src = "/Images/GeoServerImages/Geoserver_homepage.png">
+<img src = "/pictures/GeoServerImages/Geoserver_homepage.png">
 
 
 It will open this page and you can see the Packages topic in the top part, below that you can see the platform independent binary link, click that link and download will start automatically. You can also download the zip file or tar.gz from the Source Code but  platform independent binary is easily to install and works on every system. 
 
-<img src = "/Images/GeoServerImages/Geoserver_package.png">
+<img src = "/pictures/GeoServerImages/Geoserver_package.png">
 
 
 3. After the zip file has been downloaded, you can see “geoserver-2.14.2-bin.zip” in your download folder. Then open the terminal again and type:
@@ -78,7 +78,7 @@ sh startup.sh
 You can see a web page loaded which looks something like this: 
 
 
-<img src = "/Images/GeoServerImages/Layers_preview.png">
+<img src = "/pictures/GeoServerImages/Layers_preview.png">
 
 
  If you see this webpage, then geoserver is finally wotking in your system. Not its time work on the geoserver, 
@@ -92,7 +92,7 @@ http://localhost:8080/geoserver
 
 It is the default installation of the server. It will direct you to a default geoserver page. When the web application starts, there will be a display page which looks like this: 
 
-<img src = "/Images/GeoServerImages/Geoserver_localhost.png">
+<img src = "/pictures/GeoServerImages/Geoserver_localhost.png">
 
 1. For the LOGGING IN.  Default administration credentiaons are:
 
@@ -104,18 +104,18 @@ Note : There can be changed in the security departmnet which can be found in htt
 2. After giving the username and password there will be another webpage. There will be list of options in the left side. 
 
 
-<img src = "/Images/GeoServerImages/Geoserver_welcomeafterlogin.png">
+<img src = "/pictures/GeoServerImages/Geoserver_welcomeafterlogin.png">
 
 
 3. Layer Preview : There is option called layer preview in the left side of the interface. Layer Preview gives the option to view the output of the published layers. There will be the list of the default layers in the Layer Preview option.
 
 
-<img src = "/Images/GeoServerImages/layerslist.png">
+<img src = "/pictures/GeoServerImages/layerslist.png">
 
 As you can from the figure above there are Title named “World Rectangle”, “Manhattan (NY) Roads”, “North America Sample Imagery” and others. If I click on the OpenLayers option which is in the Common Formats column. It will open a layer on the another tab quickly showing the layer it contains. For example, If I click on the North America Sample Imagery then it will show the map like this: 
 
 
-<img src = "/Images/GeoServerImages/Layers_image.png">
+<img src = "/pictures/GeoServerImages/Layers_image.png">
 
 
 
@@ -136,7 +136,7 @@ After getting to know about the basic interface of the geoserver, its time to ad
 - After adding the csv file we need to convert it into the shape file for that we have to install the plugin call “Point Sampling Tool” (which may not be in the QGIS plugin sections so we have to download it seperately. This plugin can be found here: https://plugins.qgis.org/plugins/pointsamplingtool/ . After that in Manage and Install plugins sections in the Plugin option. We can install zip file directly from our coumputer. 
 
 Here you can see the option Install from ZIP. Click that and upload the zip file we have just downloaded and tick mark that plugin. 
-<img src = "/Images/GeoServerImages/QGIS_Plugins.png">
+<img src = "/pictures/GeoServerImages/QGIS_Plugins.png">
 
 
 - Using that plugin we can convert our csv file into the shape file. As a result we have got the shape file. This shape file we will use in the geoserver. This shape file contains the longitude and the latitude of the dustbins in the city moers.
@@ -162,7 +162,7 @@ The first step is to creat the workspace for the shapefile. Workspace can be def
 
 
 
-<img src = "/Images/GeoServerImages/New_workspace.png">
+<img src = "/pictures/GeoServerImages/New_workspace.png">
 
 
 -  In my case I have written,
@@ -177,7 +177,7 @@ Tick mark  the Default Workspace as your current working workspace.
 
 As you can see workspace “moers_bin” is added to the workspace list.  
 
-<img src = "/Images/GeoServerImages/Workspace.png">
+<img src = "/pictures/GeoServerImages/Workspace.png">
 
 2.  Creating a Store
 
@@ -206,13 +206,13 @@ After we are done with the workspace creation, we have to add a new store. The s
 Note : You can double check the shape file by right clicking and looking at the attributes table there you can find the longitude and latitude coordinates.
 
 
-<img src = "/Images/GeoServerImages/New_store.png">
+<img src = "/pictures/GeoServerImages/New_store.png">
 
 *  After completeing everything save the shape file.
 
 
 
-<img src = "/Images/GeoServerImages/New_vector_data_source.png">
+<img src = "/pictures/GeoServerImages/New_vector_data_source.png">
 
 After everthing is done the shape file looks like this. After the creation of shape file click on save and it will take you to another page. 
 
@@ -226,7 +226,7 @@ After everthing is done the shape file looks like this. After the creation of sh
 
 As soon as we save our shape file this new layer box will appear. Now our store is loaed with the values, we can publish the layer. For that we need to create a new layer. 
 
-<img src = "/Images/GeoServerImages/New_layer.png">
+<img src = "/pictures/GeoServerImages/New_layer.png">
 
 -  Click on publish on the action column.
 
@@ -241,7 +241,7 @@ I have given the layer name and Title  as Newnewnewshapefiles and also provided 
 
 - Select Point on the Default Style. 
 
-<img src = "/Images/GeoServerImages/Edit_layer.png">
+<img src = "/pictures/GeoServerImages/Edit_layer.png">
 
 
 - Finally after completing everything click on Save located at the bottom of the page.
@@ -253,7 +253,7 @@ Our shape file has been created, edited and ready to be view. We have just loade
 
 - Go to the Layer Preview option in the left side and you can find moers_bin:Newnewnewshapefile in the list.
 
-<img src = "/Images/GeoServerImages/layers.png">
+<img src = "/pictures/GeoServerImages/layers.png">
 
 
 
@@ -262,7 +262,7 @@ Our shape file has been created, edited and ready to be view. We have just loade
 - Another tab will open which will show all the longitude and latitude values. There are zoom in and zoom out options in order to look more closely. The figure is displayed below. We have just selected the shape file and made changes in the geoserver.
 
 
-<img src = "/Images/GeoServerImages/shapefile_image.png">
+<img src = "/pictures/GeoServerImages/shapefile_image.png">
 
  
 ### ADDING A WEB MAP SERVINCE (WMS)
@@ -278,14 +278,14 @@ For creating a new layer we can use wms. Steps for adding layers are:
 
 - Select moers_bin as the Workspace and in the WMS Source Name write http://geoserver.org/moers_bin and add some short description.
 
-<img src = "/Images/GeoServerImages/New_wms.png">
+<img src = "/pictures/GeoServerImages/New_wms.png">
 
 
 - In the Capabilities URL write https://ows.mundialis.de/services/service?
 
 Note: You can even find this link here: https://www.mundialis.de/en/ows-mundialis/
 
-<img src = "/Images/GeoServerImages/mundialis.png">
+<img src = "/pictures/GeoServerImages/mundialis.png">
 
 Once we have added the layer the job here now is to merge the two parts. The shape file and the wms layer inorder to give us the results what are are looking for. 
 
@@ -297,7 +297,7 @@ Layers grouping can be defined as merging the two layers into one. Here we have 
 
 - Go to Data>Layers Groups and click on the Add new layer group.
 
-<img src = "/Images/GeoServerImages/layers_groups.png">
+<img src = "/pictures/GeoServerImages/layers_groups.png">
 
 
 - Add the Name, Title and Abstract of the layer group.
@@ -307,7 +307,7 @@ Layers grouping can be defined as merging the two layers into one. Here we have 
 - Click on Generate Bounds  to generate the bounds for the layers.
 
 
-<img src = "/Images/GeoServerImages/Generate_bounds.png">
+<img src = "/pictures/GeoServerImages/Generate_bounds.png">
 
 
 - After that click on Add Layers to add the layers. We have got two layers here. Here moers_bin:TOPO-OSM-WMS1 is the Web Map Service layer and moers_bin:Newnewnewshapefiles in our shape file layer. WMS layer is kept at the top because it needs to get plotted at first and then only shape file points can be plotted. 
@@ -316,14 +316,14 @@ Layers grouping can be defined as merging the two layers into one. Here we have 
 
 - After completing everything click on save and go the Layer Preview.
 
-<img src = "/Images/GeoServerImages/layers_order.png">
+<img src = "/pictures/GeoServerImages/layers_order.png">
 
 
 ### PREVEWING RESULTS 
 
 After grouping the results we have in total of three layers and these layers can be seen in the Layers Preview. 
 
-<img src = "/Images/GeoServerImages/layers.png">
+<img src = "/pictures/GeoServerImages/layers.png">
 
 From the icon we can say that the shape file containts the point as its Default Style, WMS layer contains the map and the moers_bin_location1 contains two layers in it. 
 
@@ -331,7 +331,7 @@ From the icon we can say that the shape file containts the point as its Default 
 
 Another tab will open which contains the result as whole. Both the layers and you can see the points in the red with the map below it. 
 
-<img src = "/Images/GeoServerImages/Geoserver_image.png">
+<img src = "/pictures/GeoServerImages/Geoserver_image.png">
 
 
 

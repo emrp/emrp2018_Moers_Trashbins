@@ -6,7 +6,7 @@ Georeferencing is process of providing real world coordinates and values to each
 Overview of the project:: In this project we are doing the georeferencing in certain image. We have map of city moers in which there is pictures of the bin located in the image. We have to find the exact longitude and latitude value of bins in the image. In the image we can see the yellow dots representing the bins in the image. Our task is to find exact longitude and latitude of those bins which are present in the map. For that purpose we need georeferencing. 
 
 
-<img src = "/Images/GeoReferencingImages/moers_map.png">
+<img src = "/pictures/GeoReferencingImages/moers_map.png">
 
 
 We will use the map of moers for this project. This map has been provided to us by Moers city center department’s people. 
@@ -15,31 +15,31 @@ We will use the map of moers for this project. This map has been provided to us 
 
 1. First thing first for using the georeferencing we need to install the “Georeferencer GDAL” plugin. This is a core plugin, which is already installed in your QGIS you just need to enable this plugin in order to use it. To enable this plugin go to Plugins>Manage and Install plugins. You will see the list of the plugins in ALL section then search for georeferencer GDAL plugin. Tick mark that plugin and this will enable the plugin.
 
-<img src = "/Images/GeoReferencingImages/GDAL_plugins.png">
+<img src = "/pictures/GeoReferencingImages/GDAL_plugins.png">
 
 
 2. The georeferencer plugin is installed in the Raster Menu. Click on the Raster>Georeferencer to open the plugin.
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_open_rasterdata.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_open_rasterdata.png">
 
 
 3. After clicking the georeferencer plugin, anohter window will add up. This the georeferencer window. This window consist of two sections: top section where raster will be displayed and bottom section where  Ground Control Points (GCP) will be shown.
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_mainpage.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_mainpage.png">
 
 
 4.  Now to open our image file. Go to the Files>Open Raster. Browse and select the image that we need to find the location of.
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_openimage.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_openimage.png">
 
 
 
 5.  After that you will see map being loaded in the raster section of georeferencer.  In my case I have uploaed map of moers and that map is being shown in the raster section. 
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_moersmap.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_moersmap.png">
 
 
 6. Now its time to do some setting changes. In the georeferencer click on Transformation Settings. You will see another box.
@@ -54,27 +54,27 @@ In the Output raster, browse and selec where you want to show your output raster
 
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_TransformationSettings.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_TransformationSettings.png">
 
 
 
 7. You can either Zoom in or zoom out and control the map with options that are being provided in the georeferencer tool bar.
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_zoonin.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_zoonin.png">
 
 
 8.  Now our task is to assign the coordinates of the bin in the map. For this click on Edit>Add Point in the toolbar and click on one of the bin location in the map.  You will see the cursor sign in being changed. Lets Suppose I click on the orange point which is near to number 3. 
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_addpoints.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_addpoints.png">
 
 
 
 9. Another window will pop up asking about the Enter Map Coordinates. You can see From map canvas option below. Click on that option.
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_locations.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_locations.png">
 
 
 10.  After clicking From map canvas option, you will be redirected to the QGIS main page whete you need to first intall the OpenLayer plugin.  For that go to plugins>Manage and install plugin there you can at first install the OpenLayer plugin. After installing the plugin you can find that installed plugin in Web>OpenLayers plugin.
@@ -85,7 +85,7 @@ After that you can match the image file we have with the map of moers in the QGI
 
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_openstreetmap.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_openstreetmap.png">
 
 
 
@@ -93,32 +93,32 @@ After that you can match the image file we have with the map of moers in the QGI
 
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_coordinates.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_coordinates.png">
 
 
 12.  You can find that GCP table now will have a row with details about location.
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_GCP_table.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_GCP_table.png">
 
 
 13.  Similarly, add more locations from the map with the similar process. More the number of points, more the accurate image and results. In the figure below you can see number of points being taken and it will be added in the list. 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_data_GCPTable.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_data_GCPTable.png">
 
 
 14.  Go to the File>Start Georeferencing to get our things started.
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_startgeorefercing.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_startgeorefercing.png">
 
 
 
 15. Once georeferencing has been completed you can see georeferenced layer in the QGIS.
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_extrra.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_extrra.png">
 
 
 16.  Finally after taking number of points we finally complete out georeferecing part. Always zoon in to take the point and choose the points in the building as they are easy to locate in the actual map and take many points to get the accurate result. Always make sure that the EPSG remains same for all. In this I have take EPSG 4647. 
 
 
-<img src = "/Images/GeoReferencingImages/Georeferencer_finalimage.png">
+<img src = "/pictures/GeoReferencingImages/Georeferencer_finalimage.png">
