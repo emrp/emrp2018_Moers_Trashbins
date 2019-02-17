@@ -121,9 +121,11 @@ CREATE SEQUENCE id_generation  start 100  increment 1;
 ```SQL
 ALTER TABLE table_name ALTER COLUMN ID (nextval('id_generation') DEFAULT;
 ```
+## 1.5 Triggers
 
+The data transferred to the database from the sensor node via MQTT is in serialised JSON format. The relevant data 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQ0Mzc4MzM2OCw1MjI2OTM0NjQsMTE2MD
+eyJoaXN0b3J5IjpbLTQxNDc2MDk4MSw1MjI2OTM0NjQsMTE2MD
 QzNzY3NCw4OTQ3MTM2OTMsLTQ0MzEwMTEyMCwtNzkyODg5OTYz
 LC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNT
 MwMDQ4Miw1Nzg1NzQ2NjZdfQ==
