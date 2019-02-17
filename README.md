@@ -13,7 +13,7 @@ This Github page contains the documentation and codebase of the project *"Smart 
   * [2.1 LPWAN](#21-lpwan)
   * [2.2 LoRa](#22-lora)
   * [2.3 LoRaWan](#23-lorawan)
-  * [2.4 Time-of-Flight (ToF) Sensors](#24-time-of-flight--tof--sensors)
+  * [2.4 Time-of-Flight Sensors](#24-time-of-flight-sensors)
 - [3. Requirements Gathering](#3-requirements-gathering)
 - [4. Methodology](#4-methodology)
 - [5. Conclusion](#6-conclusion)
@@ -105,9 +105,9 @@ LoRaWan the datalink layer (colored with blue in the figure below) associated wi
 |:--:|
 |*LoRa and LoRaWAN Layers LoRa Alliance 2015). [Source](https://lora-alliance.org/sites/default/files/2018-04/what-is-lorawan.pdf)*|
 
-#### 2.4 Time-of-Flight (ToF) Sensors
+#### 2.4 Time-of-Flight Sensors
 
-A ToF sensor is a sensor that:
+A Time-of-Flight (ToF) sensor is a sensor that:
 
 - Emits a signal (from a light source) to the object  
 - Receives the reflected signal (e.g. with a photodiode), then  
