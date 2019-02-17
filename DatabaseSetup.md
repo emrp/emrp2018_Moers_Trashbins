@@ -8,6 +8,7 @@
   * [1.3 Master Data](#13-master-data)
     + [1.3.1 Insert Scripts](#131-insert-scripts)
   * [1.4 Primary key generation](#14-primary-key-generation)
+  * [1.5 Triggers](#15-triggers)
 
 # 1. Database Model
 
@@ -159,7 +160,7 @@ CREATE TRIGGER insert_transmission_trigger
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzODI0Mzc3ODcsMzY1NDk2MjY3LC05OD
+eyJoaXN0b3J5IjpbLTE2OTgxMDYzNTYsMzY1NDk2MjY3LC05OD
 U5MDQ2MzIsNTIyNjkzNDY0LDExNjA0Mzc2NzQsODk0NzEzNjkz
 LC00NDMxMDExMjAsLTc5Mjg4OTk2MywtNjA1Nzc0NzY3LC00MD
 EwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2
