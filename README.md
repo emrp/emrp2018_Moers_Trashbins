@@ -113,25 +113,19 @@ The height of the trash bins in Moers is less than 1 meter which is well within 
 
 For a more detailed explanation of ToF sensors, refer to [this document](https://www.st.com/content/dam/technology-tour-2017/session-1_track-4_time-of-flight-technology.pdf) by *John Kvam* from STMicroelectronics.
 
-#### 3. Requirements Gathering
+*** 3. Requirements Gathering ***
 
-#### 4. Methodology
+*** 4. Methodology ***
 
 - [4.1 Sensor Node](/documentation/from_sensor_to_ttn.md)
 - [4.2 MQTT](/documentation/MQTT_Data_Handling.md)
 - [4.3 Database](/documentation/DatabaseSetup.md)
 - [4.4 Georeferencing](/documentation/Georeferencing.md)
 - [4.5 Geoserver](/documentation/GeoServer.md)
+- [4.6 Visualisation]()
+
+*** 5. Test data creation ***
+
+*** 6. Conclusion ***
 
 
-
-####References
-
-1. Nick Mannie -- https://www.aurecongroup.com/thinking/thinking-papers/how-internet-of-things-change-waste-management-africa
-
-Requirements and walk through:
-1. the library requirements are in requirements.txt file. You can download those requirement using following command in terminal "sudo pip3 install -r requirements.txt"
-
-2. You must have python 3.x version installed.
-
-3. The passwords are removed for security reasons so add yourself.
