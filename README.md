@@ -130,10 +130,10 @@ For a more detailed explanation of ToF sensors, refer to [this document](https:/
 - [4.3 Database](/documentation/DatabaseSetup.md)
 -  4.4 Georeferencing
     - [4.4.1 Installation](/documentation/GeoReferencing_installation.md)
-    - [4.4.2 Implementation](/documentation/Georeferencing.md)
+    - [4.4.2 Implementation](/documentation/Implementation_Georeferencing.md)
 - 4.5 Geoserver
     - [4.5.1 Installation](/documentation/GeoServer_installation.md)
-    - [4.5.2 Implementation](/documentation/GeoServer.md)
+    - [4.5.2 Implementation](/documentation/Implementation_GeoServer.md)
     - [4.5.3 Shortest Distance](/documentation/ShortestPathDistance.md)
 - [4.6 Visualisation](/documentation/visualisation.md)
 - [4.7 Test data creation](/documentation/dummy_data_using_logistic_growth_function.md)
