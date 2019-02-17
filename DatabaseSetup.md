@@ -119,11 +119,13 @@ CREATE SEQUENCE id_generation  start 100  increment 1;
 ```
 ** Assigning the sequence to Id column of the fields**
 ```SQL
-
+ALTER TABLE table_name ALTER COLUMN ID  DEFAULT ```
+(nextval('books_sequence')
+```;
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMDgxMjYwMDcsNTIyNjkzNDY0LDExNj
-A0Mzc2NzQsODk0NzEzNjkzLC00NDMxMDExMjAsLTc5Mjg4OTk2
-MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2Niw3MT
-UzMDA0ODIsNTc4NTc0NjY2XX0=
+eyJoaXN0b3J5IjpbNzIwNTE1NzQxLDUyMjY5MzQ2NCwxMTYwND
+M3Njc0LDg5NDcxMzY5MywtNDQzMTAxMTIwLC03OTI4ODk5NjMs
+LTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5NjYsNzE1Mz
+AwNDgyLDU3ODU3NDY2Nl19
 -->
