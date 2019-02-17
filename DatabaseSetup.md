@@ -123,10 +123,14 @@ ALTER TABLE table_name ALTER COLUMN ID (nextval('id_generation') DEFAULT;
 ```
 ## 1.5 Triggers
 
-The data transferred to the database from the sensor node via MQTT is in serialised JSON format. The relevant data is framed under "payload_fields" object which can contain multiple "key-value" pairs denoting information like humidity, precipitation, temperature and the distance from the time
+The data transferred to the database from the sensor node via MQTT is in serialised JSON format. The relevant data is framed under "payload_fields" object which can contain multiple "key-value" pairs denoting information like humidity, precipitation, temperature and the distance from the time-of-flight sensor. All this information is combined into one structure such as,
+
+```JSON
+"{"relative_humidity_1":31.5,"temperature_1":23.2}"
+"{"digital_out_1":0}"
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc4OTMxOTExMiw1MjI2OTM0NjQsMTE2MD
-QzNzY3NCw4OTQ3MTM2OTMsLTQ0MzEwMTEyMCwtNzkyODg5OTYz
-LC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNT
-MwMDQ4Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbLTIxMzY2MDUzMDgsNTIyNjkzNDY0LDExNj
+A0Mzc2NzQsODk0NzEzNjkzLC00NDMxMDExMjAsLTc5Mjg4OTk2
+MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2Niw3MT
+UzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
