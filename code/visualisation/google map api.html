@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example</title>
+ 
+
+  <!-- Note:
+    Make sure to replace the &key=internal with &key=~the value of your key~
+    in both the maps API script load and in the Ajax Search API script load statements
+  -->
+  <!-- maps api, ajax search api, map search control code -->
+  <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAjcl2I3BtNtV-ju6Y6yA02xT4bHmHWp4dhAzpccxEqzxte7tzxhTZ2Uww0ZCaO2QqcKaV3amGYXXpfw"
+    type="text/javascript"  charset='utf-8'></script>
+  <script src="http://www.google.com/uds/api?file=uds.js&v=1.0&key=ABQIAAAAjcl2I3BtNtV-ju6Y6yA02xT4bHmHWp4dhAzpccxEqzxte7tzxhTZ2Uww0ZCaO2QqcKaV3amGYXXpfw"
+    type="text/javascript"  charset='utf-8'></script>
+  <script src="http://www.google.com/uds/solutions/mapsearch/gsmapsearch.js"
+    type="text/javascript"  charset='utf-8'></script>
+ 
+  <!-- ajax search stylesheet, map search stylesheet -->
+  <link href="http://www.google.com/uds/css/gsearch.css" rel="stylesheet"
+    type="text/css"/>
+  <link href="http://www.google.com/uds/solutions/mapsearch/gsmapsearch.css"
+    rel="stylesheet" type="text/css"/>
+  <style type="text/css">
+    body, table, p{
+      background-color: white;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+ 
+    #mapsearch {
+      width : 400px;
+      margin-left: 10px;
+      padding: 4px;
+      border : 1px solid #f9f9f9;
+    }
+  </style>
+
+    <script 
+ src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAjcl2I3BtNtV-ju6Y6yA02xT4bHmHWp4dhAzpccxEqzxte7tzxhTZ2Uww0ZCaO2QqcKaV3amGYXXpfw"
+            type="text/javascript"  charset='utf-8'></script>
+    <script language="javascript" type="text/javascript"   charset='utf-8'>
+    //<![CDATA[
+ 
+    function load() {
+      if (GBrowserIsCompatible()) {
+        var map = new GMap2(document.getElementById("map"));
+ 
+  map.addControl(new GSmallMapControl());
+  map.addControl(new GMapTypeControl());
+  
+        map.setCenter(new GLatLng(51.2733, 6.3711), 15);
+      }
+ 
+   
+ 
+ 
+  var baseIcon = new GIcon();
+  baseIcon.shadow = "http://www.google.com/mapfiles/shadow50.png";
+  baseIcon.image="http://labs.google.com/ridefinder/images/mm_20_yellow.png";
+ 
+  
+ 
+  var center = new GMarker(map.getCenter(),baseIcon);
+  GEvent.addListener(center, "click", function() {
+   center.openInfoWindowHtml("moers");
+  });
+
+  map.addOverlay(center);
+ 
+
+
+ 
+    }
+ 
+
+ var infoTabs = [
+   new GInfoWindowTab("center", "We are here!"),
+   new GInfoWindowTab("Tab #2", "This is tab #2 content")
+ ];
+
+ var infoTabs = [
+   new GInfoWindowTab("center", "We are here!")
+ ];
+ 
+ 
+
+ function createMarker(point, number) {
+   var marker = new GMarker(point);
+   GEvent.addListener(marker, "click", function() {
+  marker.openInfoWindowHtml("Marker #<b>" + number + "</b>");
+   });
+   return marker;
+ }
+ 
+    //]]>
+    </script>
+ 
+ 
+ 
+ 
+  </head>
+  <body onload="load()" onunload="GUnload()">
+    <div id="map" style="width: 500px; height: 300px"></div>
+ <div id="mapsearch">Loading...</div>
+  </body>
+</html>

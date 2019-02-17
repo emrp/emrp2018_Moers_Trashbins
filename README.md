@@ -1,6 +1,4 @@
-
-
-This tutorial explains how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
+﻿This tutorial explains how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 
 - [1. Introduction](#1-introduction)
   * [1.1 Problem Statement](#11-problem-statement)
