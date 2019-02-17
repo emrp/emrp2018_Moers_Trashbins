@@ -118,14 +118,14 @@ For a more detailed explanation of ToF sensors, refer to [this document](https:/
 ####4. Methodology
 
 [4.1 Sensor Node](/documentation/from_sensor_to_ttn.md)
-[4.2 MQTT](/documentation/MQTT_Data Handling.md)
+[4.2 MQTT](/documentation/MQTT_Data_Handling.md)
 [4.3 Database](/documentation/DatabaseSetup.md)
-[4.5 Georeferencing](/documentation/Georeferencing.md)
-[4.6 Geoserver](/documentation/Geoserver.md)
+[4.4 Georeferencing](/documentation/Georeferencing.md)
+[4.5 Geoserver](/documentation/Geoserver.md)
 
 
 
-References
+####References
 
 1. Nick Mannie -- https://www.aurecongroup.com/thinking/thinking-papers/how-internet-of-things-change-waste-management-africa
 
