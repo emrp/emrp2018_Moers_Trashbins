@@ -134,7 +134,7 @@ The data transferred to the database from the sensor node via MQTT is in seriali
 ```
 The above information needs to be deserialised and updated in the `TransmissionTable` . To acheive this, a trigger is written in Postgres SQL which is executed on `INSERT` of any rowdata in the table `SensorData`.
 
-The below function uses `json_each` and `json_object_keys` methods to deserialise the data and i
+The below function uses `json_each` and `json_object_keys` methods to deserialise the data and insert into SensorData table.
 ```SQL
 
 CREATE FUNCTION public.insert_transmission()
@@ -148,10 +148,19 @@ values (json_object_keys(new.payload_fields),
 	return new;
 end
 $BODY$;
+```
+The above function is called when the trigger is executed as below,
+```SQL
+CREATE TRIGGER insert_transmission_trigger
+    AFTER INSERT
+    ON public."SensorData"
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.insert_transmission();
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5Mzk4MTI4ODYsLTk4NTkwNDYzMiw1Mj
-I2OTM0NjQsMTE2MDQzNzY3NCw4OTQ3MTM2OTMsLTQ0MzEwMTEy
-MCwtNzkyODg5OTYzLC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMj
-QwNDI4OTY2LDcxNTMwMDQ4Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbMzY1NDk2MjY3LC05ODU5MDQ2MzIsNTIyNj
+kzNDY0LDExNjA0Mzc2NzQsODk0NzEzNjkzLC00NDMxMDExMjAs
+LTc5Mjg4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MD
+QyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
