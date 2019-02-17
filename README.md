@@ -12,8 +12,7 @@ This tutorial explains how to measure the trash level of trashbins using the VL5
   * [2.4 Time-of-Flight (ToF) Sensors](#24-time-of-flight--tof--sensors)
 - [3. Requirements Gathering](#3-requirements-gathering)
 - [4. Methodology](#4-methodology)
-- [5. Test data creation](#5-test-data-creation)
-- [6. Conclusion](#6-conclusion)
+- [5. Conclusion](#6-conclusion)
 
 ### 1. Introduction
 
@@ -141,7 +140,7 @@ For a more detailed explanation of ToF sensors, refer to [this document](https:/
 - [4.6 Visualisation]()
 - [4.7 Test data creation](/documentation/dummy_data_using_logistic_growth_function.md)
 
-### 6. Conclusion
+### 5. Conclusion
 
 
 
