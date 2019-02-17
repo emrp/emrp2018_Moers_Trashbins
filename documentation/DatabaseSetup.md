@@ -8,6 +8,7 @@
   * [1.3 Master Data](#13-master-data)
     + [1.3.1 Insert Scripts](#131-insert-scripts)
   * [1.4 Primary key generation](#14-primary-key-generation)
+  * [1.5 Triggers](#15-triggers)
 
 # 1. Database Model
 
@@ -117,7 +118,7 @@ The `Id` column of each table is usually marked as the `primary key`. To randoml
 ```SQL
 CREATE SEQUENCE id_generation  start 100  increment 1;
 ```
-** Assigning the sequence as DEFAULT to Id column of the fields**
+**Assigning the sequence as DEFAULT to Id column of the fields**
 ```SQL
 ALTER TABLE table_name ALTER COLUMN ID (nextval('id_generation') DEFAULT;
 ```
@@ -159,8 +160,9 @@ CREATE TRIGGER insert_transmission_trigger
 ```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMzY1NDk2MjY3LC05ODU5MDQ2MzIsNTIyNj
-kzNDY0LDExNjA0Mzc2NzQsODk0NzEzNjkzLC00NDMxMDExMjAs
-LTc5Mjg4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MD
-QyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
+eyJoaXN0b3J5IjpbLTE2OTgxMDYzNTYsMzY1NDk2MjY3LC05OD
+U5MDQ2MzIsNTIyNjkzNDY0LDExNjA0Mzc2NzQsODk0NzEzNjkz
+LC00NDMxMDExMjAsLTc5Mjg4OTk2MywtNjA1Nzc0NzY3LC00MD
+EwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2
+XX0=
 -->
