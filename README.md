@@ -128,9 +128,9 @@ Below are few requirements collected during this phase,
 - Bin shape and size
 The following picture describes the width, height and specifications of the bin.
 
-![alt text][bin]
+![alt text][bin_image]
 
-[bin]: /pictures/requirements/Bin.png "Bin_Description"
+[bin_image]: /pictures/requirements/Bin.png "Bin_Description"
 - Map of Moers city
 The map of Moers city were provided to identify the locations of the bin and georeference it in QGIS.
 ![alt text][map]
@@ -140,7 +140,7 @@ The map of Moers city were provided to identify the locations of the bin and geo
 - Bin Locations
 Later, an excel file with information pertaining to the address of each bin with location co-ordinates were provided. This helped in geo-referencing the bins using location coordinates. The `.xls` file was imported in database using scripts and later converted into shapefiles for geoserver.
 
-- [Location of the bins](Info.xls)
+  [Location of the bins](/Info.xls)
 
 ### 4. Methodology 
 
