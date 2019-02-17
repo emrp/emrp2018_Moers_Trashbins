@@ -1,22 +1,21 @@
 
 
-# emrp2018_Moers_Trashbins
+emrp2018_Moers_Trashbins
 
 This tutorial explains how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 
- + [1. Introduction](#1-introduction)
-      - [1.1 Problem Statement](#11-problem-statement)
-      - [1.2 Overview](#12-overview)
-    + [2. Technology Review](#2-technology-review)
-      - [2.1 LPWAN](#21-lpwan)
-      - [2.2 LoRa](#22-lora)
-      - [2.3 LoRaWan](#23-lorawan)
-      - [2.4 Time-of-Flight (ToF) Sensors](#24-time-of-flight--tof--sensors)
-    + [3. Requirements Gathering](#3-requirements-gathering)
-    + [4. Methodology](#4-methodology)
-    + [5. Test data creation](#5-test-data-creation)
-    + [6. Conclusion](#6-conclusion)
-
+- [1. Introduction](#1-introduction)
+  * [1.1 Problem Statement](#11-problem-statement)
+  * [1.2 Overview](#12-overview)
+- [2. Technology Review](#2-technology-review)
+  * [2.1 LPWAN](#21-lpwan)
+  * [2.2 LoRa](#22-lora)
+  * [2.3 LoRaWan](#23-lorawan)
+  * [2.4 Time-of-Flight (ToF) Sensors](#24-time-of-flight--tof--sensors)
+- [3. Requirements Gathering](#3-requirements-gathering)
+- [4. Methodology](#4-methodology)
+- [5. Test data creation](#5-test-data-creation)
+- [6. Conclusion](#6-conclusion)
 
 ### 1. Introduction
 
