@@ -115,12 +115,15 @@ The scripts are generated for each tables, Bin,Location and Device.
 The `Id` column of each table is usually marked as the `primary key`. To randomly generate the unique ID for each table, below sequence is used:
 
 ```SQL
-CREATE SEQUENCE id_generation;
+CREATE SEQUENCE id_generation  start 100  increment 1;
+```
+** Assigning the sequence to Id column of the fields**
+```SQL
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTg5OTIxNDE2NCw1MjI2OTM0NjQsMTE2MD
-QzNzY3NCw4OTQ3MTM2OTMsLTQ0MzEwMTEyMCwtNzkyODg5OTYz
-LC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNT
-MwMDQ4Miw1Nzg1NzQ2NjZdfQ==
+eyJoaXN0b3J5IjpbLTIxMDgxMjYwMDcsNTIyNjkzNDY0LDExNj
+A0Mzc2NzQsODk0NzEzNjkzLC00NDMxMDExMjAsLTc5Mjg4OTk2
+MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MDQyODk2Niw3MT
+UzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
