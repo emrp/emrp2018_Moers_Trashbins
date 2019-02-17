@@ -1,3 +1,4 @@
+
 ﻿This tutorial explains how to measure the trash level of trashbins using the VL53L0X time-of-flight sensor, Heltec WIFI LoRa 32 (V2) board, The Things Network (TTN) and ... database.
 
 - [1. Introduction](#1-introduction)
@@ -129,9 +130,8 @@ Below are few requirements collected during this phase,
 
 The following picture describes the width, height and specifications of the bin.
 
-![alt text][binImage]
-
-[binImage]: /pictures/requirements/Bin_Image.png "Bin_Description"
+|![bin specs](https://github.com/emrp/emrp2018_Moers_Trashbins/blob/master/pictures/requirements/Bin_Image.PNG)|
+|:--:|
 
 - **Map of Moers city**
 
