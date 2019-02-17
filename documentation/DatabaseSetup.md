@@ -115,11 +115,52 @@ The scripts are generated for each tables, Bin,Location and Device.
 The `Id` column of each table is usually marked as the `primary key`. To randomly generate the unique ID for each table, below sequence is used:
 
 ```SQL
+CREATE SEQUENCE id_generation  start 100  increment 1;
+```
+** Assigning the sequence as DEFAULT to Id column of the fields**
+```SQL
+ALTER TABLE table_name ALTER COLUMN ID (nextval('id_generation') DEFAULT;
+```
+## 1.5 Triggers
 
+The data transferred to the database from the sensor node via MQTT is in serialised JSON format. The relevant data is framed under "payload_fields" object which can contain multiple "key-value" pairs denoting information like humidity, precipitation, temperature and the distance from the time-of-flight sensor. All this information is combined into one structure such as,
+
+```JSON
+"{
+	"relative_humidity_1":31.5,
+	"temperature_1":23.2,
+	"digital_out_1":0
+}"
+```
+The above information needs to be deserialised and updated in the `TransmissionTable` . To acheive this, a trigger is written in Postgres SQL which is executed on `INSERT` of any rowdata in the table `SensorData`.
+
+The below function uses `json_each` and `json_object_keys` methods to deserialise the data and insert into SensorData table.
+```SQL
+
+CREATE FUNCTION public.insert_transmission()
+    RETURNS trigger
+    AS $BODY$
+begin
+insert into public."TransmissionData" ("VariableType","VariableValue")
+values (json_object_keys(new.payload_fields),
+			replace(split_part(cast(json_each(new.payload_fields) as text),',',2),')','')
+	   );
+	return new;
+end
+$BODY$;
+```
+The above function is called when the trigger is executed as below,
+```SQL
+CREATE TRIGGER insert_transmission_trigger
+    AFTER INSERT
+    ON public."SensorData"
+    FOR EACH ROW
+    EXECUTE PROCEDURE public.insert_transmission();
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTIyNjkzNDY0LDExNjA0Mzc2NzQsODk0Nz
-EzNjkzLC00NDMxMDExMjAsLTc5Mjg4OTk2MywtNjA1Nzc0NzY3
-LC00MDEwMzc3NDIsLTI0MDQyODk2Niw3MTUzMDA0ODIsNTc4NT
-c0NjY2XX0=
+eyJoaXN0b3J5IjpbMzY1NDk2MjY3LC05ODU5MDQ2MzIsNTIyNj
+kzNDY0LDExNjA0Mzc2NzQsODk0NzEzNjkzLC00NDMxMDExMjAs
+LTc5Mjg4OTk2MywtNjA1Nzc0NzY3LC00MDEwMzc3NDIsLTI0MD
+QyODk2Niw3MTUzMDA0ODIsNTc4NTc0NjY2XX0=
 -->
