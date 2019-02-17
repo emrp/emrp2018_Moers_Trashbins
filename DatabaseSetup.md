@@ -117,15 +117,14 @@ The `Id` column of each table is usually marked as the `primary key`. To randoml
 ```SQL
 CREATE SEQUENCE id_generation  start 100  increment 1;
 ```
-** Assigning the sequence to Id column of the fields**
+** Assigning the sequence as DEFAULT to Id column of the fields**
 ```SQL
-ALTER TABLE table_name ALTER COLUMN ID  DEFAULT ```
-(nextval('books_sequence')
-```;
+ALTER TABLE table_name ALTER COLUMN ID (nextval('id_generation') DEFAULT;
+```
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNzIwNTE1NzQxLDUyMjY5MzQ2NCwxMTYwND
-M3Njc0LDg5NDcxMzY5MywtNDQzMTAxMTIwLC03OTI4ODk5NjMs
-LTYwNTc3NDc2NywtNDAxMDM3NzQyLC0yNDA0Mjg5NjYsNzE1Mz
-AwNDgyLDU3ODU3NDY2Nl19
+eyJoaXN0b3J5IjpbMTQ0Mzc4MzM2OCw1MjI2OTM0NjQsMTE2MD
+QzNzY3NCw4OTQ3MTM2OTMsLTQ0MzEwMTEyMCwtNzkyODg5OTYz
+LC02MDU3NzQ3NjcsLTQwMTAzNzc0MiwtMjQwNDI4OTY2LDcxNT
+MwMDQ4Miw1Nzg1NzQ2NjZdfQ==
 -->
