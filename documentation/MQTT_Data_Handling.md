@@ -54,6 +54,7 @@ According to Lampkin et al., 2012, although comparison is often made between MQT
  - The HTTP protocol uses a request/response model, which is currently the most common message exchange protocol. MQTT uses a publish/subscribe pattern. Developers need to understand the relative advantages of each type of model
 
 Here is a fuller explanation of the critical differences between the MQTT and HTTP protocols for devices:
+  
   Design orientation
 - MQTT is data-centric. It transfers data content as byte array. It does not care about content.
 
