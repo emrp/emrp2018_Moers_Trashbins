@@ -103,6 +103,7 @@ The latest stable version of paho-mqtt is available in the Python Package Index 
     sudo pip install paho-mqtt
 
 For more information : https://www.eclipse.org/paho/clients/python/docs/
+
 Make sure you have pip install. For more information on that please follow the link : https://www.makeuseof.com/tag/install-pip-for-python/
 
 The latest version of psycopg2 can be installed using:
