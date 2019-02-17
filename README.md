@@ -164,5 +164,11 @@ Later, an excel file with information pertaining to the address of each bin with
 
 ### 5. Conclusion
 
+The end nodes could reliably transmit data to the TTN server while falling back to sleep mode between transmissions. As of 17.02.2019 there are three end node devices periodically transmitting data to the TTN server.
+A database model was designed to properly populate data into the Postgres database.
+A Python application for getting data from the TTN server with MQTT and storing data to a Postgres database was also implemented.
+As ENNI initially provided the project group with a raster map, georefencing was used to map the bin locations from the photo onto actual geographical coordinates. A .csv file with coordinates of the bins was provided later and thus GeoServer was set up to display spatial data that was supposed to be received from the bin location.
+A method for calculating the shortest path to collect all the full trash bins was also tested using QGIS and its vector analsysis tool. 
+As actual data was not enough in volumn, dummy data was populated into the database using logicstic growth.
 
-
+As the project involves different fields of study including embedded systems, geoinformatics, database programming and high-level software programming, there were many technical challenges faced. The duration of the course was also a limitation that made the project management process more demanding. Within the scope of this course, certain modules would have been implemented more effectively. On the other hand, due to the project's spanning in many different study areas, it would be less troublesome to separate one module from another and improve the modules individually in the future.
