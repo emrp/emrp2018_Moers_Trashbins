@@ -1,4 +1,4 @@
-This Github page contains the documentation and codebase of the project *"Smart Cities: Internet of Waste Bins with LoRa"*. The project is an effort of the students in the study course Emvironmental Monitoring 2018 at Hochschule Rhein-Waal in collaboration with [ ENNI ](https://www.enni.de/) to:
+This Github page contains the documentation and codebase of the project *"Smart Cities: Internet of Waste Bins with LoRa"*. The project is an effort of the students in the study course Environmental Monitoring 2018 at Hochschule Rhein-Waal in collaboration with [ ENNI ](https://www.enni.de/) to:
 
 - develop prototype sensor devices installable to the trash bins in [Moers city](https://goo.gl/maps/PNQHTnw3Vcm) to measure the trash level and wirelessly transmit data of all trash bins to a central location, 
 - establish a geo-database system to store and visualize data, and
